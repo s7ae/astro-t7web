@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const updates = [
+  {
+    date: '2024-01-25',
+    details: [
+      '增强网截模块，支持绕过更多人脸验证系统',
+      '优化冻结服务算法，提高稳定性',
+      '修复Windows 11系统下的部分兼容性问题'
+    ]
+  },
+  {
+    date: '2024-01-01',
+    details: [
+      '改进进程保护机制，更有效地防止进程被结束',
+      '增加新的扫盘检测和绕过方案',
+      '优化系统资源占用，减少CPU使用率'
+    ]
+  },
+  {
+    date: '2023-12-15',
+    details: [
+      '首次发布过租器内部测试版',
+      '实现网截绕过人脸验证功能',
+      '通过冻结服务绕过扫盘检测'
+    ]
+  }
+];
+---
+
+<BaseLayout title="过租器 - s7ae 网络科技工作室">
+  <Header currentPage="/projects" />
+  
+  <section class="project-detail-section" style="padding-top: 140px;">
+    <div class="container">
+      <div class="project-hero-layout">
+        <div class="project-info">
+          <h1 class="project-title">过租器</h1>
+          <p class="project-subtitle">内核级租号反作弊屏蔽器</p>
+          
+          <div class="project-meta">
+            <span class="meta-tag">类型：内测</span>
+            <span class="meta-tag">技术：C++ / HOOK / 网截</span>
+            <span class="meta-tag">状态：内部测试</span>
+          </div>
+          
+          <div class="project-actions">
+            <a href="https://www.bilibili.com/video/BV15Fxtz7E3A/?share_source=copy_web&vd_source=88c5c8a4ff8bd601a51a57e5d72d0e40" target="_blank" rel="noopener noreferrer" class="btn btn-primary">查看演示</a>
+            <a href="/projects" class="btn btn-secondary">返回项目</a>
+          </div>
+          
+          <div class="project-highlights">
+            <h2>项目亮点</h2>
+            <ul>
+              <li>网截绕过人脸验证</li>
+              <li>通过冻结服务绕过扫盘</li>
+              <li>通过脱离签名禁止结束进程</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="project-image-container">
+          <div class="project-image-card" onclick="openImageViewer('/assets/images/guozu.png', '过租器')">
+            <img src="/assets/images/guozu.png" alt="过租器" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="update-log">
+        <h2 class="update-log-title">更新日志</h2>
+        <div class="update-log-content">
+          {updates.map((update) => (
+            <div class="update-entry">
+              <div class="update-date">{update.date}</div>
+              <div class="update-details">
+                {update.details.map((detail) => (
+                  <p>• {detail}</p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <!-- 图片查看器 -->
+  <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)">
+    <div class="image-viewer-backdrop"></div>
+    <div class="image-viewer-content">
+      <button class="image-viewer-close" onclick="closeImageViewer(event)">×</button>
+      <img id="viewerImage" src="" alt="" />
+      <div class="image-viewer-caption" id="viewerCaption"></div>
+    </div>
+  </div>
+
+  <script is:inline>
+    const projectImages = [
+      { src: '/assets/images/EVO.png', caption: 'Evolution.GS' },
+      { src: '/assets/images/T7.png', caption: 'T7Tech' },
+      { src: '/assets/images/guozu.png', caption: '过租器' }
+    ];
+    let currentImageIndex = 0;
+
+    function openImageViewer(src, caption) {
+      const viewer = document.getElementById('imageViewer');
+      const img = document.getElementById('viewerImage');
+      const cap = document.getElementById('viewerCaption');
+      
+      currentImageIndex = projectImages.findIndex(p => p.src === src);
+      if (currentImageIndex === -1) currentImageIndex = 0;
+      
+      img.src = src;
+      img.alt = caption;
+      cap.textContent = caption;
+      
+      viewer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageViewer(event) {
+      if (event && event.target !== event.currentTarget && event.target.classList.contains('image-viewer-close')) {
+        event.stopPropagation();
+      }
+      
+      const viewer = document.getElementById('imageViewer');
+      viewer.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function navigateImage(direction) {
+      currentImageIndex += direction;
+      if (currentImageIndex < 0) currentImageIndex = projectImages.length - 1;
+      if (currentImageIndex >= projectImages.length) currentImageIndex = 0;
+      
+      const img = document.getElementById('viewerImage');
+      const cap = document.getElementById('viewerCaption');
+      img.src = projectImages[currentImageIndex].src;
+      cap.textContent = projectImages[currentImageIndex].caption;
+    }
+
+    document.addEventListener('keydown', function(e) {
+      const viewer = document.getElementById('imageViewer');
+      if (!viewer.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeImageViewer();
+      if (e.key === 'ArrowLeft') navigateImage(-1);
+      if (e.key === 'ArrowRight') navigateImage(1);
+    });
+  </script>
+</BaseLayout>

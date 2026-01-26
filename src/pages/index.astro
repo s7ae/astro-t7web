@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const friendsProjects = [
+  {
+    name: 'VARG Lua',
+    description: '由ScriptLeaks团队开发的专业脚本',
+    href: 'https://varglua.top/'
+  },
+  {
+    name: 'Hysteria',
+    description: '艺术品级别的产品',
+    href: 'https://market.neverlose.cc/hysteria'
+  },
+  {
+    name: 'Lura',
+    description: '著名的Gamesense脚本Sauron的续作',
+    href: 'https://lura.blue/'
+  }
+];
+---
+
+<BaseLayout title="s7ae 网络科技工作室">
+  <Header currentPage="/" />
+  
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge-wrapper">
+          <div class="hero-badge">
+            <span class="hero-badge-icon">◆</span>
+            <span class="hero-badge-text">s7ae 网络科技工作室</span>
+          </div>
+        </div>
+        
+        <h1 class="hero-title">我们用<span class="title-highlight">技术</span>，把点子变成产品</h1>
+        <p class="hero-description">
+          承接高质量的软硬件定制、系统集成与界面设计。我们追求极致的体验与工程可靠性，为您打造符合需求的完美解决方案。
+        </p>
+        <div class="hero-actions">
+          <a href="/projects" class="btn btn-primary">查看项目</a>
+          <a href="/contact" class="btn btn-secondary">联系我们</a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="hero-ring-container">
+          <div class="hero-ring ring-outer"></div>
+          <div class="hero-ring ring-middle"></div>
+          <div class="hero-ring ring-inner"></div>
+          <img 
+            src="/assets/images/ring0.png" 
+            alt="s7ae 网络科技工作室" 
+            class="hero-main-image"
+          />
+          <div class="hero-glow-core"></div>
+        </div>
+        <div class="hero-floating-elements">
+          <div class="float-element elem-1"></div>
+          <div class="float-element elem-2"></div>
+          <div class="float-element elem-3"></div>
+          <div class="float-element elem-4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="friends-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">来自朋友们的作品</h2>
+        <p class="section-subtitle">高质量的合作伙伴项目</p>
+      </div>
+      <div class="friends-grid">
+        {friendsProjects.map((project) => (
+          <a href={project.href} target="_blank" rel="noopener noreferrer" class="friend-card">
+            <h3>{project.name}</h3>
+            <p>{project.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

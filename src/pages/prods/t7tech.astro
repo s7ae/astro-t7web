@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const updates = [
+  {
+    date: '2025-11-13',
+    details: [
+      '独立Exploit支持库完全重构',
+      '修复主动BreakLC与Defensive AA的释放问题',
+      'Jitter Dynamic Size与Jitter的交互逻辑优化',
+      '修复了一些因头部方法而引起的丢帧',
+      '优化了云端的L7',
+      '修复了一个没人注意到的安全性漏洞'
+    ]
+  },
+  {
+    date: '2025-10-24',
+    details: [
+      '全面优化解析器的所有部分(但并非重构)',
+      '修复部分玩家闪退问题',
+      'GS平台自带假身替换为自研假身'
+    ]
+  },
+  {
+    date: '2025-10-11',
+    details: [
+      '全新的独立支持库发布，修复平台硬伤',
+      '添加Ideal Sidebased Defensive的更成熟方案',
+      '优化堆栈占用，提高运行稳定性'
+    ]
+  },
+  {
+    date: '2025-10-03',
+    details: [
+      '首次发布T7Tech核心灰度测试版本',
+      '实现超高度自定义的builder模块',
+      '划时代的强度和性能表现'
+    ]
+  }
+];
+---
+
+<BaseLayout title="T7Tech - s7ae 网络科技工作室">
+  <Header currentPage="/projects" />
+  
+  <section class="project-detail-section" style="padding-top: 140px;">
+    <div class="container">
+      <div class="project-hero-layout">
+        <div class="project-info">
+          <h1 class="project-title">T7Tech</h1>
+          <p class="project-subtitle">划时代级别的Gamesense脚本</p>
+          
+          <div class="project-meta">
+            <span class="meta-tag">类型：市场</span>
+            <span class="meta-tag">技术：Lua / 脚本 / Anti-Aim</span>
+            <span class="meta-tag">状态：销售中</span>
+          </div>
+          
+          <div class="project-actions">
+            <a href="#" onclick="alert('正在制作，敬请期待'); return false;" class="btn btn-primary">查看演示</a>
+            <a href="/projects" class="btn btn-secondary">返回项目</a>
+          </div>
+          
+          <div class="project-highlights">
+            <h2>项目亮点</h2>
+            <ul>
+              <li>使用独立支持库修复平台硬伤</li>
+              <li>超高度自定义的builder模块</li>
+              <li>划时代的强度和性能</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="project-image-container">
+          <div class="project-image-card" onclick="openImageViewer('/assets/images/T7.png', 'T7Tech')">
+            <img src="/assets/images/T7.png" alt="T7Tech" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="update-log">
+        <h2 class="update-log-title">更新日志</h2>
+        <div class="update-log-content">
+          {updates.map((update) => (
+            <div class="update-entry">
+              <div class="update-date">{update.date}</div>
+              <div class="update-details">
+                {update.details.map((detail) => (
+                  <p>• {detail}</p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <!-- 图片查看器 -->
+  <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)">
+    <div class="image-viewer-backdrop"></div>
+    <div class="image-viewer-content">
+      <button class="image-viewer-close" onclick="closeImageViewer(event)">×</button>
+      <img id="viewerImage" src="" alt="" />
+      <div class="image-viewer-caption" id="viewerCaption"></div>
+    </div>
+  </div>
+
+  <script is:inline>
+    const projectImages = [
+      { src: '/assets/images/EVO.png', caption: 'Evolution.GS' },
+      { src: '/assets/images/T7.png', caption: 'T7Tech' },
+      { src: '/assets/images/guozu.png', caption: '过租器' }
+    ];
+    let currentImageIndex = 0;
+
+    function openImageViewer(src, caption) {
+      const viewer = document.getElementById('imageViewer');
+      const img = document.getElementById('viewerImage');
+      const cap = document.getElementById('viewerCaption');
+      
+      currentImageIndex = projectImages.findIndex(p => p.src === src);
+      if (currentImageIndex === -1) currentImageIndex = 0;
+      
+      img.src = src;
+      img.alt = caption;
+      cap.textContent = caption;
+      
+      viewer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageViewer(event) {
+      if (event && event.target !== event.currentTarget && event.target.classList.contains('image-viewer-close')) {
+        event.stopPropagation();
+      }
+      
+      const viewer = document.getElementById('imageViewer');
+      viewer.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function navigateImage(direction) {
+      currentImageIndex += direction;
+      if (currentImageIndex < 0) currentImageIndex = projectImages.length - 1;
+      if (currentImageIndex >= projectImages.length) currentImageIndex = 0;
+      
+      const img = document.getElementById('viewerImage');
+      const cap = document.getElementById('viewerCaption');
+      img.src = projectImages[currentImageIndex].src;
+      cap.textContent = projectImages[currentImageIndex].caption;
+    }
+
+    document.addEventListener('keydown', function(e) {
+      const viewer = document.getElementById('imageViewer');
+      if (!viewer.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeImageViewer();
+      if (e.key === 'ArrowLeft') navigateImage(-1);
+      if (e.key === 'ArrowRight') navigateImage(1);
+    });
+  </script>
+</BaseLayout>

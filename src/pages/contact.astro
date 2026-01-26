@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="联系我们 - s7ae 网络科技工作室">
+  <Header currentPage="/contact" />
+  
+  <section class="section" style="padding-top: 140px;">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">联系我们</h1>
+        <p class="section-subtitle">无论您有任何问题或需求，都欢迎与我们联系</p>
+      </div>
+      
+      <div class="contact-grid">
+        <a href="https://t.me/EvolutionGS" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-card__icon">✈️</div>
+          <div class="contact-card__title">Telegram 联系</div>
+          <div class="contact-card__link">@EvolutionGS</div>
+        </a>
+        <a href="https://discord.gg/TrxRHx34" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-card__icon">💬</div>
+          <div class="contact-card__title">Discord 社区</div>
+          <div class="contact-card__link">加入我们的Discord</div>
+        </a>
+      </div>
+      
+      <div class="cta-section">
+        <h2 class="cta-title">立即与我们联系</h2>
+        <p class="cta-description">有任何问题或合作意向？请通过Telegram或Discord与我们联系，我们将尽快回复您。</p>
+        <div class="cta-buttons">
+          <a href="https://telegram.org/apps" target="_blank" rel="noopener noreferrer" class="btn btn-primary">下载Telegram</a>
+          <a href="https://discord.com/download" target="_blank" rel="noopener noreferrer" class="btn btn-primary">下载Discord</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

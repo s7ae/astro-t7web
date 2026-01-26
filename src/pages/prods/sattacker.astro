@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const updates = [
+  {
+    date: '2025-09-08',
+    details: [
+      '增强Ring0权限处理，提高系统兼容性',
+      '优化网络拦截模块，支持更多网吧环境',
+      '修复部分Windows 11系统下的稳定性问题'
+    ]
+  },
+  {
+    date: '2025-08-20',
+    details: [
+      '全新Ring0权限完美patch技术',
+      '内置网络拦截模块，绕过网络黑名单',
+      '优化隐蔽性，确保网管处不会有提示'
+    ]
+  }
+];
+---
+
+<BaseLayout title="网吧矛 - s7ae 网络科技工作室">
+  <Header currentPage="/projects" />
+  
+  <section class="project-detail-section" style="padding-top: 140px;">
+    <div class="container">
+      <div class="project-hero-layout">
+        <div class="project-info">
+          <h1 class="project-title">网吧矛</h1>
+          <p class="project-subtitle">最安全的破盾器</p>
+          
+          <div class="project-meta">
+            <span class="meta-tag">类型：市场</span>
+            <span class="meta-tag">技术：C++ / Hook / Ring0</span>
+            <span class="meta-tag">状态：样例演示</span>
+          </div>
+          
+          <div class="project-actions">
+            <a href="#" onclick="alert('因某些地区法律限制，不予展示'); return false;" class="btn btn-primary">查看演示</a>
+            <a href="/projects" class="btn btn-secondary">返回项目</a>
+          </div>
+          
+          <div class="project-highlights">
+            <h2>项目亮点</h2>
+            <ul>
+              <li>并非市面上的下线行为的破盾器(网管处不会有提示)</li>
+              <li>Ring0权限完美patch</li>
+              <li>不止处理扫盘行为，内置网截用以绕过网络黑名单</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="project-image-container">
+          <div class="project-image-card project-image-placeholder">
+            <span class="placeholder-text">破盾器</span>
+            <span class="placeholder-subtext">仅代表拥有此项目不对外销售以及展示</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="update-log">
+        <h2 class="update-log-title">更新日志</h2>
+        <div class="update-log-content">
+          {updates.map((update) => (
+            <div class="update-entry">
+              <div class="update-date">{update.date}</div>
+              <div class="update-details">
+                {update.details.map((detail) => (
+                  <p>• {detail}</p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

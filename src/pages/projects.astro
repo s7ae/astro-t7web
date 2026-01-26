@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const projects = [
+  {
+    title: 'Evolution.GS',
+    description: '高性能Gamesense脚本',
+    image: '/assets/images/EVO.png',
+    href: '/prods/evolution',
+    tags: ['定制开发', '高性能']
+  },
+  {
+    title: 'T7Tech',
+    description: '划时代级别的Gamesense脚本',
+    image: '/assets/images/T7.png',
+    href: '/prods/t7tech',
+    tags: ['市场', '高性能']
+  },
+  {
+    title: '过租器',
+    description: '内核级租号反作弊屏蔽器',
+    image: '/assets/images/guozu.png',
+    href: '/prods/zuhaowan',
+    tags: ['内测', 'C++ / HOOK']
+  },
+  {
+    title: '网吧矛',
+    description: '最安全的破盾器',
+    image: null,
+    href: '/prods/sattacker',
+    tags: ['市场', 'C++ / Hook']
+  }
+];
+---
+
+<BaseLayout title="项目展示">
+  <Header currentPage="/projects" />
+  
+  <section class="section" style="padding-top: 160px;">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">精选项目</h1>
+        <p class="section-subtitle">我们的作品展示了在软硬件定制开发领域的专业能力和创新精神</p>
+      </div>
+      
+      <div class="projects-grid">
+        {projects.map((project) => (
+          <a href={project.href} class="project-card">
+            <div class="project-card-image-wrapper">
+              {project.image ? (
+                <img src={project.image} alt={project.title} class="project-card-image" />
+              ) : (
+                <div class="project-card-image project-card-placeholder">
+                  {project.title}
+                </div>
+              )}
+            </div>
+            <div class="project-card-content">
+              <h3 class="project-card-title">{project.title}</h3>
+              <p class="project-card-description">{project.description}</p>
+              <div class="project-card-tags">
+                {project.tags.map((tag) => (
+                  <span class="project-card-tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

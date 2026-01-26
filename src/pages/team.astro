@@ -1,0 +1,366 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const teamMembers = [
+  {
+    name: '宫崎柚子',
+    title: '主人 · 命令下发',
+    description: '负责控制创始人',
+    avatar: '/assets/TX/invc.jpg',
+    frame: '/assets/TX/invv.webp',
+    accent: '#ffb6c1'
+  },
+  {
+    name: 's7ae',
+    title: '创始人 · 全栈开发',
+    description: '拥有丰富的全栈开发经验，擅长复杂系统架构设计和性能优化，吹牛逼技术也是T1级别：）',
+    avatar: '/assets/TX/s7ae.png',
+    frame: '/assets/TX/s7aeinv.webp',
+    accent: '#87ceeb'
+  },
+  {
+    name: 'En7p.',
+    title: '打号开户 · 瞎骂狗叫',
+    description: '精通竞争对手亲爹亲妈的一千三百种死法',
+    avatar: '/assets/TX/en7.jpg',
+    accent: '#ff6b6b'
+  },
+  {
+    name: 'dark',
+    title: '设计师 · 开发者',
+    description: '项目主要开发者，负责优化和实现客户的一切需求',
+    avatar: '/assets/TX/dark.png',
+    accent: '#4ecdc4'
+  },
+  {
+    name: '沉船',
+    title: '前端开发',
+    description: '项目主要开发者，负责帮助客户构思功能及主要代码编写',
+    avatar: '/assets/TX/沉船.jpg',
+    accent: '#a8e6cf'
+  },
+  {
+    name: '李泽言',
+    title: '各游戏服务端专精',
+    description: 'HvH地下皇帝，Fivem专业后端开发，武汉知名洞穴探索工作者',
+    avatar: '/assets/TX/lzy.png',
+    accent: '#ffd93d'
+  },
+  {
+    name: 'enQ',
+    title: 'Hysteria.one',
+    description: 'Make people happy and they will not forget you',
+    avatar: '/assets/Hysteria/butterfly.webp',
+    hasBadge: true,
+    sepia: true,
+    link: 'https://discord.gg/eC82SmcF9E',
+    accent: '#c9b1ff'
+  },
+  {
+    name: '顾芳芳',
+    title: '后勤储备',
+    description: '项目预算拨款及负责项目善后工作',
+    avatar: '/assets/TX/gff.jpg',
+    accent: '#ffecd2'
+  },
+  {
+    name: 'kaktus',
+    title: 'Varg',
+    description: '负责项目开发过程中各种疑难问题的解决',
+    avatar: '/assets/TX/kaktus.png',
+    accent: '#b4d4ff',
+    tags: [
+      { text: '项目监制', link: null },
+      { text: '问题协助', link: null },
+      { text: '保护思路', link: null },
+      { text: '为何不尝试一下Varg呢？', link: 'https://varglua.top/' }
+    ]
+  },
+  {
+    name: '一颗星',
+    title: '1star',
+    description: '项目主要参与者',
+    avatar: '/assets/TX/1star.jpg',
+    accent: '#fff5ba'
+  },
+  {
+    name: '刀割',
+    title: '小岛',
+    description: '负责生出来一些鬼点子',
+    avatar: '/assets/TX/dog.jpg',
+    accent: '#c1e1c1',
+    tags: [
+      { text: '喜欢导管', link: null },
+      { text: '喜欢摆烂', link: null },
+      { text: '喜欢看片', link: null },
+      { text: '小岛1155服务器', link: 'https://iq1155.icu/' }
+    ]
+  },
+  {
+    name: 'Saki',
+    title: '思茶网络科技',
+    description: '思茶科技集团有限公司负责人',
+    avatar: 'https://cdn.thinktea.cn/assets/saki.jpg',
+    accent: '#ffc8dd',
+    tags: [
+      { text: '合作伙伴', link: null },
+      { text: '思茶网络科技有限公司', link: 'https://sicha.ltd' }
+    ]
+  },
+  {
+    name: '程曦',
+    title: '一个很聪明的人类',
+    description: '负责睡觉',
+    avatar: '/assets/TX/CX.jpg',
+    accent: '#b8c6db'
+  },
+  {
+    name: 'Water',
+    title: '一个bugnami',
+    description: '负责玩',
+    avatar: '/assets/TX/water.jpg',
+    accent: '#88e0ef'
+  },
+  {
+    name: 'lightskin?☔️',
+    title: '道天仙帝',
+    description: '本帝道天，曾以一剑断轮回，曾在混沌立秩序。修的是太上忘情道，执的是因果权柄。',
+    avatar: '/assets/TX/hyh.jpg',
+    accent: '#ffcbf2',
+    tags: [
+      { text: 'lmao.cc', link: 'https://neverlose.cc/market/item?id=n0jkHQ' },
+      { text: '666dt', link: 'https://neverlose.cc/market/item?id=BT6F64' },
+      { text: '666da', link: 'https://neverlose.cc/market/item?id=pAMgwp' }
+    ]
+  },
+  {
+    name: 'Candy',
+    title: '虎牙',
+    description: '三天开服两头跑路',
+    avatar: '/assets/TX/candy.jpg',
+    accent: '#f8b500'
+  },
+  {
+    name: 'Dotmemory',
+    title: '序号为0',
+    description: '那你就当我在吧',
+    avatar: '/assets/TX/wxh.jpg',
+    accent: '#ff6b6b',
+    special: true,
+    tags: ['LC', 'LC', 'LC', 'LC', 'LC', 'LC', 'LC', 'LC', 'LC', 'LC']
+  }
+];
+---
+
+<BaseLayout title="鸣谢名单 - s7ae 网络科技工作室">
+  <Header currentPage="/team" />
+  
+  <section class="team-section" style="padding-top: 140px;">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">
+          <span class="title-icon">✦</span>
+          鸣谢名单
+          <span class="title-icon">✦</span>
+        </h1>
+        <p class="section-subtitle">都是我的好朋友们~</p>
+      </div>
+      
+      <div class="team-grid">
+        {teamMembers.map((member, index) => (
+          <div 
+            class="team-card" 
+            data-accent={member.accent}
+            style={`--delay: ${index * 0.1}s`}
+          >
+            <div class="card-glow"></div>
+            
+            <div class="card-header">
+              <div class="avatar-container" style={member.frame ? 'position: relative; padding-top: 0px; padding-left: 0px;' : ''}>
+                <div class="avatar-inner" class:list={[{ 'special-avatar': member.frame }]}>
+                  <img 
+                    src={member.avatar} 
+                    alt={`${member.name}头像`} 
+                    class="avatar-img"
+                    style={member.sepia ? 'filter: sepia(1) hue-rotate(120deg) saturate(0.8) brightness(1.1);' : ''} 
+                  />
+                </div>
+                {member.frame && (
+                  <img 
+                    src={member.frame} 
+                    alt="动态头像框" 
+                    class="avatar-frame special-frame" 
+                  />
+                )}
+                {member.hasBadge && (
+                  <div class="dev-badge hairpin-badge">
+                    <img src="/assets/Hysteria/enqDev.webp" alt="enQ Dev" />
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            <div class="card-body">
+              <h3 class="member-name">{member.name}</h3>
+              <p class="member-title">
+                {member.link ? (
+                  <a href={member.link} target="_blank" rel="noopener noreferrer">{member.title}</a>
+                ) : (
+                  member.title
+                )}
+              </p>
+              <p class="member-desc">{member.description}</p>
+              
+              <div class="member-tags">
+                {(member.tags || []).map((tag) => (
+                  typeof tag === 'string' ? (
+                    <span class="tag">{tag}</span>
+                  ) : (
+                    <a href={tag.link} target="_blank" rel="noopener noreferrer" class="tag">{tag.text}</a>
+                  )
+                ))}
+                {/* 默认标签 */}
+                {!member.tags && member.name === 's7ae' && (
+                  <>
+                    <span class="tag">架构设计</span>
+                    <span class="tag">性能优化</span>
+                    <span class="tag">思维设计</span>
+                  </>
+                )}
+                {!member.tags && member.name === 'En7p.' && (
+                  <>
+                    <span class="tag">开团狗叫</span>
+                    <span class="tag">开户害人</span>
+                    <span class="tag">邮寄花圈</span>
+                  </>
+                )}
+                {!member.tags && member.name === 'dark' && (
+                  <>
+                    <span class="tag">全栈开发</span>
+                    <span class="tag">项目构建</span>
+                    <span class="tag">界面设计</span>
+                  </>
+                )}
+                {!member.tags && member.name === '沉船' && (
+                  <>
+                    <span class="tag">前端开发</span>
+                    <span class="tag">团队管理</span>
+                    <span class="tag">交互实现</span>
+                  </>
+                )}
+                {!member.tags && member.name === '李泽言' && (
+                  <>
+                    <span class="tag">Fivem服务端</span>
+                    <span class="tag">武汉炮王</span>
+                  </>
+                )}
+                {!member.tags && member.name === '顾芳芳' && (
+                  <>
+                    <span class="tag">项目投资</span>
+                    <span class="tag">项目善后</span>
+                    <span class="tag">意见收集</span>
+                  </>
+                )}
+                {!member.tags && member.name === '一颗星' && (
+                  <>
+                    <span class="tag">代码监制</span>
+                    <span class="tag">性能测试</span>
+                    <span class="tag">细节优化</span>
+                  </>
+                )}
+                {!member.tags && member.name === '程曦' && (
+                  <>
+                    <span class="tag">睡觉</span>
+                    <span class="tag">睡大觉</span>
+                  </>
+                )}
+                {!member.tags && member.name === 'Water' && (
+                  <>
+                    <span class="tag">8</span>
+                    <span class="tag">2</span>
+                    <span class="tag">l</span>
+                    <span class="tag">a</span>
+                    <span class="tag">b</span>
+                  </>
+                )}
+                {!member.tags && member.name === 'Candy' && (
+                  <>
+                    <span class="tag">总想开服</span>
+                    <span class="tag">善良比</span>
+                  </>
+                )}
+              </div>
+            </div>
+            
+            {member.special && (
+              <audio id="lc-audio" preload="auto">
+                <source src="/assets/Sound/LC.WAV" type="audio/wav" />
+              </audio>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const specialCard = document.querySelector('.team-card[data-accent="#ff6b6b"]');
+    const lcAudio = document.getElementById('lc-audio');
+    
+    if (specialCard && lcAudio) {
+      specialCard.addEventListener('click', function() {
+        lcAudio.currentTime = 0;
+        lcAudio.play().catch(function(error) {
+          console.log('音频播放失败:', error);
+        });
+        
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.textContent = 'Missed shot at Dotmemory in the Head due to Backtrack failure [hc:100% | bt:4ticks]';
+        document.body.appendChild(toast);
+        
+        setTimeout(() => toast.classList.add('show'), 10);
+        setTimeout(() => {
+          toast.classList.remove('show');
+          setTimeout(() => toast.remove(), 300);
+        }, 2000);
+      });
+      
+      specialCard.style.cursor = 'pointer';
+    }
+  });
+</script>
+
+<style>
+  /* Toast 通知 */
+  .toast-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: #ff6b6b;
+    padding: 24px 36px;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 107, 107, 0.4);
+    max-width: 85%;
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+  .toast-notification.show {
+    opacity: 1;
+  }
+</style>

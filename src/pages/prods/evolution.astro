@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const updates = [
+  {
+    date: '2025-11-13',
+    details: [
+      '替换了T7Tech下放的Resolver',
+      '优化了API的访问速率(省会及所有出网口在不跨省的情况下仅有10ms即可连接到节点)',
+      'IdealYawEvo(打开后builder将完全性由脚本接管)'
+    ]
+  },
+  {
+    date: '2025-10-12(灰度测试)',
+    details: [
+      '优化了Anti-Aim算法，提高了Ideal Sidebased Defensive的介入率',
+      '修复了部分游戏场景下的稳定性问题',
+      '更新了界面主题，支持和菜单主题同步颜色'
+    ]
+  },
+  {
+    date: '2025-09-06',
+    details: [
+      '为In Air自动急停添加更多选项，提高灵活性',
+      '推出首款Grenade Force 60 Desync功能',
+      '为DA与强制预判添加独立人物上色,使玩家更容易注意到强调的位置'
+    ]
+  },
+  {
+    date: '2025-08-22',
+    details: [
+      '添加了新的杂项辅助功能',
+      '改进了性能，降低了var占用率',
+      '修复了已知的随机取值问题'
+    ]
+  },
+  {
+    date: '2025-7-07(Src Leak Version)',
+    details: [
+      '产品雏形打磨完成',
+      '多位国内外知名脚本开发者监工完成',
+      '多位国内外著名游戏玩家反复打磨builder'
+    ]
+  }
+];
+---
+
+<BaseLayout title="Evolution.GS - s7ae 网络科技工作室">
+  <Header currentPage="/projects" />
+  
+  <section class="project-detail-section" style="padding-top: 140px;">
+    <div class="container">
+      <div class="project-hero-layout">
+        <div class="project-info">
+          <h1 class="project-title">Evolution.GS</h1>
+          <p class="project-subtitle">高性能Gamesense脚本</p>
+          
+          <div class="project-meta">
+            <span class="meta-tag">类型：定制</span>
+            <span class="meta-tag">技术：Lua / 脚本 / Anti-Aim</span>
+            <span class="meta-tag">状态：停止销售但保持更新</span>
+          </div>
+          
+          <div class="project-actions">
+            <a href="https://www.bilibili.com/video/BV1YfeYzDEv9/?share_source=copy_web&vd_source=88c5c8a4ff8bd601a51a57e5d72d0e40" target="_blank" rel="noopener noreferrer" class="btn btn-primary">查看演示</a>
+            <a href="/projects" class="btn btn-secondary">返回项目</a>
+          </div>
+          
+          <div class="project-highlights">
+            <h2>项目亮点</h2>
+            <ul>
+              <li>全新界面设计</li>
+              <li>多位国内外知名脚本开发者监工</li>
+              <li>多位国内外著名游戏玩家反复打磨builder</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="project-image-container">
+          <div class="project-image-card" onclick="openImageViewer('/assets/images/EVO.png', 'Evolution.GS')">
+            <img src="/assets/images/EVO.png" alt="Evolution.GS" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="update-log">
+        <h2 class="update-log-title">更新日志</h2>
+        <div class="update-log-content">
+          {updates.map((update) => (
+            <div class="update-entry">
+              <div class="update-date">{update.date}</div>
+              <div class="update-details">
+                {update.details.map((detail) => (
+                  <p>• {detail}</p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <!-- 图片查看器 -->
+  <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)">
+    <div class="image-viewer-backdrop"></div>
+    <div class="image-viewer-content">
+      <button class="image-viewer-close" onclick="closeImageViewer(event)">×</button>
+      <img id="viewerImage" src="" alt="" />
+      <div class="image-viewer-caption" id="viewerCaption"></div>
+    </div>
+  </div>
+
+  <script is:inline>
+    const projectImages = [
+      { src: '/assets/images/EVO.png', caption: 'Evolution.GS' },
+      { src: '/assets/images/T7.png', caption: 'T7Tech' },
+      { src: '/assets/images/guozu.png', caption: '过租器' }
+    ];
+    let currentImageIndex = 0;
+
+    function openImageViewer(src, caption) {
+      const viewer = document.getElementById('imageViewer');
+      const img = document.getElementById('viewerImage');
+      const cap = document.getElementById('viewerCaption');
+      
+      currentImageIndex = projectImages.findIndex(p => p.src === src);
+      if (currentImageIndex === -1) currentImageIndex = 0;
+      
+      img.src = src;
+      img.alt = caption;
+      cap.textContent = caption;
+      
+      viewer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageViewer(event) {
+      if (event && event.target !== event.currentTarget && event.target.classList.contains('image-viewer-close')) {
+        event.stopPropagation();
+      }
+      
+      const viewer = document.getElementById('imageViewer');
+      viewer.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function navigateImage(direction) {
+      currentImageIndex += direction;
+      if (currentImageIndex < 0) currentImageIndex = projectImages.length - 1;
+      if (currentImageIndex >= projectImages.length) currentImageIndex = 0;
+      
+      const img = document.getElementById('viewerImage');
+      const cap = document.getElementById('viewerCaption');
+      img.src = projectImages[currentImageIndex].src;
+      cap.textContent = projectImages[currentImageIndex].caption;
+    }
+
+    document.addEventListener('keydown', function(e) {
+      const viewer = document.getElementById('imageViewer');
+      if (!viewer.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeImageViewer();
+      if (e.key === 'ArrowLeft') navigateImage(-1);
+      if (e.key === 'ArrowRight') navigateImage(1);
+    });
+  </script>
+</BaseLayout>

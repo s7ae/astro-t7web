@@ -1,0 +1,141 @@
+---
+// Canvas背景粒子效果组件
+---
+
+<canvas id="canvas-background"></canvas>
+
+<script>
+  const canvas = document.getElementById('canvas-background');
+  if (!canvas) return;
+  
+  const ctx = canvas.getContext('2d');
+  
+  function setCanvasSize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  
+  setCanvasSize();
+  window.addEventListener('resize', setCanvasSize);
+  
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 3 + 0.5;
+      this.speedX = Math.random() * 0.5 - 0.25;
+      this.speedY = Math.random() * 0.5 - 0.25;
+      this.opacity = 0;
+      this.targetOpacity = Math.random() * 0.5 + 0.3;
+      this.opacitySpeed = 0.005;
+      this.color = this.getRandomColor();
+    }
+    
+    getRandomColor() {
+      const colors = [
+        'rgba(74, 74, 255, 1)',
+        'rgba(255, 74, 153, 1)',
+        'rgba(150, 100, 255, 1)',
+        'rgba(100, 255, 200, 1)'
+      ];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    
+    update() {
+      if (this.opacity < this.targetOpacity) {
+        this.opacity += this.opacitySpeed;
+        if (this.opacity > this.targetOpacity) {
+          this.opacity = this.targetOpacity;
+        }
+      }
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+    
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      const colorWithOpacity = this.color.replace('1)', `${this.opacity})`);
+      ctx.fillStyle = colorWithOpacity;
+      ctx.fill();
+      ctx.shadowBlur = 5;
+      ctx.shadowColor = colorWithOpacity;
+    }
+  }
+  
+  const particles = [];
+  const particleCount = 120;
+  
+  setTimeout(() => {
+    for (let i = 0; i < particleCount; i++) {
+      setTimeout(() => {
+        particles.push(new Particle());
+      }, i * 20);
+    }
+  }, 500);
+  
+  function connectParticles() {
+    for (let a = 0; a < particles.length; a++) {
+      for (let b = a; b < particles.length; b++) {
+        const dx = particles[a].x - particles[b].x;
+        const dy = particles[a].y - particles[b].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 100) {
+          ctx.beginPath();
+          const minOpacity = Math.min(particles[a].opacity, particles[b].opacity);
+          ctx.strokeStyle = `rgba(150, 150, 255, ${minOpacity * (0.3 - distance/350)})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(particles[a].x, particles[a].y);
+          ctx.lineTo(particles[b].x, particles[b].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+  
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, 'rgba(10, 10, 26, 0.9)');
+    gradient.addColorStop(0.5, 'rgba(26, 26, 58, 0.9)');
+    gradient.addColorStop(1, 'rgba(10, 10, 26, 0.9)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.shadowBlur = 0;
+    ctx.shadowColor = 'transparent';
+    particles.forEach(particle => {
+      particle.update();
+      particle.draw();
+    });
+    connectParticles();
+    requestAnimationFrame(animate);
+  }
+  
+  animate();
+  
+  let mouseX, mouseY;
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+  
+  function mouseInteraction() {
+    if (!mouseX || !mouseY) return;
+    particles.forEach(particle => {
+      const dx = particle.x - mouseX;
+      const dy = particle.y - mouseY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance < 150) {
+        const force = (150 - distance) / 150;
+        particle.x += dx * force * 0.01;
+        particle.y += dy * force * 0.01;
+      }
+    });
+    requestAnimationFrame(mouseInteraction);
+  }
+  
+  mouseInteraction();
+</script>
+
