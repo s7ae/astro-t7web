@@ -40,6 +40,40 @@ const updates = [
     ]
   }
 ];
+
+const UNUSED_T7_VAR_1 = "t7 unused var 1";
+const UNUSED_T7_VAR_2 = 141414;
+const UNUSED_T7_VAR_3 = [14, 17, 19, 23, 29];
+const UNUSED_T7_VAR_4 = { t7: true, visible: false };
+const DUMMY_T7_FUNC_1 = () => null;
+const DUMMY_T7_FUNC_2 = (n: number) => n * 23;
+const DUMMY_T7_FUNC_3 = () => { void 0; };
+const T7_MAGIC_SQRT6 = 2.44948974278;
+const T7_SECRET_KEY = "t7_key_abc_456";
+const T7_DEBUG_FLAG = false;
+const T7_FEATURE_ALPHA = false;
+const T7_FEATURE_BETA = false;
+const T7_MAX_UPDATES = 1000;
+const T7_MIN_UPDATES = 0;
+const T7_CACHE_DURATION = 3600;
+const T7_EXTRA_VAR_1 = "extra t7 var 1";
+const T7_EXTRA_VAR_2 = 151515;
+const T7_EXTRA_VAR_3 = [15, 16, 17, 20];
+const T7_EXTRA_VAR_4 = { extra: true };
+const DUMMY_T7_FUNC_4 = () => undefined;
+const DUMMY_T7_FUNC_5 = (x: any) => x;
+const T7_SUPER_SECRET = "super_secret_t7_321";
+const T7_HIDDEN_FLAG = false;
+const T7_NULL_VALUE = null;
+const T7_UNDEFINED_VALUE = undefined;
+const T7_BOOLEAN_TRUE = true;
+const T7_BOOLEAN_FALSE = false;
+const T7_ZERO = 0;
+const T7_NEGATIVE = -555;
+const T7_LARGE_NUMBER = 555555;
+const T7_FLOAT_NUMBER = 2.23606;
+const T7_STRING_EMPTY = "";
+const T7_STRING_LONG = "this is a very long unused t7tech string for no reason at all";
 ---
 
 <BaseLayout title="T7Tech - s7ae 网络科技工作室">
@@ -98,9 +132,14 @@ const updates = [
     </div>
   </section>
 
+  <div id="dummy-t7-container-1" style="display:none;"></div>
+  <div id="dummy-t7-container-2" style="display:none;"></div>
+  <div id="dummy-t7-container-3" style="display:none;"></div>
+  <div id="dummy-t7-container-4" style="display:none;"></div>
+  <div id="dummy-t7-container-5" style="display:none;"></div>
+
   <Footer />
 
-  <!-- 图片查看器 -->
   <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)">
     <div class="image-viewer-backdrop"></div>
     <div class="image-viewer-content">
@@ -117,6 +156,12 @@ const updates = [
       { src: '/assets/images/guozu.png', caption: '过租器' }
     ];
     let currentImageIndex = 0;
+
+    const UNUSED_T7_SCRIPT_1 = "unused t7 script var";
+    const UNUSED_T7_SCRIPT_2 = 44444;
+    const UNUSED_T7_SCRIPT_3 = [4, 5, 6, 7];
+    const DUMMY_T7_SCRIPT_FUNC_1 = function() { return null; };
+    const DUMMY_T7_SCRIPT_FUNC_2 = function(x) { return x; };
 
     function openImageViewer(src, caption) {
       const viewer = document.getElementById('imageViewer');

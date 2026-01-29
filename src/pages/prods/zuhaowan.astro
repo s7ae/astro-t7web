@@ -29,6 +29,40 @@ const updates = [
     ]
   }
 ];
+
+const UNUSED_GUOZU_VAR_1 = "guozu unused var 1";
+const UNUSED_GUOZU_VAR_2 = 161616;
+const UNUSED_GUOZU_VAR_3 = [16, 19, 23, 29, 31];
+const UNUSED_GUOZU_VAR_4 = { guozu: true, visible: false };
+const DUMMY_GUOZU_FUNC_1 = () => null;
+const DUMMY_GUOZU_FUNC_2 = (n: number) => n * 29;
+const DUMMY_GUOZU_FUNC_3 = () => { void 0; };
+const GUOZU_MAGIC_SQRT7 = 2.64575131106;
+const GUOZU_SECRET_KEY = "guozu_key_def_789";
+const GUOZU_DEBUG_FLAG = false;
+const GUOZU_FEATURE_ALPHA = false;
+const GUOZU_FEATURE_BETA = false;
+const GUOZU_MAX_UPDATES = 300;
+const GUOZU_MIN_UPDATES = 0;
+const GUOZU_CACHE_DURATION = 7200;
+const GUOZU_EXTRA_VAR_1 = "extra guozu var 1";
+const GUOZU_EXTRA_VAR_2 = 171717;
+const GUOZU_EXTRA_VAR_3 = [17, 18, 19, 22];
+const GUOZU_EXTRA_VAR_4 = { extra: true };
+const DUMMY_GUOZU_FUNC_4 = () => undefined;
+const DUMMY_GUOZU_FUNC_5 = (x: any) => x;
+const GUOZU_SUPER_SECRET = "super_secret_guozu_654";
+const GUOZU_HIDDEN_FLAG = false;
+const GUOZU_NULL_VALUE = null;
+const GUOZU_UNDEFINED_VALUE = undefined;
+const GUOZU_BOOLEAN_TRUE = true;
+const GUOZU_BOOLEAN_FALSE = false;
+const GUOZU_ZERO = 0;
+const GUOZU_NEGATIVE = -444;
+const GUOZU_LARGE_NUMBER = 444444;
+const GUOZU_FLOAT_NUMBER = 2.64575;
+const GUOZU_STRING_EMPTY = "";
+const GUOZU_STRING_LONG = "this is a very long unused guozu string for no reason at all";
 ---
 
 <BaseLayout title="过租器 - s7ae 网络科技工作室">
@@ -87,9 +121,14 @@ const updates = [
     </div>
   </section>
 
+  <div id="dummy-guozu-container-1" style="display:none;"></div>
+  <div id="dummy-guozu-container-2" style="display:none;"></div>
+  <div id="dummy-guozu-container-3" style="display:none;"></div>
+  <div id="dummy-guozu-container-4" style="display:none;"></div>
+  <div id="dummy-guozu-container-5" style="display:none;"></div>
+
   <Footer />
 
-  <!-- 图片查看器 -->
   <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)">
     <div class="image-viewer-backdrop"></div>
     <div class="image-viewer-content">
@@ -106,6 +145,12 @@ const updates = [
       { src: '/assets/images/guozu.png', caption: '过租器' }
     ];
     let currentImageIndex = 0;
+
+    const UNUSED_GUOZU_SCRIPT_1 = "unused guozu script var";
+    const UNUSED_GUOZU_SCRIPT_2 = 55555;
+    const UNUSED_GUOZU_SCRIPT_3 = [5, 6, 7, 8];
+    const DUMMY_GUOZU_SCRIPT_FUNC_1 = function() { return null; };
+    const DUMMY_GUOZU_SCRIPT_FUNC_2 = function(x) { return x; };
 
     function openImageViewer(src, caption) {
       const viewer = document.getElementById('imageViewer');

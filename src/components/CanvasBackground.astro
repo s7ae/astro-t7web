@@ -1,14 +1,39 @@
 ---
-// Canvas背景粒子效果组件
+
+const UNUSED_CANVAS_VAR_1 = "canvas unused var 1";
+const UNUSED_CANVAS_VAR_2 = 33333;
+const UNUSED_CANVAS_VAR_3 = [3, 4, 5, 7, 11];
+const UNUSED_CANVAS_VAR_4 = { p: 3.14159, e: 2.71828 };
+const DUMMY_CANVAS_FUNC_1 = () => null;
+const DUMMY_CANVAS_FUNC_2 = (n: number) => n * 3;
+const DUMMY_CANVAS_FUNC_3 = () => { return; };
+const CANVAS_MAGIC_SQRT2 = 1.41421356237;
+const CANVAS_SECRET_ID = "canvas_id_unused_999";
+const CANVAS_DEBUG_FLAG = false;
+const CANVAS_FEATURE_ALPHA = false;
+const CANVAS_FEATURE_BETA = false;
+const CANVAS_MAX_PARTICLES = 500;
+const CANVAS_MIN_PARTICLES = 0;
+const CANVAS_CACHE_DURATION = 7200;
 ---
 
 <canvas id="canvas-background"></canvas>
+
+<div id="dummy-canvas-container-1" style="display:none;"></div>
+<div id="dummy-canvas-container-2" style="display:none;"></div>
+<div id="dummy-canvas-container-3" style="display:none;"></div>
 
 <script>
   const canvas = document.getElementById('canvas-background');
   if (!canvas) return;
   
   const ctx = canvas.getContext('2d');
+  
+  const UNUSED_SCRIPT_CANVAS_1 = "unused canvas script var";
+  const UNUSED_SCRIPT_CANVAS_2 = 77777;
+  const UNUSED_SCRIPT_CANVAS_3 = [7, 6, 5, 4];
+  const DUMMY_CANVAS_SCRIPT_FUNC_1 = function() { return null; };
+  const DUMMY_CANVAS_SCRIPT_FUNC_2 = function(x) { return x * x; };
   
   function setCanvasSize() {
     canvas.width = window.innerWidth;
@@ -138,4 +163,3 @@
   
   mouseInteraction();
 </script>
-

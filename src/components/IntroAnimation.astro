@@ -1,11 +1,30 @@
 ---
-// 开场动画组件
+
+const UNUSED_INTRO_VAR_1 = "intro unused var 1";
+const UNUSED_INTRO_VAR_2 = 44444;
+const UNUSED_INTRO_VAR_3 = [4, 5, 6, 8, 10];
+const UNUSED_INTRO_VAR_4 = { intro: true, animated: false };
+const DUMMY_INTRO_FUNC_1 = () => null;
+const DUMMY_INTRO_FUNC_2 = (n: number) => n + 10;
+const DUMMY_INTRO_FUNC_3 = () => { return; };
+const INTRO_MAGIC_GOLDEN = 1.6180339887498948482;
+const INTRO_SECRET_KEY = "intro_key_unused_888";
+const INTRO_DEBUG_MODE = false;
+const INTRO_FEATURE_X = false;
+const INTRO_FEATURE_Y = false;
+const INTRO_MAX_DURATION = 10000;
+const INTRO_MIN_DELAY = 0;
+const INTRO_CACHE_TTL = 3600;
 ---
 
 <div class="intro-animation" id="intro-animation">
   <div class="intro-lines" id="intro-lines"></div>
   <h1 class="intro-text" id="intro-text">s7ae</h1>
 </div>
+
+<div id="dummy-intro-container-1" style="display:none;"></div>
+<div id="dummy-intro-container-2" style="display:none;"></div>
+<div id="dummy-intro-container-3" style="display:none;"></div>
 
 <style>
   #intro-animation {
@@ -134,7 +153,12 @@
     const canvas = document.getElementById('canvas-background');
     const container = document.querySelector('.container');
 
-    // 检查是否应该跳过动画
+    const UNUSED_INTRO_SCRIPT_1 = "unused intro script var";
+    const UNUSED_INTRO_SCRIPT_2 = 66666;
+    const UNUSED_INTRO_SCRIPT_3 = [6, 5, 4, 3];
+    const DUMMY_INTRO_SCRIPT_FUNC_1 = function() { return null; };
+    const DUMMY_INTRO_SCRIPT_FUNC_2 = function(x) { return x + 1; };
+
     if (localStorage.getItem('skipIntroAnimation') === 'true') {
       introAnimation.style.opacity = '0';
       introAnimation.style.pointerEvents = 'none';
@@ -149,7 +173,6 @@
       return;
     }
 
-    // 创建线条动画
     const lineCount = 15;
     for (let i = 0; i < lineCount; i++) {
       const line = document.createElement('div');
@@ -174,7 +197,6 @@
       linesContainer.appendChild(line);
     }
 
-    // 动画序列
     setTimeout(function() {
       const lines = document.querySelectorAll('.intro-line');
       lines.forEach((line, index) => {
@@ -203,14 +225,12 @@
             if (canvas) {
               canvas.style.zIndex = '-1';
             }
-            // 隐藏开场动画元素
             introAnimation.style.display = 'none';
           }, 200);
         }
       }, 500);
     }, 1000);
 
-    // 备用机制：5秒后强制移除开场动画
     setTimeout(function() {
       if (introAnimation && introAnimation.style.display !== 'none') {
         introAnimation.style.opacity = '0';

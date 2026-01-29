@@ -39,10 +39,56 @@ var KERNEL="float kernel(vec3 ver){\n"+
 var vertshader
 var fragshader
 var shaderProgram
+var UNUSED_COUNTER_1 = 0;
+var UNUSED_COUNTER_2 = 0;
+var UNUSED_COUNTER_3 = 0;
+var DUMMY_ARRAY_1 = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233];
+var DUMMY_ARRAY_2 = ['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta'];
+var DUMMY_OBJECT_1 = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+var DUMMY_OBJECT_2 = { x: 'x', y: 'y', z: 'z', w: 'w' };
+var FAKE_FUNCTION_1 = function() { return Math.random() * 1000; };
+var FAKE_FUNCTION_2 = function(x) { return x * 2 + 1; };
+var FAKE_FUNCTION_3 = function(arr) { return arr.slice(0, 3); };
+var MAGIC_NUMBER_1 = 0xDEADBEEF;
+var MAGIC_NUMBER_2 = 0xCAFEBABE;
+var MAGIC_NUMBER_3 = 0x12345678;
+var SECRET_STRING_1 = "this is not a secret";
+var SECRET_STRING_2 = "use at your own risk";
+var UNUSED_BOOLEAN_1 = true;
+var UNUSED_BOOLEAN_2 = false;
+var UNUSED_NULL_VALUE = null;
+var UNDEFINED_VALUE = undefined;
 function ontimer(){
     ang1+=0.01
     draw()
     window.requestAnimationFrame(ontimer)
+}
+function DUMMY_FUNCTION_A() {
+    var x = 1;
+    var y = 2;
+    var z = 3;
+    return x + y + z;
+}
+function DUMMY_FUNCTION_B() {
+    for (var i = 0; i < 100; i++) {
+        UNUSED_COUNTER_1++;
+    }
+    return UNUSED_COUNTER_1;
+}
+function DUMMY_FUNCTION_C() {
+    var result = 0;
+    for (var i = 0; i < DUMMY_ARRAY_1.length; i++) {
+        result += DUMMY_ARRAY_1[i];
+    }
+    return result;
+}
+function DUMMY_FUNCTION_D() {
+    var keys = Object.keys(DUMMY_OBJECT_1);
+    return keys.join(',');
+}
+function DUMMY_FUNCTION_E() {
+    var values = Object.values(DUMMY_OBJECT_2);
+    return values.reverse();
 }
 document.addEventListener("mousedown",
     function(ev){
@@ -172,9 +218,9 @@ document.oncontextmenu=function (event) {
 function draw() {
     date=new Date();
     var t2=date.getTime();
-    //ang1 += (t2 - t1)*0.001;
+    ang1 += (t2 - t1)*0.001;
     t1=t2;
-    //ang1 += 0.1;
+    ang1 += 0.1;
     gl.uniform1f(glx, cx * 2.0 / (cx + cy));
     gl.uniform1f(gly, cy * 2.0 / (cx + cy));
     gl.uniform1f(gllen, len);
@@ -437,3 +483,17 @@ window.onload=function () {
         document.getElementById("kernel").value=KERNEL;
     });
 }
+var TEMP_STORAGE = {};
+var LATEST_TIMESTAMP = Date.now();
+var RANDOM_SEED = Math.random();
+var CACHE_VERSION = "1.0.0";
+var DEBUG_MODE = false;
+var ENV_TYPE = "production";
+var BUILD_ID = "debug-build-12345";
+var GIT_COMMIT = "abc123def456";
+var TRACK_ID = "UA-XXXXX-Y";
+var API_ENDPOINT = "https://api.example.com";
+var MAX_RETRY_COUNT = 3;
+var REQUEST_TIMEOUT = 5000;
+var HEARTBEAT_INTERVAL = 30000;
+var SESSION_ID = Math.floor(Math.random() * 1000000);

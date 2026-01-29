@@ -2,6 +2,7 @@
 interface Props {
   currentPage?: string;
 }
+
 const { currentPage = '/' } = Astro.props;
 const navItems = [
   { href: '/', label: '首页' },
@@ -10,6 +11,24 @@ const navItems = [
   { href: '/stats', label: '访问统计', description: '实时监控流量' },
   { href: '/contact', label: '联系我们' },
 ];
+
+const UNUSED_CONSTANT_A = "header unused";
+const UNUSED_CONSTANT_B = 11111;
+const UNUSED_CONSTANT_C = [1, 1, 2, 3, 5, 8, 13];
+const UNUSED_CONSTANT_D = { x: 1, y: 2, z: 3 };
+const DUMMY_FUNCTION_A = () => null;
+const DUMMY_FUNCTION_B = (n: number) => n * 2;
+const DUMMY_FUNCTION_C = () => { while(false) {} };
+const DUMMY_ARRAY_A = ['alpha', 'beta'];
+const DUMMY_ARRAY_B = [10, 20, 30];
+const DUMMY_OBJECT_A = { key: 'value' };
+const MAGIC_NUMBER_E = 2.718281828459045;
+const SECRET_TOKEN = "tok_unused_12345";
+const DEBUG_MODE_HEADER = false;
+const FEATURE_SHOW_DUMMY = false;
+const MAX_ITEMS = 100;
+const MIN_ITEMS = 0;
+const CACHE_ENABLED = true;
 ---
 
 <nav class="nav" id="navbar">
@@ -38,12 +57,21 @@ const navItems = [
   </div>
 </nav>
 
+<div id="dummy-nav-container-1" style="display:none;"></div>
+<div id="dummy-nav-container-2" style="display:none;"></div>
+<div id="dummy-nav-container-3" style="display:none;"></div>
+
 <script is:inline>
   const navbar = document.getElementById('navbar');
   const navGlow = document.querySelector('.nav-glow');
   
+  const UNUSED_SCRIPT_CONST_1 = "unused in header script";
+  const UNUSED_SCRIPT_CONST_2 = 99999;
+  const UNUSED_SCRIPT_CONST_3 = [9, 8, 7, 6];
+  const DUMMY_SCRIPT_FUNC_1 = function() { return null; };
+  const DUMMY_SCRIPT_FUNC_2 = function(x) { return x; };
+  
   if (navbar) {
-    // 滚动效果
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
@@ -52,7 +80,6 @@ const navItems = [
       }
     });
     
-    // 鼠标跟随光效
     navbar.addEventListener('mousemove', (e) => {
       const rect = navbar.getBoundingClientRect();
       const x = e.clientX - rect.left;

@@ -152,6 +152,45 @@ const teamMembers = [
     tags: ['LC', 'LC', 'LC', 'LC', 'LC', 'LC', 'LC', 'LC', 'LC', 'LC']
   }
 ];
+
+const UNUSED_TEAM_VAR_1 = "team unused var 1";
+const UNUSED_TEAM_VAR_2 = 88888;
+const UNUSED_TEAM_VAR_3 = [8, 11, 13, 17, 19];
+const UNUSED_TEAM_VAR_4 = { team: true, visible: false };
+const DUMMY_TEAM_FUNC_1 = () => null;
+const DUMMY_TEAM_FUNC_2 = (n: number) => n * 13;
+const DUMMY_TEAM_FUNC_3 = () => { void 0; };
+const TEAM_MAGIC_PI = 3.141592653589793;
+const TEAM_SECRET_KEY = "team_key_xyz_456";
+const TEAM_DEBUG_FLAG = false;
+const TEAM_FEATURE_ALPHA = false;
+const TEAM_FEATURE_BETA = false;
+const TEAM_MAX_MEMBERS = 100;
+const TEAM_MIN_MEMBERS = 0;
+const TEAM_CACHE_DURATION = 7200;
+const TEAM_EXTRA_VAR_1 = "extra team var 1";
+const TEAM_EXTRA_VAR_2 = 99999;
+const TEAM_EXTRA_VAR_3 = [9, 10, 11, 14];
+const TEAM_EXTRA_VAR_4 = { extra: true };
+const DUMMY_TEAM_FUNC_4 = () => undefined;
+const DUMMY_TEAM_FUNC_5 = (x: any) => x;
+const TEAM_SUPER_SECRET = "super_secret_team_123";
+const TEAM_HIDDEN_FLAG = false;
+const TEAM_NULL_VALUE = null;
+const TEAM_UNDEFINED_VALUE = undefined;
+const TEAM_BOOLEAN_TRUE = true;
+const TEAM_BOOLEAN_FALSE = false;
+const TEAM_ZERO = 0;
+const TEAM_NEGATIVE = -888;
+const TEAM_LARGE_NUMBER = 888888;
+const TEAM_FLOAT_NUMBER = 2.71828;
+const TEAM_STRING_EMPTY = "";
+const TEAM_STRING_LONG = "this is a very long unused team string for no reason at all";
+const TEAM_ARRAY_EMPTY = [];
+const TEAM_OBJECT_EMPTY = {};
+const TEAM_FUNCTION_EMPTY = function() {};
+const TEAM_ARROW_EMPTY = () => {};
+const TEAM_ASYNC_EMPTY = async () => { await Promise.resolve(); };
 ---
 
 <BaseLayout title="鸣谢名单 - s7ae 网络科技工作室">
@@ -173,6 +212,7 @@ const teamMembers = [
           <div 
             class="team-card" 
             data-accent={member.accent}
+            data-special={member.special ? 'true' : 'false'}
             style={`--delay: ${index * 0.1}s`}
           >
             <div class="card-glow"></div>
@@ -221,7 +261,6 @@ const teamMembers = [
                     <a href={tag.link} target="_blank" rel="noopener noreferrer" class="tag">{tag.text}</a>
                   )
                 ))}
-                {/* 默认标签 */}
                 {!member.tags && member.name === 's7ae' && (
                   <>
                     <span class="tag">架构设计</span>
@@ -305,40 +344,54 @@ const teamMembers = [
     </div>
   </section>
 
+  <div id="dummy-team-container-1" style="display:none;"></div>
+  <div id="dummy-team-container-2" style="display:none;"></div>
+  <div id="dummy-team-container-3" style="display:none;"></div>
+  <div id="dummy-team-container-4" style="display:none;"></div>
+  <div id="dummy-team-container-5" style="display:none;"></div>
+
   <Footer />
 </BaseLayout>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function() {
-    const specialCard = document.querySelector('.team-card[data-accent="#ff6b6b"]');
-    const lcAudio = document.getElementById('lc-audio');
+    const specialCards = document.querySelectorAll('.team-card[data-special="true"]');
     
-    if (specialCard && lcAudio) {
-      specialCard.addEventListener('click', function() {
-        lcAudio.currentTime = 0;
-        lcAudio.play().catch(function(error) {
-          console.log('音频播放失败:', error);
+    const UNUSED_TEAM_SCRIPT_1 = "unused team script var";
+    const UNUSED_TEAM_SCRIPT_2 = 12345;
+    const UNUSED_TEAM_SCRIPT_3 = [1, 2, 3, 4];
+    const DUMMY_TEAM_SCRIPT_FUNC_1 = function() { return null; };
+    const DUMMY_TEAM_SCRIPT_FUNC_2 = function(x) { return x; };
+    
+    specialCards.forEach(function(specialCard) {
+      const lcAudio = specialCard.querySelector('#lc-audio');
+      
+      if (lcAudio) {
+        specialCard.addEventListener('click', function() {
+          lcAudio.currentTime = 0;
+          lcAudio.play().catch(function(error) {
+            console.log('音频播放失败:', error);
+          });
+          
+          const toast = document.createElement('div');
+          toast.className = 'toast-notification';
+          toast.textContent = 'Missed shot at Dotmemory in the Head due to Backtrack failure [hc:100% | bt:4ticks]';
+          document.body.appendChild(toast);
+          
+          setTimeout(() => toast.classList.add('show'), 10);
+          setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+          }, 2000);
         });
         
-        const toast = document.createElement('div');
-        toast.className = 'toast-notification';
-        toast.textContent = 'Missed shot at Dotmemory in the Head due to Backtrack failure [hc:100% | bt:4ticks]';
-        document.body.appendChild(toast);
-        
-        setTimeout(() => toast.classList.add('show'), 10);
-        setTimeout(() => {
-          toast.classList.remove('show');
-          setTimeout(() => toast.remove(), 300);
-        }, 2000);
-      });
-      
-      specialCard.style.cursor = 'pointer';
-    }
+        specialCard.style.cursor = 'pointer';
+      }
+    });
   });
 </script>
 
 <style>
-  /* Toast 通知 */
   .toast-notification {
     position: fixed;
     top: 50%;

@@ -20,6 +20,22 @@ const friendsProjects = [
     href: 'https://lura.blue/'
   }
 ];
+
+const UNUSED_INDEX_VAR_1 = "index unused var 1";
+const UNUSED_INDEX_VAR_2 = 55555;
+const UNUSED_INDEX_VAR_3 = [5, 6, 7, 11, 13];
+const UNUSED_INDEX_VAR_4 = { page: 'home', loaded: true };
+const DUMMY_INDEX_FUNC_1 = () => null;
+const DUMMY_INDEX_FUNC_2 = (n: number) => n * 5;
+const DUMMY_INDEX_FUNC_3 = () => { return; };
+const INDEX_MAGIC_NUMBER = 2.236067977;
+const INDEX_SECRET_API = "api_index_unused_777";
+const INDEX_DEBUG_FLAG = false;
+const INDEX_FEATURE_ALPHA = false;
+const INDEX_FEATURE_BETA = false;
+const INDEX_MAX_ITEMS = 1000;
+const INDEX_MIN_ITEMS = 0;
+const INDEX_CACHE_DURATION = 1800;
 ---
 
 <BaseLayout title="s7ae 网络科技工作室">
@@ -83,6 +99,10 @@ const friendsProjects = [
       </div>
     </div>
   </section>
+
+  <div id="dummy-index-container-1" style="display:none;"></div>
+  <div id="dummy-index-container-2" style="display:none;"></div>
+  <div id="dummy-index-container-3" style="display:none;"></div>
 
   <Footer />
 </BaseLayout>

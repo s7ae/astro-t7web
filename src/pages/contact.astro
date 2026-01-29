@@ -2,6 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const UNUSED_CONTACT_VAR_1 = "contact unused var 1";
+const UNUSED_CONTACT_VAR_2 = 66666;
+const UNUSED_CONTACT_VAR_3 = [6, 7, 11, 13, 17];
+const UNUSED_CONTACT_VAR_4 = { contact: true, active: false };
+const DUMMY_CONTACT_FUNC_1 = () => null;
+const DUMMY_CONTACT_FUNC_2 = (n: number) => n * 7;
+const DUMMY_CONTACT_FUNC_3 = () => { return; };
+const CONTACT_MAGIC_SQRT3 = 1.73205080757;
+const CONTACT_SECRET_TOKEN = "contact_token_xyz_999";
+const CONTACT_DEBUG_MODE = false;
+const CONTACT_FEATURE_X = false;
+const CONTACT_FEATURE_Y = false;
+const CONTACT_MAX_MESSAGES = 500;
+const CONTACT_MIN_DELAY = 100;
+const CONTACT_CACHE_TTL = 7200;
 ---
 
 <BaseLayout title="联系我们 - s7ae 网络科技工作室">
@@ -37,6 +53,10 @@ import Footer from '../components/Footer.astro';
       </div>
     </div>
   </section>
+
+  <div id="dummy-contact-container-1" style="display:none;"></div>
+  <div id="dummy-contact-container-2" style="display:none;"></div>
+  <div id="dummy-contact-container-3" style="display:none;"></div>
 
   <Footer />
 </BaseLayout>

@@ -1,4 +1,3 @@
-/* ===== CSS 变量 ===== */
 :root {
   --bg-primary: #0d0d12;
   --bg-secondary: #14141c;
@@ -32,9 +31,48 @@
   --transition-fast: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  --unused-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --unused-shadow-2: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --unused-shadow-3: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --unused-color-red: #ff0000;
+  --unused-color-blue: #0000ff;
+  --unused-color-green: #00ff00;
+  --unused-z-index-negative: -1;
+  --unused-opacity-half: 0.5;
+  --unused-border-width: 1px;
+  --unused-margin-sm: 4px;
+  --unused-margin-md: 8px;
+  --unused-margin-lg: 16px;
+  --unused-padding-sm: 4px;
+  --unused-padding-md: 8px;
+  --unused-padding-lg: 16px;
+  --unused-font-size-xs: 10px;
+  --unused-font-size-sm: 12px;
+  --unused-font-size-md: 14px;
+  --unused-font-size-lg: 16px;
+  --unused-font-size-xl: 20px;
+  --unused-line-height-1: 1;
+  --unused-line-height-1-5: 1.5;
+  --unused-line-height-2: 2;
+  --unused-letter-spacing-tight: -0.02em;
+  --unused-letter-spacing-wide: 0.02em;
+  --unused-border-radius-sm: 4px;
+  --unused-border-radius-md: 8px;
+  --unused-border-radius-lg: 12px;
+  --unused-max-width-xs: 200px;
+  --unused-max-width-sm: 400px;
+  --unused-max-width-md: 600px;
+  --unused-max-width-lg: 800px;
+  --unused-min-width-100: 100px;
+  --unused-min-width-200: 200px;
+  --unused-min-width-300: 300px;
+  --unused-height-50: 50px;
+  --unused-height-100: 100px;
+  --unused-height-150: 150px;
+  --unused-height-200: 200px;
 }
 
-/* ===== 基础样式 ===== */
 * {
   margin: 0;
   padding: 0;
@@ -54,7 +92,6 @@ body {
   overflow-x: hidden;
 }
 
-/* 背景装饰 */
 body::before {
   content: '';
   position: fixed;
@@ -110,7 +147,6 @@ body::after {
   padding: 0 32px;
 }
 
-/* ===== iOS 风格毛玻璃导航栏 ===== */
 .nav {
   position: fixed;
   top: 16px;
@@ -171,7 +207,6 @@ body::after {
   z-index: 1;
 }
 
-/* Logo 玻璃质感 */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -275,7 +310,6 @@ body::after {
   width: 24px;
 }
 
-/* 导航标签浮标 */
 .nav-badge {
   display: inline-flex;
   align-items: center;
@@ -291,7 +325,7 @@ body::after {
 }
 
 .nav-badge::before {
-  content: '💡';
+  content: '';
   margin-right: 4px;
   font-size: 10px;
 }
@@ -305,7 +339,6 @@ body::after {
   }
 }
 
-/* ===== Hero 区域 ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -324,7 +357,6 @@ body::after {
   max-width: 560px;
 }
 
-/* ===== iOS 风格徽章 - 液体玻璃效果 ===== */
 .hero-badge-wrapper {
   margin-bottom: 32px;
 }
@@ -343,7 +375,6 @@ body::after {
   overflow: hidden;
 }
 
-/* 液体流动光效 */
 .hero-badge::before {
   content: '';
   position: absolute;
@@ -369,7 +400,6 @@ body::after {
   to { transform: rotate(360deg); }
 }
 
-/* 内部柔和呼吸 */
 .hero-badge::after {
   content: '';
   position: absolute;
@@ -464,7 +494,6 @@ body::after {
   flex-wrap: wrap;
 }
 
-/* ===== 宏伟风格按钮 ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -547,7 +576,6 @@ body::after {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-/* ===== Hero 视觉展示 - 宏伟风格 ===== */
 .hero-visual {
   position: relative;
   display: flex;
@@ -556,7 +584,6 @@ body::after {
   height: 560px;
 }
 
-/* 外层玻璃容器 - 更大更有气势 */
 .hero-ring-container {
   position: relative;
   width: 440px;
@@ -662,7 +689,6 @@ body::after {
   to { transform: rotate(0deg); }
 }
 
-/* 核心光晕 */
 .hero-glow-core {
   position: absolute;
   width: 140px;
@@ -736,7 +762,6 @@ body::after {
   }
 }
 
-/* ===== iOS 风格卡片 - 液体玻璃效果 ===== */
 .card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -761,7 +786,6 @@ body::after {
     inset 0 -1px 0 rgba(255, 255, 255, 0.02);
 }
 
-/* ===== 项目卡片 ===== */
 .section {
   padding: 120px 0;
 }
@@ -856,7 +880,6 @@ body::after {
   color: #f5a462;
 }
 
-/* ===== 朋友项目区域 ===== */
 .friends-section {
   padding: 100px 0;
   text-align: center;
@@ -915,7 +938,6 @@ body::after {
   color: var(--text-secondary);
 }
 
-/* ===== 团队页面 ===== */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -986,7 +1008,6 @@ body::after {
   color: #f5a462;
 }
 
-/* ===== 联系页面 ===== */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1043,7 +1064,6 @@ body::after {
   color: var(--accent-secondary);
 }
 
-/* ===== 页脚 ===== */
 .footer {
   padding: 72px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -1056,7 +1076,6 @@ body::after {
   font-size: 15px;
 }
 
-/* ===== 响应式设计 ===== */
 @media (max-width: 1080px) {
   .hero-inner {
     grid-template-columns: 1fr;
@@ -1138,56 +1157,55 @@ body::after {
     font-size: 12px;
   }
 }
-  .nav-link {
-    padding: 10px 18px;
-    font-size: 14px;
-  }
 
-  .hero-title {
-    font-size: 36px;
-  }
-
-  .section-title {
-    font-size: 32px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .hero-ring-container {
-    width: 300px;
-    height: 300px;
-  }
-
-  .hero-ring.ring-outer {
-    width: 300px;
-    height: 300px;
-  }
-
-  .hero-ring.ring-middle {
-    width: 220px;
-    height: 220px;
-  }
-
-  .hero-ring.ring-inner {
-    width: 135px;
-    height: 135px;
-  }
-
-  .hero-main-image {
-    width: 125px;
-    height: 125px;
-  }
+.nav-link {
+  padding: 10px 18px;
+  font-size: 14px;
 }
 
-/* ===== 项目列表页面 ===== */
+.hero-title {
+  font-size: 36px;
+}
+
+.section-title {
+  font-size: 32px;
+}
+
+.hero-actions {
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  width: 100%;
+  max-width: 300px;
+}
+
+.hero-ring-container {
+  width: 300px;
+  height: 300px;
+}
+
+.hero-ring.ring-outer {
+  width: 300px;
+  height: 300px;
+}
+
+.hero-ring.ring-middle {
+  width: 220px;
+  height: 220px;
+}
+
+.hero-ring.ring-inner {
+  width: 135px;
+  height: 135px;
+}
+
+.hero-main-image {
+  width: 125px;
+  height: 125px;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1293,7 +1311,6 @@ body::after {
   color: var(--text-secondary);
 }
 
-/* ===== 项目详情页面 ===== */
 .project-detail-section {
   padding-bottom: 100px;
 }
@@ -1376,7 +1393,7 @@ body::after {
 }
 
 .project-highlights li::before {
-  content: '◆';
+  content: '';
   position: absolute;
   left: 0;
   color: var(--accent-primary);
@@ -1443,7 +1460,6 @@ body::after {
   padding: 0 20px;
 }
 
-/* ===== 图片查看器 (Lightbox) ===== */
 .image-viewer {
   position: fixed;
   top: 0;
@@ -1563,7 +1579,6 @@ body::after {
   cursor: pointer;
 }
 
-/* 让项目图片可点击 */
 .project-image-card {
   cursor: zoom-in;
 }
@@ -1572,7 +1587,6 @@ body::after {
   pointer-events: none;
 }
 
-/* ===== 更新日志卡片 ===== */
 .update-log {
   background: var(--bg-glass-1);
   border: 1px solid var(--glass-border);
@@ -1602,7 +1616,7 @@ body::after {
 }
 
 .update-log-title::before {
-  content: '↻';
+  content: '';
   color: var(--accent-primary);
   font-size: 24px;
 }
@@ -1648,14 +1662,13 @@ body::after {
 }
 
 .update-details p::before {
-  content: '•';
+  content: '';
   position: absolute;
   left: -20px;
   color: var(--accent-secondary);
   font-size: 16px;
 }
 
-/* ===== 响应式设计 ===== */
 @media (max-width: 1024px) {
   .project-hero-layout {
     grid-template-columns: 1fr;
@@ -1711,7 +1724,6 @@ body::after {
   }
 }
 
-/* ===== 团队页面 v2 ===== */
 .team-section {
   padding-bottom: 120px;
 }
@@ -1836,7 +1848,6 @@ body::after {
   z-index: 1;
 }
 
-/* 特殊头像（宫崎柚子、s7ae）与原页面相同 */
 .avatar-inner.special-avatar {
   width: 120px;
   height: 120px;
@@ -1890,7 +1901,6 @@ body::after {
   transform: rotate(15deg);
 }
 
-/* 发卡风格徽章 - 右上角 */
 .dev-badge.hairpin-badge {
   position: absolute;
   top: -20px;
@@ -1975,7 +1985,6 @@ body::after {
   box-shadow: 0 4px 12px rgba(232, 137, 74, 0.2);
 }
 
-/* ===== 联系页面 ===== */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -2071,7 +2080,6 @@ body::after {
   flex-wrap: wrap;
 }
 
-/* 响应式设计 */
 @media (max-width: 768px) {
   .team-section {
     padding-bottom: 80px;
@@ -2109,3 +2117,681 @@ body::after {
     max-width: 280px;
   }
 }
+
+.unused-selector-1 {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: -9999;
+}
+
+.unused-selector-2 {
+  display: none;
+}
+
+.unused-selector-3 {
+  visibility: collapse;
+}
+
+.unused-class-alpha {
+  all: initial;
+}
+
+.unused-class-beta {
+  all: unset;
+}
+
+.unused-class-gamma {
+  all: revert;
+}
+
+.hack-fix-ie10 {
+  /* IE10 only */
+  all: initial\9;
+}
+
+.hack-fix-ie11 {
+  /* IE11 only */
+  all: initial\0;
+}
+
+.webkit-only {
+  /* WebKit only */
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    all: initial;
+  }
+}
+
+.firefox-only {
+  /* Firefox only */
+  @supports (-moz-appearance: meterbar) {
+    all: initial;
+  }
+}
+
+.edge-only {
+  /* Edge only */
+  @supports (-ms-ime-align: auto) {
+    all: initial;
+  }
+}
+
+@keyframes unused-animation-1 {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes unused-animation-2 {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes unused-animation-3 {
+  0% { transform: scale(0); }
+  50% { transform: scale(1); }
+  100% { transform: scale(0); }
+}
+
+@keyframes unused-animation-4 {
+  0% { height: 0; }
+  100% { height: 100%; }
+}
+
+@keyframes unused-animation-5 {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes unused-animation-6 {
+  0% { border-radius: 0; }
+  50% { border-radius: 50%; }
+  100% { border-radius: 0; }
+}
+
+@keyframes unused-animation-7 {
+  0% { filter: blur(0px); }
+  50% { filter: blur(10px); }
+  100% { filter: blur(0px); }
+}
+
+@keyframes unused-animation-8 {
+  0% { text-shadow: none; }
+  50% { text-shadow: 0 0 10px currentColor; }
+  100% { text-shadow: none; }
+}
+
+@keyframes unused-animation-9 {
+  0% { box-shadow: none; }
+  50% { box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+  100% { box-shadow: none; }
+}
+
+@keyframes unused-animation-10 {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+.hyphens-test {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.overflow-wrap-test {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.text-size-adjust {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.font-smooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+}
+
+.kerning-test {
+  letter-spacing: 0.01em;
+}
+
+.line-break-test {
+  line-break: loose;
+}
+
+.text-align-last-test {
+  text-align-last: left;
+}
+
+.text-justify-test {
+  text-justify: inter-word;
+}
+
+.white-space-test {
+  white-space: pre-wrap;
+}
+
+.word-break-test {
+  word-break: break-all;
+}
+
+.word-spacing-test {
+  word-spacing: 0.25em;
+}
+
+.vertical-align-test {
+  vertical-align: super;
+}
+
+.text-decoration-test {
+  text-decoration: underline dotted;
+}
+
+.text-emphasis-test {
+  -webkit-text-emphasis: circle;
+  text-emphasis: circle;
+}
+
+.text-shadow-test {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.unicode-bidi-test {
+  unicode-bidi: bidi-override;
+}
+
+.direction-test {
+  direction: rtl;
+}
+
+.content-test {
+  content: "test";
+}
+
+.counter-reset-test {
+  counter-reset: test-counter;
+}
+
+.counter-increment-test {
+  counter-increment: test-counter;
+}
+
+.quotes-test {
+  quotes: "“" "”" "‘" "’";
+}
+
+.list-style-test {
+  list-style: square;
+}
+
+.outline-test {
+  outline: 1px solid blue;
+}
+
+.resize-test {
+  resize: both;
+}
+
+.caret-color-test {
+  caret-color: red;
+}
+
+.ime-mode-test {
+  ime-mode: disabled;
+}
+
+.nav-up-test {
+  -ms-scroll-up: 1px;
+}
+
+.scroll-snap-test {
+  scroll-snap-type: x mandatory;
+}
+
+.overflow-scrolling-test {
+  -webkit-overflow-scrolling: touch;
+}
+
+.perspective-test {
+  perspective: 500px;
+}
+
+.transform-style-test {
+  transform-style: preserve-3d;
+}
+
+.backface-visibility-test {
+  backface-visibility: hidden;
+}
+
+.perspective-origin-test {
+  perspective-origin: 50% 50%;
+}
+
+.transform-origin-test {
+  transform-origin: center center;
+}
+
+.matrix-test {
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.translate3d-test {
+  transform: translate3d(0, 0, 0);
+}
+
+.rotate3d-test {
+  transform: rotate3d(1, 1, 1, 45deg);
+}
+
+.scale3d-test {
+  transform: scale3d(1, 1, 1);
+}
+
+.skew-test {
+  transform: skewX(10deg);
+}
+
+.translate-test {
+  transform: translate(10px, 10px);
+}
+
+.rotate-test {
+  transform: rotate(45deg);
+}
+
+.scale-test {
+  transform: scale(1.1);
+}
+
+.offset-path-test {
+  offset-path: path('M10 10 L90 90');
+}
+
+.offset-distance-test {
+  offset-distance: 100%;
+}
+
+.offset-anchor-test {
+  offset-anchor: center;
+}
+
+.offset-rotate-test {
+  offset-rotate: auto;
+}
+
+.will-change-test {
+  will-change: transform;
+}
+
+.contain-test {
+  contain: layout style;
+}
+
+.content-visibility-test {
+  content-visibility: auto;
+}
+
+.place-self-test {
+  place-self: center;
+}
+
+.place-items-test {
+  place-items: center;
+}
+
+.gap-test {
+  gap: 10px;
+}
+
+.row-gap-test {
+  row-gap: 10px;
+}
+
+.column-gap-test {
+  column-gap: 10px;
+}
+
+.grid-auto-columns-test {
+  grid-auto-columns: minmax(100px, auto);
+}
+
+.grid-auto-rows-test {
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.grid-template-columns-test {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-template-rows-test {
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.grid-column-test {
+  grid-column: 1 / -1;
+}
+
+.grid-row-test {
+  grid-row: 1 / -1;
+}
+
+.grid-area-test {
+  grid-area: header;
+}
+
+.align-self-test {
+  align-self: center;
+}
+
+.justify-self-test {
+  justify-self: center;
+}
+
+.align-content-test {
+  align-content: center;
+}
+
+.justify-content-test {
+  justify-content: center;
+}
+
+.flex-basis-test {
+  flex-basis: 200px;
+}
+
+.flex-grow-test {
+  flex-grow: 1;
+}
+
+.flex-shrink-test {
+  flex-shrink: 1;
+}
+
+.order-test {
+  order: -1;
+}
+
+.float-test {
+  float: left;
+}
+
+.clear-test {
+  clear: both;
+}
+
+.display-test {
+  display: flow-root;
+}
+
+.visibility-test {
+  visibility: hidden;
+}
+
+.overflow-test {
+  overflow: hidden;
+}
+
+.z-index-test {
+  z-index: 1;
+}
+
+.position-test {
+  position: relative;
+}
+
+.top-test {
+  top: 10px;
+}
+
+.right-test {
+  right: 10px;
+}
+
+.bottom-test {
+  bottom: 10px;
+}
+
+.left-test {
+  left: 10px;
+}
+
+.margin-test {
+  margin: 10px;
+}
+
+.padding-test {
+  padding: 10px;
+}
+
+.width-test {
+  width: 100%;
+}
+
+.height-test {
+  height: 100%;
+}
+
+.min-width-test {
+  min-width: 100px;
+}
+
+.max-width-test {
+  max-width: 100%;
+}
+
+.min-height-test {
+  min-height: 100px;
+}
+
+.max-height-test {
+  max-height: 100%;
+}
+
+.box-sizing-test {
+  box-sizing: border-box;
+}
+
+.border-test {
+  border: 1px solid red;
+}
+
+.border-radius-test {
+  border-radius: 10px;
+}
+
+.border-color-test {
+  border-color: red;
+}
+
+.border-style-test {
+  border-style: solid;
+}
+
+.border-width-test {
+  border-width: 1px;
+}
+
+.border-top-test {
+  border-top: 1px solid red;
+}
+
+.border-right-test {
+  border-right: 1px solid red;
+}
+
+.border-bottom-test {
+  border-bottom: 1px solid red;
+}
+
+.border-left-test {
+  border-left: 1px solid red;
+}
+
+.border-collapse-test {
+  border-collapse: collapse;
+}
+
+.border-spacing-test {
+  border-spacing: 0;
+}
+
+.empty-cells-test {
+  empty-cells: hide;
+}
+
+.caption-side-test {
+  caption-side: top;
+}
+
+.table-layout-test {
+  table-layout: fixed;
+}
+
+.background-test {
+  background: red;
+}
+
+.background-color-test {
+  background-color: red;
+}
+
+.background-image-test {
+  background-image: none;
+}
+
+.background-position-test {
+  background-position: center;
+}
+
+.background-size-test {
+  background-size: cover;
+}
+
+.background-repeat-test {
+  background-repeat: no-repeat;
+}
+
+.background-attachment-test {
+  background-attachment: fixed;
+}
+
+.background-origin-test {
+  background-origin: padding-box;
+}
+
+.background-clip-test {
+  background-clip: border-box;
+}
+
+.linear-gradient-test {
+  background: linear-gradient(red, blue);
+}
+
+.radial-gradient-test {
+  background: radial-gradient(circle, red, blue);
+}
+
+.conic-gradient-test {
+  background: conic-gradient(red, blue);
+}
+
+.repeating-linear-gradient-test {
+  background: repeating-linear-gradient(red, blue 10px);
+}
+
+.repeating-radial-gradient-test {
+  background: repeating-radial-gradient(circle, red, blue 10px);
+}
+
+.color-test {
+  color: red;
+}
+
+.font-test {
+  font: 16px sans-serif;
+}
+
+.font-family-test {
+  font-family: sans-serif;
+}
+
+.font-size-test {
+  font-size: 16px;
+}
+
+.font-weight-test {
+  font-weight: 700;
+}
+
+.font-style-test {
+  font-style: italic;
+}
+
+.font-variant-test {
+  font-variant: small-caps;
+}
+
+.font-stretch-test {
+  font-stretch: expanded;
+}
+
+.font-size-adjust-test {
+  font-size-adjust: 0.5;
+}
+
+.line-height-test {
+  line-height: 1.5;
+}
+
+.letter-spacing-test {
+  letter-spacing: 0.05em;
+}
+
+.text-decoration-line-test {
+  text-decoration-line: underline;
+}
+
+.text-decoration-style-test {
+  text-decoration-style: wavy;
+}
+
+.text-decoration-color-test {
+  text-decoration-color: red;
+}
+
+.text-underline-position-test {
+  text-underline-position: under;
+}
+
+.text-indent-test {
+  text-indent: 2em;
+}
+
+.text-transform-test {
+  text-transform: uppercase;
+}
+
+.overflow-wrap-test-new {
+  overflow-wrap: break-word;
+}
+
+.word-break-test-new {
+  word-break: break-word;
+}
+
+.white-space-test-new {
+  white-space: nowrap;
+}
+
+.line-break-test-new {
+  line-break: anywhere;
+}
+

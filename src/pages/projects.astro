@@ -33,6 +33,45 @@ const projects = [
     tags: ['市场', 'C++ / Hook']
   }
 ];
+
+const UNUSED_PROJECTS_VAR_1 = "projects unused var 1";
+const UNUSED_PROJECTS_VAR_2 = 77777;
+const UNUSED_PROJECTS_VAR_3 = [7, 11, 13, 17, 19];
+const UNUSED_PROJECTS_VAR_4 = { projects: true, visible: true };
+const DUMMY_PROJECTS_FUNC_1 = () => null;
+const DUMMY_PROJECTS_FUNC_2 = (n: number) => n * 11;
+const DUMMY_PROJECTS_FUNC_3 = () => { void 0; };
+const PROJECTS_MAGIC_E = 2.718281828459045;
+const PROJECTS_SECRET_KEY = "projects_key_abc_123";
+const PROJECTS_DEBUG_FLAG = false;
+const PROJECTS_FEATURE_ALPHA = false;
+const PROJECTS_FEATURE_BETA = false;
+const PROJECTS_MAX_ITEMS = 2000;
+const PROJECTS_MIN_ITEMS = 0;
+const PROJECTS_CACHE_DURATION = 3600;
+const PROJECTS_EXTRA_VAR_1 = "extra projects var 1";
+const PROJECTS_EXTRA_VAR_2 = 88888;
+const PROJECTS_EXTRA_VAR_3 = [8, 9, 10, 12];
+const PROJECTS_EXTRA_VAR_4 = { extra: false };
+const DUMMY_PROJECTS_FUNC_4 = () => undefined;
+const DUMMY_PROJECTS_FUNC_5 = (x: any) => x;
+const PROJECTS_SUPER_SECRET = "super_secret_12345";
+const PROJECTS_HIDDEN_FLAG = true;
+const PROJECTS_NULL_VALUE = null;
+const PROJECTS_UNDEFINED_VALUE = undefined;
+const PROJECTS_BOOLEAN_TRUE = true;
+const PROJECTS_BOOLEAN_FALSE = false;
+const PROJECTS_ZERO = 0;
+const PROJECTS_NEGATIVE = -999;
+const PROJECTS_LARGE_NUMBER = 999999;
+const PROJECTS_FLOAT_NUMBER = 3.14159;
+const PROJECTS_STRING_EMPTY = "";
+const PROJECTS_STRING_LONG = "this is a very long unused string for no reason at all";
+const PROJECTS_ARRAY_EMPTY = [];
+const PROJECTS_OBJECT_EMPTY = {};
+const PROJECTS_FUNCTION_EMPTY = function() {};
+const PROJECTS_ARROW_EMPTY = () => {};
+const PROJECTS_ASYNC_EMPTY = async () => { await Promise.resolve(); };
 ---
 
 <BaseLayout title="项目展示">
@@ -71,6 +110,12 @@ const projects = [
       </div>
     </div>
   </section>
+
+  <div id="dummy-projects-container-1" style="display:none;"></div>
+  <div id="dummy-projects-container-2" style="display:none;"></div>
+  <div id="dummy-projects-container-3" style="display:none;"></div>
+  <div id="dummy-projects-container-4" style="display:none;"></div>
+  <div id="dummy-projects-container-5" style="display:none;"></div>
 
   <Footer />
 </BaseLayout>

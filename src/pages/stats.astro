@@ -4,6 +4,44 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const workerUrl = 'https://api.s7ae.cc';
+
+const UNUSED_STATS_VAR_1 = "stats unused var 1";
+const UNUSED_STATS_VAR_2 = 101010;
+const UNUSED_STATS_VAR_3 = [10, 11, 13, 17, 19, 23];
+const UNUSED_STATS_VAR_4 = { stats: true, visible: false };
+const DUMMY_STATS_FUNC_1 = () => null;
+const DUMMY_STATS_FUNC_2 = (n: number) => n * 17;
+const DUMMY_STATS_FUNC_3 = () => { void 0; };
+const STATS_MAGIC_LN2 = 0.69314718056;
+const STATS_SECRET_KEY = "stats_key_abc_789";
+const STATS_DEBUG_FLAG = false;
+const STATS_FEATURE_ALPHA = false;
+const STATS_FEATURE_BETA = false;
+const STATS_MAX_REQUESTS = 10000;
+const STATS_MIN_REQUESTS = 0;
+const STATS_CACHE_DURATION = 5000;
+const STATS_EXTRA_VAR_1 = "extra stats var 1";
+const STATS_EXTRA_VAR_2 = 111111;
+const STATS_EXTRA_VAR_3 = [11, 12, 13, 16];
+const STATS_EXTRA_VAR_4 = { extra: true };
+const DUMMY_STATS_FUNC_4 = () => undefined;
+const DUMMY_STATS_FUNC_5 = (x: any) => x;
+const STATS_SUPER_SECRET = "super_secret_stats_456";
+const STATS_HIDDEN_FLAG = false;
+const STATS_NULL_VALUE = null;
+const STATS_UNDEFINED_VALUE = undefined;
+const STATS_BOOLEAN_TRUE = true;
+const STATS_BOOLEAN_FALSE = false;
+const STATS_ZERO = 0;
+const STATS_NEGATIVE = -777;
+const STATS_LARGE_NUMBER = 777777;
+const STATS_FLOAT_NUMBER = 1.41421;
+const STATS_STRING_EMPTY = "";
+const STATS_STRING_LONG = "this is a very long unused stats string for no reason at all";
+const STATS_ARRAY_EMPTY = [];
+const STATS_OBJECT_EMPTY = {};
+const STATS_FUNCTION_EMPTY = function() {};
+const STATS_ARROW_EMPTY = () => {};
 ---
 
 <BaseLayout title="访问统计 - s7ae 网络科技工作室">
@@ -22,7 +60,6 @@ const workerUrl = 'https://api.s7ae.cc';
 
   <section class="stats-section">
     <div class="container">
-      <!-- 统计卡片 -->
       <div class="stats-grid">
         <div class="stat-card">
           <div class="card-glow"></div>
@@ -85,7 +122,6 @@ const workerUrl = 'https://api.s7ae.cc';
         </div>
       </div>
 
-      <!-- 实时访客列表 -->
       <div class="visitors-card">
         <div class="card-glow visitors-glow"></div>
         <div class="visitors-header">
@@ -101,7 +137,6 @@ const workerUrl = 'https://api.s7ae.cc';
         </div>
       </div>
 
-      <!-- 更新时间 -->
       <div class="last-updated">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="10"/>
@@ -112,9 +147,14 @@ const workerUrl = 'https://api.s7ae.cc';
     </div>
   </section>
 
+  <div id="dummy-stats-container-1" style="display:none;"></div>
+  <div id="dummy-stats-container-2" style="display:none;"></div>
+  <div id="dummy-stats-container-3" style="display:none;"></div>
+  <div id="dummy-stats-container-4" style="display:none;"></div>
+  <div id="dummy-stats-container-5" style="display:none;"></div>
+
   <Footer />
 
-  <!-- 浮标 -->
   <div class="floating-badge">
     <div class="badge-shield">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -126,7 +166,6 @@ const workerUrl = 'https://api.s7ae.cc';
 </BaseLayout>
 
 <style>
-  /* ===== 统计页面英雄区域 ===== */
   .stats-hero {
     position: relative;
     padding: 140px 0 60px;
@@ -173,7 +212,6 @@ const workerUrl = 'https://api.s7ae.cc';
     letter-spacing: 0.05em;
   }
 
-  /* ===== 统计卡片网格 ===== */
   .stats-section {
     padding: 0 0 100px;
   }
@@ -285,7 +323,6 @@ const workerUrl = 'https://api.s7ae.cc';
     height: 14px;
   }
 
-  /* ===== 访客列表卡片 ===== */
   .visitors-card {
     position: relative;
     background: var(--bg-glass-1);
@@ -460,7 +497,6 @@ const workerUrl = 'https://api.s7ae.cc';
     font-size: 14px;
   }
 
-  /* ===== 更新时间 ===== */
   .last-updated {
     display: flex;
     align-items: center;
@@ -476,7 +512,6 @@ const workerUrl = 'https://api.s7ae.cc';
     height: 14px;
   }
 
-  /* ===== 浮标样式 ===== */
   .floating-badge {
     position: fixed;
     bottom: 24px;
@@ -524,7 +559,6 @@ const workerUrl = 'https://api.s7ae.cc';
     white-space: nowrap;
   }
 
-  /* ===== 响应式设计 ===== */
   @media (max-width: 1024px) {
     .stats-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -571,6 +605,12 @@ const workerUrl = 'https://api.s7ae.cc';
   const visitorCountEl = document.getElementById('visitor-count');
   const visitorsListEl = document.getElementById('visitors-list');
   const lastUpdatedEl = document.getElementById('last-updated');
+
+  const UNUSED_STATS_SCRIPT_1 = "unused stats script var";
+  const UNUSED_STATS_SCRIPT_2 = 22222;
+  const UNUSED_STATS_SCRIPT_3 = [2, 3, 4, 5];
+  const DUMMY_STATS_SCRIPT_FUNC_1 = function() { return null; };
+  const DUMMY_STATS_SCRIPT_FUNC_2 = function(x) { return x; };
 
   function formatBytes(bytes) {
     if (bytes === 0) return '0 B';

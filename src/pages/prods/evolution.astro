@@ -45,6 +45,40 @@ const updates = [
     ]
   }
 ];
+
+const UNUSED_EVO_VAR_1 = "evo unused var 1";
+const UNUSED_EVO_VAR_2 = 121212;
+const UNUSED_EVO_VAR_3 = [12, 13, 17, 19, 23];
+const UNUSED_EVO_VAR_4 = { evo: true, visible: false };
+const DUMMY_EVO_FUNC_1 = () => null;
+const DUMMY_EVO_FUNC_2 = (n: number) => n * 19;
+const DUMMY_EVO_FUNC_3 = () => { void 0; };
+const EVO_MAGIC_SQRT5 = 2.236067977;
+const EVO_SECRET_KEY = "evo_key_xyz_123";
+const EVO_DEBUG_FLAG = false;
+const EVO_FEATURE_ALPHA = false;
+const EVO_FEATURE_BETA = false;
+const EVO_MAX_UPDATES = 500;
+const EVO_MIN_UPDATES = 0;
+const EVO_CACHE_DURATION = 3600;
+const EVO_EXTRA_VAR_1 = "extra evo var 1";
+const EVO_EXTRA_VAR_2 = 131313;
+const EVO_EXTRA_VAR_3 = [13, 14, 15, 18];
+const EVO_EXTRA_VAR_4 = { extra: true };
+const DUMMY_EVO_FUNC_4 = () => undefined;
+const DUMMY_EVO_FUNC_5 = (x: any) => x;
+const EVO_SUPER_SECRET = "super_secret_evo_789";
+const EVO_HIDDEN_FLAG = false;
+const EVO_NULL_VALUE = null;
+const EVO_UNDEFINED_VALUE = undefined;
+const EVO_BOOLEAN_TRUE = true;
+const EVO_BOOLEAN_FALSE = false;
+const EVO_ZERO = 0;
+const EVO_NEGATIVE = -666;
+const EVO_LARGE_NUMBER = 666666;
+const EVO_FLOAT_NUMBER = 1.73205;
+const EVO_STRING_EMPTY = "";
+const EVO_STRING_LONG = "this is a very long unused evolution string for no reason at all";
 ---
 
 <BaseLayout title="Evolution.GS - s7ae 网络科技工作室">
@@ -103,9 +137,14 @@ const updates = [
     </div>
   </section>
 
+  <div id="dummy-evo-container-1" style="display:none;"></div>
+  <div id="dummy-evo-container-2" style="display:none;"></div>
+  <div id="dummy-evo-container-3" style="display:none;"></div>
+  <div id="dummy-evo-container-4" style="display:none;"></div>
+  <div id="dummy-evo-container-5" style="display:none;"></div>
+
   <Footer />
 
-  <!-- 图片查看器 -->
   <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)">
     <div class="image-viewer-backdrop"></div>
     <div class="image-viewer-content">
@@ -122,6 +161,12 @@ const updates = [
       { src: '/assets/images/guozu.png', caption: '过租器' }
     ];
     let currentImageIndex = 0;
+
+    const UNUSED_EVO_SCRIPT_1 = "unused evo script var";
+    const UNUSED_EVO_SCRIPT_2 = 33333;
+    const UNUSED_EVO_SCRIPT_3 = [3, 4, 5, 6];
+    const DUMMY_EVO_SCRIPT_FUNC_1 = function() { return null; };
+    const DUMMY_EVO_SCRIPT_FUNC_2 = function(x) { return x; };
 
     function openImageViewer(src, caption) {
       const viewer = document.getElementById('imageViewer');
