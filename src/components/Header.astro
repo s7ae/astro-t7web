@@ -7,6 +7,7 @@ const navItems = [
   { href: '/', label: '首页' },
   { href: '/projects', label: '项目' },
   { href: '/team', label: '鸣谢' },
+  { href: '/stats', label: '访问统计', description: '实时监控流量' },
   { href: '/contact', label: '联系我们' },
 ];
 ---
@@ -26,6 +27,9 @@ const navItems = [
             class:list={['nav-link', { active: currentPage === item.href }]}
           >
             <span class="nav-link-text">{item.label}</span>
+            {item.description && (
+              <span class="nav-badge">{item.description}</span>
+            )}
             <span class="nav-link-indicator"></span>
           </a>
         </li>

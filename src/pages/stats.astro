@@ -1,0 +1,648 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const workerUrl = 'https://s7ae-stats.2927083365.workers.dev/';
+---
+
+<BaseLayout title="访问统计 - s7ae 网络科技工作室">
+  <Header currentPage="/stats" />
+  
+  <section class="stats-hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+      <h1 class="page-title">
+        <span class="title-icon">◈</span>
+        访问统计
+      </h1>
+      <p class="page-subtitle">实时网络流量监控与分析</p>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="container">
+      <!-- 统计卡片 -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="card-glow"></div>
+          <div class="stat-icon-wrapper">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="stat-value" id="total-visits">--</div>
+          <div class="stat-label">10分钟内访问次数</div>
+          <div class="stat-trend">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+            <span>实时统计</span>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="card-glow"></div>
+          <div class="stat-icon-wrapper">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <div class="stat-value" id="unique-visitors">--</div>
+          <div class="stat-label">独立访客数</div>
+          <div class="stat-trend">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>全球节点</span>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="card-glow"></div>
+          <div class="stat-icon-wrapper">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <div class="stat-value" id="total-traffic">--</div>
+          <div class="stat-label">流量消耗 (10分钟)</div>
+          <div class="stat-trend">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+            <span>实时计量</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 实时访客列表 -->
+      <div class="visitors-card">
+        <div class="card-glow visitors-glow"></div>
+        <div class="visitors-header">
+          <div class="pulse-ring"></div>
+          <h2>实时在线访客</h2>
+          <span class="visitor-count" id="visitor-count">0</span>
+        </div>
+        <div class="visitors-list" id="visitors-list">
+          <div class="loading">
+            <div class="loading-spinner"></div>
+            <span>正在加载数据...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 更新时间 -->
+      <div class="last-updated">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>最后更新: <span id="last-updated">--</span></span>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <!-- 浮标 -->
+  <div class="floating-badge">
+    <div class="badge-shield">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </div>
+    <span class="badge-text">在你尝试击落我的网站时为你提供统计测试</span>
+  </div>
+</BaseLayout>
+
+<style>
+  /* ===== 统计页面英雄区域 ===== */
+  .stats-hero {
+    position: relative;
+    padding: 140px 0 60px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(232, 137, 74, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .page-title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .title-icon {
+    font-size: 32px;
+    color: var(--accent-primary);
+    -webkit-text-fill-color: var(--accent-primary);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .page-subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== 统计卡片网格 ===== */
+  .stats-section {
+    padding: 0 0 100px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .stat-card {
+    position: relative;
+    background: var(--bg-glass-1);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    text-align: center;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    padding: 1px;
+    background: var(--accent-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(232, 137, 74, 0.15);
+  }
+
+  .stat-card:hover::before {
+    opacity: 1;
+  }
+
+  .card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .stat-card:hover .card-glow {
+    opacity: 0.05;
+  }
+
+  .stat-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    background: var(--accent-glow);
+    border-radius: 50%;
+    border: 1px solid rgba(232, 137, 74, 0.2);
+  }
+
+  .stat-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--accent-primary);
+  }
+
+  .stat-value {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-family: 'Audiowide', cursive;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+  }
+
+  .stat-trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(232, 137, 74, 0.08);
+    border: 1px solid rgba(232, 137, 74, 0.15);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--accent-secondary);
+  }
+
+  .stat-trend svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* ===== 访客列表卡片 ===== */
+  .visitors-card {
+    position: relative;
+    background: var(--bg-glass-1);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    overflow: hidden;
+  }
+
+  .visitors-glow {
+    background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+  }
+
+  .visitors-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pulse-ring {
+    position: relative;
+    width: 12px;
+    height: 12px;
+  }
+
+  .pulse-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  .visitors-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .visitor-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 10px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    margin-left: auto;
+  }
+
+  .visitors-list {
+    max-height: 350px;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .visitors-list::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .visitors-list::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .visitors-list::-webkit-scrollbar-thumb {
+    background: rgba(232, 137, 74, 0.3);
+    border-radius: 3px;
+  }
+
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(232, 137, 74, 0.2);
+    border-top-color: var(--accent-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .visitor-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 16px;
+    padding: 16px;
+    border-bottom: 1px solid var(--glass-border);
+    align-items: center;
+    transition: all 0.2s ease;
+  }
+
+  .visitor-item:hover {
+    background: rgba(232, 137, 74, 0.05);
+  }
+
+  .visitor-item:last-child {
+    border-bottom: none;
+  }
+
+  .visitor-ip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 13px;
+    color: var(--accent-primary);
+    background: rgba(232, 137, 74, 0.1);
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(232, 137, 74, 0.2);
+  }
+
+  .visitor-ip svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .visitor-path {
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-family: 'Monaco', 'Consolas', monospace;
+  }
+
+  .visitor-time {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+
+  .visitor-time svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .no-visitors {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  /* ===== 更新时间 ===== */
+  .last-updated {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .last-updated svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* ===== 浮标样式 ===== */
+  .floating-badge {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(20, 20, 30, 0.9);
+    backdrop-filter: blur(var(--blur-md));
+    -webkit-backdrop-filter: blur(var(--blur-md));
+    border: 1px solid rgba(232, 137, 74, 0.3);
+    border-radius: 50px;
+    padding: 12px 20px;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+    animation: badge-float 4s ease-in-out infinite;
+  }
+
+  @keyframes badge-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .badge-shield {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--accent-glow);
+    border-radius: 50%;
+  }
+
+  .badge-shield svg {
+    width: 16px;
+    height: 16px;
+    color: var(--accent-primary);
+  }
+
+  .badge-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  /* ===== 响应式设计 ===== */
+  @media (max-width: 1024px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 32px;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stat-value {
+      font-size: 36px;
+    }
+
+    .visitor-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .floating-badge {
+      bottom: 16px;
+      right: 16px;
+      left: 16px;
+      padding: 10px 16px;
+    }
+
+    .badge-text {
+      font-size: 12px;
+    }
+  }
+</style>
+
+<script define:vars={{ workerUrl }}>
+  const API_URL = workerUrl;
+
+  const totalVisitsEl = document.getElementById('total-visits');
+  const uniqueVisitorsEl = document.getElementById('unique-visitors');
+  const totalTrafficEl = document.getElementById('total-traffic');
+  const visitorCountEl = document.getElementById('visitor-count');
+  const visitorsListEl = document.getElementById('visitors-list');
+  const lastUpdatedEl = document.getElementById('last-updated');
+
+  function formatBytes(bytes) {
+    if (bytes === 0) return '0 B';
+    const k = 1024;
+    const sizes = ['B', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+
+  async function fetchStats() {
+    try {
+      const response = await fetch(`${API_URL}/api/stats`);
+      const data = await response.json();
+      if (data.error) return null;
+      return data;
+    } catch (error) {
+      console.error('获取统计失败:', error);
+      return null;
+    }
+  }
+
+  async function fetchVisitors() {
+    try {
+      const response = await fetch(`${API_URL}/api/visitors`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('获取访客失败:', error);
+      return null;
+    }
+  }
+
+  async function updatePage() {
+    const stats = await fetchStats();
+    const visitors = await fetchVisitors();
+    
+    if (stats) {
+      totalVisitsEl.textContent = stats.totalVisits || 0;
+      uniqueVisitorsEl.textContent = stats.uniqueIPs || 0;
+      totalTrafficEl.textContent = formatBytes(stats.totalBytes || 0);
+    }
+    
+    if (visitors) {
+      visitorCountEl.textContent = visitors.count || 0;
+      
+      if (visitors.visitors && visitors.visitors.length > 0) {
+        visitorsListEl.innerHTML = visitors.visitors.map(v => `
+          <div class="visitor-item">
+            <span class="visitor-ip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              ${v.ip}
+            </span>
+            <span class="visitor-path">${v.path}</span>
+            <span class="visitor-time">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              ${v.time}
+            </span>
+          </div>
+        `).join('');
+      } else {
+        visitorsListEl.innerHTML = '<div class="no-visitors">暂无在线访客</div>';
+      }
+    }
+    
+    lastUpdatedEl.textContent = new Date().toLocaleString('zh-CN');
+  }
+
+  updatePage();
+  setInterval(updatePage, 5000);
+</script>
