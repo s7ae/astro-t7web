@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>volumeshader_bm</title>
+    <meta name="description" content="A WebGL volume rendering experiment">
+    <meta name="keywords" content="webgl,shader,volume,3d,graphics">
+    <meta name="author" content="Anonymous Developer">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0d0d12">
+    <link rel="icon" href="data:image/x-icon;base64,">
+    <link rel="stylesheet" href="./shader.css">
+    <style type="text/css">
+      .unused-style-1 { display: none; }
+      .unused-style-2 { visibility: hidden; }
+      .unused-style-3 { opacity: 0; }
+._s28e1{opacity:0}
+._s28e2{visibility:hidden}
+._s28e3{clip-path:inset(50%)}
+._s28e4{clip-path:inset(50%)}
+._s28e5{width:0}
+._s28e6{z-index:-1}
+._s28e7{transform:scale(0)}
+._s28e8{visibility:hidden}
+._s28e9{content:''}
+._s28ea{transform:scale(0)}
+._s28eb{height:0}
+._s28ec{display:none}
+._s28ed{pointer-events:none}
+._s28ee{width:0}
+._s28ef{content:''}
+._s28f0{clip-path:inset(50%)}
+._s28f1{overflow:hidden}
+._s28f2{clip-path:inset(50%)}
+._s28f3{overflow:hidden}
+._s28f4{content:''}
+._s28f5{height:0}
+._s28f6{visibility:hidden}
+._s28f7{height:0}
+._s28f8{height:0}
+._s28f9{overflow:hidden}
+._s28fa{clip-path:inset(50%)}
+._s28fb{visibility:hidden}
+._s28fc{width:0}
+._s28fd{visibility:hidden}
+._s28fe{height:0}
+._s28ff{clip-path:inset(50%)}
+._s2900{content:''}
+._s2901{overflow:hidden}
+._s2902{display:none}
+._s2903{width:0}
+._s2904{height:0}
+._s2905{visibility:hidden}
+._s2906{visibility:hidden}
+._s2907{opacity:0}
+._s2908{width:0}
+._s2909{clip-path:inset(50%)}
+._s290a{position:absolute}
+._s290b{clip-path:inset(50%)}
+._s290c{height:0}
+._s290d{transform:scale(0)}
+._s290e{content:''}
+._s290f{pointer-events:none}
+._s2910{z-index:-1}
+._s2911{overflow:hidden}
+._s2912{position:absolute}
+._s2913{width:0}
+._s2914{height:0}
+._s2915{pointer-events:none}
+._s2916{clip-path:inset(50%)}
+._s2917{pointer-events:none}
+._s2918{overflow:hidden}
+._s2919{transform:scale(0)}
+._s291a{z-index:-1}
+._s291b{pointer-events:none}
+._s291c{width:0}
+._s291d{z-index:-1}
+._s291e{width:0}
+._s291f{pointer-events:none}
+._s2920{display:none}
+._s2921{pointer-events:none}
+._s2922{z-index:-1}
+._s2923{height:0}
+._s2924{opacity:0}
+._s2925{transform:scale(0)}
+._s2926{transform:scale(0)}
+._s2927{z-index:-1}
+._s2928{z-index:-1}
+._s2929{position:absolute}
+._s292a{position:absolute}
+._s292b{pointer-events:none}
+._s292c{height:0}
+._s292d{position:absolute}
+._s292e{transform:scale(0)}
+._s292f{height:0}
+._s2930{transform:scale(0)}
+._s2931{pointer-events:none}
+._s2932{height:0}
+._s2933{pointer-events:none}
+._s2934{opacity:0}
+._s2935{opacity:0}
+._s2936{pointer-events:none}
+._s2937{position:absolute}
+._s2938{clip-path:inset(50%)}
+._s2939{z-index:-1}
+._s293a{clip-path:inset(50%)}
+._s293b{width:0}
+._s293c{opacity:0}
+._s293d{clip-path:inset(50%)}
+._s293e{visibility:hidden}
+._s293f{pointer-events:none}
+._s2940{height:0}
+._s2941{overflow:hidden}
+._s2942{position:absolute}
+._s2943{height:0}
+._s2944{display:none}
+._s2945{clip-path:inset(50%)}
+._s2946{overflow:hidden}
+._s2947{clip-path:inset(50%)}
+._s2948{visibility:hidden}
+._s2949{visibility:hidden}
+._s294a{position:absolute}
+._s294b{pointer-events:none}
+._s294c{width:0}
+._s294d{content:''}
+._s294e{content:''}
+._s294f{z-index:-1}
+._s2950{pointer-events:none}
+._s2951{content:''}
+._s2952{width:0}
+._s2953{clip-path:inset(50%)}
+._s2954{visibility:hidden}
+._s2955{display:none}
+._s2956{position:absolute}
+._s2957{display:none}
+._s2958{overflow:hidden}
+._s2959{pointer-events:none}
+._s295a{overflow:hidden}
+._s295b{position:absolute}
+._s295c{visibility:hidden}
+._s295d{pointer-events:none}
+._s295e{content:''}
+._s295f{pointer-events:none}
+._s2960{opacity:0}
+._s2961{transform:scale(0)}
+._s2962{position:absolute}
+._s2963{opacity:0}
+._s2964{opacity:0}
+._s2965{clip-path:inset(50%)}
+._s2966{opacity:0}
+._s2967{pointer-events:none}
+._s2968{opacity:0}
+._s2969{opacity:0}
+._s296a{height:0}
+._s296b{position:absolute}
+._s296c{width:0}
+._s296d{display:none}
+._s296e{height:0}
+._s296f{height:0}
+._s2970{pointer-events:none}
+._s2971{height:0}
+._s2972{width:0}
+._s2973{pointer-events:none}
+._s2974{display:none}
+._s2975{clip-path:inset(50%)}
+._s2976{display:none}
+._s2977{opacity:0}
+._s2978{position:absolute}
+._s2979{width:0}
+._s297a{visibility:hidden}
+._s297b{opacity:0}
+._s297c{visibility:hidden}
+._s297d{transform:scale(0)}
+._s297e{z-index:-1}
+._s297f{clip-path:inset(50%)}
+._s2980{content:''}
+._s2981{width:0}
+._s2982{position:absolute}
+._s2983{visibility:hidden}
+._s2984{visibility:hidden}
+._s2985{z-index:-1}
+._s2986{overflow:hidden}
+._s2987{visibility:hidden}
+._s2988{visibility:hidden}
+._s2989{position:absolute}
+._s298a{opacity:0}
+._s298b{transform:scale(0)}
+._s298c{transform:scale(0)}
+._s298d{visibility:hidden}
+._s298e{clip-path:inset(50%)}
+._s298f{width:0}
+._s2990{position:absolute}
+._s2991{display:none}
+._s2992{pointer-events:none}
+._s2993{visibility:hidden}
+._s2994{position:absolute}
+._s2995{visibility:hidden}
+._s2996{clip-path:inset(50%)}
+._s2997{z-index:-1}
+._s2998{content:''}
+._s2999{height:0}
+._s299a{position:absolute}
+._s299b{pointer-events:none}
+._s299c{transform:scale(0)}
+._s299d{height:0}
+._s299e{z-index:-1}
+._s299f{pointer-events:none}
+._s29a0{display:none}
+._s29a1{pointer-events:none}
+._s29a2{z-index:-1}
+._s29a3{display:none}
+._s29a4{transform:scale(0)}
+._s29a5{z-index:-1}
+._s29a6{transform:scale(0)}
+._s29a7{position:absolute}
+._s29a8{position:absolute}
+._s29a9{visibility:hidden}
+._s29aa{content:''}
+._s29ab{width:0}
+._s29ac{display:none}
+._s29ad{content:''}
+._s29ae{opacity:0}
+._s29af{overflow:hidden}
+._s29b0{overflow:hidden}
+._s29b1{position:absolute}
+._s29b2{width:0}
+._s29b3{opacity:0}
+._s29b4{pointer-events:none}
+._s29b5{visibility:hidden}
+._s29b6{pointer-events:none}
+._s29b7{position:absolute}
+._s29b8{z-index:-1}
+._s29b9{height:0}
+._s29ba{visibility:hidden}
+._s29bb{overflow:hidden}
+._s29bc{width:0}
+._s29bd{height:0}
+._s29be{visibility:hidden}
+._s29bf{opacity:0}
+._s29c0{z-index:-1}
+._s29c1{width:0}
+._s29c2{width:0}
+._s29c3{width:0}
+._s29c4{clip-path:inset(50%)}
+._s29c5{position:absolute}
+._s29c6{width:0}
+._s29c7{position:absolute}
+._s29c8{z-index:-1}
+._s29c9{visibility:hidden}
+._s29ca{display:none}
+._s29cb{content:''}
+._s29cc{transform:scale(0)}
+._s29cd{visibility:hidden}
+._s29ce{z-index:-1}
+._s29cf{visibility:hidden}
+._s29d0{display:none}
+._s29d1{width:0}
+._s29d2{content:''}
+._s29d3{content:''}
+._s29d4{width:0}
+._s29d5{transform:scale(0)}
+._s29d6{z-index:-1}
+._s29d7{visibility:hidden}
+._s29d8{transform:scale(0)}
+._s29d9{transform:scale(0)}
+._s29da{transform:scale(0)}
+._s29db{visibility:hidden}
+._s29dc{clip-path:inset(50%)}
+._s29dd{z-index:-1}
+._s29de{transform:scale(0)}
+._s29df{clip-path:inset(50%)}
+._s29e0{visibility:hidden}
+._s29e1{transform:scale(0)}
+._s29e2{height:0}
+._s29e3{transform:scale(0)}
+._s29e4{visibility:hidden}
+</style>
+  </head>
+  <body>
+    <div id="main">
+      <canvas id="c1" width="1024" height="1024">
+        <span>浏览器不支持canvas</span>
+      </canvas>
+    </div>
+    <button id="btn">CONFIG</button>
+    <div id="config" style="display: none;">
+      <textarea name="kernel" id="kernel" cols="30" rows="10"></textarea>
+      <br />
+      <button id="apply">APPLY</button>
+      <button id="cancel">CANCEL</button>
+    </div>
+    <div id="dummy-container-1" style="display:none;"></div>
+    <div id="dummy-container-2" style="display:none;"></div>
+    <div id="dummy-container-3" style="display:none;"></div>
+    <span id="dummy-span-1" style="display:none;"></span>
+    <span id="dummy-span-2" style="display:none;"></span>
+    <span id="dummy-span-3" style="display:none;"></span>
+    <p id="dummy-paragraph-1" style="display:none;"></p>
+    <p id="dummy-paragraph-2" style="display:none;"></p>
+    <p id="dummy-paragraph-3" style="display:none;"></p>
+    <script src="./break.js" type="text/javascript">
+var _z27e1 = '\x78\x32\x37\x65\x32' + '\x78\x32\x37\x65\x33';
+var _z27e4 = { a: 36, b: '\x78\x32\x37\x65\x35' };
+var _z27e6 = ((v) => v * 4)(1);
+var _z27e7 = 59121;
+var _z27e8 = ((v) => v * 5)(9);
+var _z27e9 = ((v) => v * 5)(5);
+var _z27ea = 41198;
+var _z27eb = ((v) => v * 4)(39);
+var _z27ec = ((v) => v * 5)(82);
+var _z27ed = { a: 85, b: '\x78\x32\x37\x65\x65' };
+var _z27ef = { a: 57, b: '\x78\x32\x37\x66\x30' };
+var _z27f1 = { a: 4, b: '\x78\x32\x37\x66\x32' };
+var _z27f3 = { a: 24, b: '\x78\x32\x37\x66\x34' };
+var _z27f5 = '\x78\x32\x37\x66\x36' + '\x78\x32\x37\x66\x37';
+var _z27f8 = { a: 71, b: '\x78\x32\x37\x66\x39' };
+var _z27fa = { a: 14, b: '\x78\x32\x37\x66\x62' };
+var _z27fc = 83655;
+var _z27fd = { a: 62, b: '\x78\x32\x37\x66\x65' };
+var _z27ff = { a: 40, b: '\x78\x32\x38\x30\x30' };
+var _z2801 = ((v) => v * 7)(27);
+var _z2802 = '\x78\x32\x38\x30\x33' + '\x78\x32\x38\x30\x34';
+var _z2805 = { a: 3, b: '\x78\x32\x38\x30\x36' };
+var _z2807 = '\x78\x32\x38\x30\x38' + '\x78\x32\x38\x30\x39';
+var _z280a = 17048;
+var _z280b = 52043;
+var _z280c = { a: 92, b: '\x78\x32\x38\x30\x64' };
+var _z280e = ((v) => v * 4)(53);
+var _z280f = 90098;
+var _z2810 = ((v) => v * 8)(42);
+var _z2811 = 25221;
+var _z2812 = { a: 3, b: '\x78\x32\x38\x31\x33' };
+var _z2814 = ((v) => v * 2)(69);
+var _z2815 = '\x78\x32\x38\x31\x36' + '\x78\x32\x38\x31\x37';
+var _z2818 = ((v) => v * 4)(93);
+var _z2819 = { a: 11, b: '\x78\x32\x38\x31\x61' };
+var _z281b = 70395;
+var _z281c = ((v) => v * 7)(60);
+var _z281d = '\x78\x32\x38\x31\x65' + '\x78\x32\x38\x31\x66';
+var _z2820 = { a: 68, b: '\x78\x32\x38\x32\x31' };
+var _z2822 = '\x78\x32\x38\x32\x33' + '\x78\x32\x38\x32\x34';
+var _z2825 = 7083;
+var _z2826 = '\x78\x32\x38\x32\x37' + '\x78\x32\x38\x32\x38';
+var _z2829 = ((v) => v * 5)(23);
+var _z282a = { a: 64, b: '\x78\x32\x38\x32\x62' };
+var _z282c = '\x78\x32\x38\x32\x64' + '\x78\x32\x38\x32\x65';
+var _z282f = 21066;
+var _z2830 = '\x78\x32\x38\x33\x31' + '\x78\x32\x38\x33\x32';
+var _z2833 = { a: 87, b: '\x78\x32\x38\x33\x34' };
+var _z2835 = 79517;
+var _z2836 = ((v) => v * 3)(27);
+var _z2837 = { a: 54, b: '\x78\x32\x38\x33\x38' };
+var _z2839 = '\x78\x32\x38\x33\x61' + '\x78\x32\x38\x33\x62';
+var _z283c = ((v) => v * 2)(87);
+var _z283d = '\x78\x32\x38\x33\x65' + '\x78\x32\x38\x33\x66';
+var _z2840 = '\x78\x32\x38\x34\x31' + '\x78\x32\x38\x34\x32';
+var _z2843 = { a: 22, b: '\x78\x32\x38\x34\x34' };
+var _z2845 = '\x78\x32\x38\x34\x36' + '\x78\x32\x38\x34\x37';
+var _z2848 = { a: 87, b: '\x78\x32\x38\x34\x39' };
+var _z284a = { a: 31, b: '\x78\x32\x38\x34\x62' };
+var _z284c = { a: 68, b: '\x78\x32\x38\x34\x64' };
+var _z284e = { a: 38, b: '\x78\x32\x38\x34\x66' };
+var _z2850 = ((v) => v * 2)(14);
+var _z2851 = 62133;
+var _z2852 = '\x78\x32\x38\x35\x33' + '\x78\x32\x38\x35\x34';
+var _z2855 = { a: 84, b: '\x78\x32\x38\x35\x36' };
+var _z2857 = '\x78\x32\x38\x35\x38' + '\x78\x32\x38\x35\x39';
+var _z285a = '\x78\x32\x38\x35\x62' + '\x78\x32\x38\x35\x63';
+var _z285d = { a: 89, b: '\x78\x32\x38\x35\x65' };
+var _z285f = ((v) => v * 3)(21);
+var _z2860 = 24198;
+var _z2861 = 64307;
+var _z2862 = { a: 46, b: '\x78\x32\x38\x36\x33' };</script>
+    <script type="text/javascript">
+      var UNUSED_SCRIPT_VAR_1 = "\x74\x68\x69\x73\x20\x69\x73\x20\x75\x6e\x75\x73\x65\x64";
+      var UNUSED_SCRIPT_VAR_2 = 12345;
+      var UNUSED_SCRIPT_VAR_3 = [1,2,3,4,5];
+      function UNUSED_SCRIPT_FUNCTION_1() { return null; }
+      function UNUSED_SCRIPT_FUNCTION_2() { return void 0; }
+      function UNUSED_SCRIPT_FUNCTION_3() { while(false) { break; } }
+    
+var _z2864 = '\x78\x32\x38\x36\x35' + '\x78\x32\x38\x36\x36';
+var _z2867 = 38446;
+var _z2868 = { a: 28, b: '\x78\x32\x38\x36\x39' };
+var _z286a = { a: 17, b: '\x78\x32\x38\x36\x62' };
+var _z286c = 73064;
+var _z286d = ((v) => v * 3)(12);
+var _z286e = { a: 80, b: '\x78\x32\x38\x36\x66' };
+var _z2870 = '\x78\x32\x38\x37\x31' + '\x78\x32\x38\x37\x32';
+var _z2873 = { a: 44, b: '\x78\x32\x38\x37\x34' };
+var _z2875 = { a: 94, b: '\x78\x32\x38\x37\x36' };
+var _z2877 = '\x78\x32\x38\x37\x38' + '\x78\x32\x38\x37\x39';
+var _z287a = '\x78\x32\x38\x37\x62' + '\x78\x32\x38\x37\x63';
+var _z287d = '\x78\x32\x38\x37\x65' + '\x78\x32\x38\x37\x66';
+var _z2880 = ((v) => v * 3)(64);
+var _z2881 = ((v) => v * 7)(25);
+var _z2882 = '\x78\x32\x38\x38\x33' + '\x78\x32\x38\x38\x34';
+var _z2885 = { a: 95, b: '\x78\x32\x38\x38\x36' };
+var _z2887 = 67536;
+var _z2888 = 2537;
+var _z2889 = ((v) => v * 4)(14);
+var _z288a = ((v) => v * 5)(66);
+var _z288b = '\x78\x32\x38\x38\x63' + '\x78\x32\x38\x38\x64';
+var _z288e = '\x78\x32\x38\x38\x66' + '\x78\x32\x38\x39\x30';
+var _z2891 = '\x78\x32\x38\x39\x32' + '\x78\x32\x38\x39\x33';
+var _z2894 = { a: 74, b: '\x78\x32\x38\x39\x35' };
+var _z2896 = 1666;
+var _z2897 = { a: 8, b: '\x78\x32\x38\x39\x38' };
+var _z2899 = { a: 45, b: '\x78\x32\x38\x39\x61' };
+var _z289b = 16753;
+var _z289c = { a: 91, b: '\x78\x32\x38\x39\x64' };
+var _z289e = 61870;
+var _z289f = 64527;
+var _z28a0 = { a: 52, b: '\x78\x32\x38\x61\x31' };
+var _z28a2 = ((v) => v * 3)(31);
+var _z28a3 = ((v) => v * 8)(90);
+var _z28a4 = 22811;
+var _z28a5 = 85421;
+var _z28a6 = { a: 43, b: '\x78\x32\x38\x61\x37' };
+var _z28a8 = 69340;
+var _z28a9 = '\x78\x32\x38\x61\x61' + '\x78\x32\x38\x61\x62';
+var _z28ac = 7856;
+var _z28ad = { a: 36, b: '\x78\x32\x38\x61\x65' };
+var _z28af = 35563;
+var _z28b0 = { a: 46, b: '\x78\x32\x38\x62\x31' };
+var _z28b2 = 21341;
+var _z28b3 = 97681;
+var _z28b4 = { a: 43, b: '\x78\x32\x38\x62\x35' };
+var _z28b6 = ((v) => v * 3)(7);
+var _z28b7 = ((v) => v * 6)(1);
+var _z28b8 = 97387;
+var _z28b9 = 20938;
+var _z28ba = '\x78\x32\x38\x62\x62' + '\x78\x32\x38\x62\x63';
+var _z28bd = 18513;
+var _z28be = ((v) => v * 7)(96);
+var _z28bf = 67980;
+var _z28c0 = { a: 69, b: '\x78\x32\x38\x63\x31' };
+var _z28c2 = { a: 53, b: '\x78\x32\x38\x63\x33' };
+var _z28c4 = 85038;
+var _z28c5 = { a: 21, b: '\x78\x32\x38\x63\x36' };
+var _z28c7 = { a: 73, b: '\x78\x32\x38\x63\x38' };
+var _z28c9 = 47627;
+var _z28ca = ((v) => v * 8)(57);
+var _z28cb = { a: 92, b: '\x78\x32\x38\x63\x63' };
+var _z28cd = '\x78\x32\x38\x63\x65' + '\x78\x32\x38\x63\x66';
+var _z28d0 = '\x78\x32\x38\x64\x31' + '\x78\x32\x38\x64\x32';
+var _z28d3 = { a: 77, b: '\x78\x32\x38\x64\x34' };
+var _z28d5 = ((v) => v * 2)(89);
+var _z28d6 = '\x78\x32\x38\x64\x37' + '\x78\x32\x38\x64\x38';
+var _z28d9 = '\x78\x32\x38\x64\x61' + '\x78\x32\x38\x64\x62';
+var _z28dc = 83858;
+var _z28dd = { a: 83, b: '\x78\x32\x38\x64\x65' };
+var _z28df = { a: 73, b: '\x78\x32\x38\x65\x30' };</script>
+  </body>
+</html>

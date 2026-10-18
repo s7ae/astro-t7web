@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProductSpec from '../../components/ProductSpec.astro';
+
+const updates = [
+  {
+    date: '\x32\x30\x32\x35\x2d\x31\x31\x2d\x31\x33',
+    details: [
+      '\u72ec\u7acb\x45\x78\x70\x6c\x6f\x69\x74\u652f\u6301\u5e93\u5b8c\u5168\u91cd\u6784',
+      '\u4fee\u590d\u4e3b\u52a8\x42\x72\x65\x61\x6b\x4c\x43\u4e0e\x44\x65\x66\x65\x6e\x73\x69\x76\x65\x20\x41\x41\u7684\u91ca\u653e\u95ee\u9898',
+      '\x4a\x69\x74\x74\x65\x72\x20\x44\x79\x6e\x61\x6d\x69\x63\x20\x53\x69\x7a\x65\u4e0e\x4a\x69\x74\x74\x65\x72\u7684\u4ea4\u4e92\u903b\u8f91\u4f18\u5316',
+      '\u4fee\u590d\u4e86\u4e00\u4e9b\u56e0\u5934\u90e8\u65b9\u6cd5\u800c\u5f15\u8d77\u7684\u4e22\u5e27',
+      '\u4f18\u5316\u4e86\u4e91\u7aef\u7684\x4c\x37',
+      '\u4fee\u590d\u4e86\u4e00\u4e2a\u6ca1\u4eba\u6ce8\u610f\u5230\u7684\u5b89\u5168\u6027\u6f0f\u6d1e',
+    ],
+  },
+  {
+    date: '\x32\x30\x32\x35\x2d\x31\x30\x2d\x32\x34',
+    details: [
+      '\u5168\u9762\u4f18\u5316\u89e3\u6790\u5668\u7684\u6240\u6709\u90e8\u5206\x28\u4f46\u5e76\u975e\u91cd\u6784\x29',
+      '\u4fee\u590d\u90e8\u5206\u73a9\u5bb6\u95ea\u9000\u95ee\u9898',
+      '\x47\x53\u5e73\u53f0\u81ea\u5e26\u5047\u8eab\u66ff\u6362\u4e3a\u81ea\u7814\u5047\u8eab',
+    ],
+  },
+  {
+    date: '\x32\x30\x32\x35\x2d\x31\x30\x2d\x31\x31',
+    details: [
+      '\u5168\u65b0\u7684\u72ec\u7acb\u652f\u6301\u5e93\u53d1\u5e03\uff0c\u4fee\u590d\u5e73\u53f0\u786c\u4f24',
+      '\u6dfb\u52a0\x49\x64\x65\x61\x6c\x20\x53\x69\x64\x65\x62\x61\x73\x65\x64\x20\x44\x65\x66\x65\x6e\x73\x69\x76\x65\u7684\u66f4\u6210\u719f\u65b9\u6848',
+      '\u4f18\u5316\u5806\u6808\u5360\u7528\uff0c\u63d0\u9ad8\u8fd0\u884c\u7a33\u5b9a\u6027',
+    ],
+  },
+  {
+    date: '\x32\x30\x32\x35\x2d\x31\x30\x2d\x30\x33',
+    details: [
+      '\u9996\u6b21\u53d1\u5e03\x54\x37\x54\x65\x63\x68\u6838\u5fc3\u7070\u5ea6\u6d4b\u8bd5\u7248\u672c',
+      '\u5b9e\u73b0\u8d85\u9ad8\u5ea6\u81ea\u5b9a\u4e49\u7684\x62\x75\x69\x6c\x64\x65\x72\u6a21\u5757',
+      '\u5212\u65f6\u4ee3\u7684\u5f3a\u5ea6\u548c\u6027\u80fd\u8868\u73b0',
+    ],
+  },
+];
+const _d237e = { k: '\x78\x32\x33\x37\x66', n: 27 };
+
+const meta = [
+  { label: '\u7c7b\u578b', value: '\u5e02\u573a' },
+  { label: '\u6280\u672f\u6808', value: '\x4c\x75\x61\x20\x2f\x20\u811a\u672c\x20\x2f\x20\x41\x6e\x74\x69\x2d\x41\x69\x6d' },
+  { label: '\u72b6\u6001', value: '\u5df2\u505c\u6b62\u8fd0\u8425\uff0c\u8bf7\u53c2\u7167\x20\x45\x76\x6f\x6c\x75\x74\x69\x6f\x6e\x20\u5361\u7247' },
+];
+let _d2380 = ((v: number) => v * 4)(90);
+const _d2381 = ['\x78\x32\x33\x38\x32', '\x78\x32\x33\x38\x33'];
+var _d2384 = 49050;
+const _d2385 = ['\x78\x32\x33\x38\x36', '\x78\x32\x33\x38\x37'];
+const _d2388 = { k: '\x78\x32\x33\x38\x39', n: 2 };
+let _d238a = { k: '\x78\x32\x33\x38\x62', n: 97 };
+var _d238c = 18425;
+var _d238d = { k: '\x78\x32\x33\x38\x65', n: 4 };
+const _d238f = 23611;
+const _d2390 = 28672;
+const _d2391 = ((v: number) => v * 5)(8);
+let _d2392 = { k: '\x78\x32\x33\x39\x33', n: 27 };
+let _d2394 = ((v: number) => v * 5)(97);
+let _d2395 = ['\x78\x32\x33\x39\x36', '\x78\x32\x33\x39\x37'];
+const _d2398 = ((v: number) => v * 8)(39);
+const _d2399 = 93329;
+var _d239a = ['\x78\x32\x33\x39\x62', '\x78\x32\x33\x39\x63'];
+var _d239d = { k: '\x78\x32\x33\x39\x65', n: 48 };
+let _d239f = ((v: number) => v * 7)(7);
+var _d23a0 = { k: '\x78\x32\x33\x61\x31', n: 97 };
+var _d23a2 = { k: '\x78\x32\x33\x61\x33', n: 22 };
+var _d23a4 = 79670;
+let _d23a5 = 24236;
+const _d23a6 = 74939;
+let _d23a7 = { k: '\x78\x32\x33\x61\x38', n: 86 };
+let _d23a9 = { k: '\x78\x32\x33\x61\x61', n: 74 };
+var _d23ab = ((v: number) => v * 2)(30);
+const _d23ac = ((v: number) => v * 2)(19);
+var _d23ad = { k: '\x78\x32\x33\x61\x65', n: 80 };
+let _d23af = { k: '\x78\x32\x33\x62\x30', n: 8 };
+const _d23b1 = { k: '\x78\x32\x33\x62\x32', n: 44 };
+var _d23b3 = ((v: number) => v * 6)(85);
+var _d23b4 = ((v: number) => v * 2)(44);
+let _d23b5 = ((v: number) => v * 4)(95);
+var _d23b6 = ['\x78\x32\x33\x62\x37', '\x78\x32\x33\x62\x38'];
+var _d23b9 = ['\x78\x32\x33\x62\x61', '\x78\x32\x33\x62\x62'];
+var _d23bc = ['\x78\x32\x33\x62\x64', '\x78\x32\x33\x62\x65'];
+let _d23bf = { k: '\x78\x32\x33\x63\x30', n: 29 };
+var _d23c1 = 8029;
+let _d23c2 = { k: '\x78\x32\x33\x63\x33', n: 84 };
+let _d23c4 = ((v: number) => v * 4)(39);
+let _d23c5 = 16955;
+var _d23c6 = { k: '\x78\x32\x33\x63\x37', n: 83 };
+var _d23c8 = 7963;
+var _d23c9 = { k: '\x78\x32\x33\x63\x61', n: 14 };
+const _d23cb = 39499;
+const _d23cc = { k: '\x78\x32\x33\x63\x64', n: 33 };
+const _d23ce = ((v: number) => v * 3)(22);
+var _d23cf = ((v: number) => v * 5)(81);
+const _d23d0 = ['\x78\x32\x33\x64\x31', '\x78\x32\x33\x64\x32'];
+let _d23d3 = ((v: number) => v * 2)(38);
+let _d23d4 = ((v: number) => v * 6)(83);
+const _d23d5 = ['\x78\x32\x33\x64\x36', '\x78\x32\x33\x64\x37'];
+let _d23d8 = ((v: number) => v * 2)(46);
+var _d23d9 = 1695;
+let _d23da = { k: '\x78\x32\x33\x64\x62', n: 50 };
+let _d23dc = { k: '\x78\x32\x33\x64\x64', n: 61 };
+let _d23de = ((v: number) => v * 3)(12);
+let _d23df = ['\x78\x32\x33\x65\x30', '\x78\x32\x33\x65\x31'];
+const _d23e2 = ['\x78\x32\x33\x65\x33', '\x78\x32\x33\x65\x34'];
+let _d23e5 = 93320;
+let _d23e6 = ['\x78\x32\x33\x65\x37', '\x78\x32\x33\x65\x38'];
+var _d23e9 = { k: '\x78\x32\x33\x65\x61', n: 5 };
+---
+
+<BaseLayout title="T7Tech — s7ae 网络科技工作室">
+  <Header currentPage="/projects" />
+
+  <main id="main">
+
+  <ProductSpec
+    spec="02.3"
+    code="T7TECH/0003"
+    name="T7Tech"
+    subtitle="划时代级别的 Gamesense 脚本"
+    meta={meta}
+    highlights={[
+      '使用独立支持库修复平台硬伤',
+      '超高度自定义的 builder 模块',
+      '划时代的强度和性能',
+    ]}
+    updates={updates}
+    image="/assets/images/T7.png"
+    imageAlt="T7Tech"
+    demo={{ alert: '正在制作，敬请期待' }}
+  />
+
+    <div data-m23eb="v23ec" data-m23ed="v23ee" hidden></div>
+  <div data-m23ef="v23f0" data-m23f1="v23f2" hidden></div>
+  <div data-m23f3="v23f4" data-m23f5="v23f6" hidden></div>
+  <div data-m23f7="v23f8" data-m23f9="v23fa" hidden></div>
+  <div data-m23fb="v23fc" data-m23fd="v23fe" hidden></div>
+  <div data-m23ff="v2400" data-m2401="v2402" hidden></div>
+  <div data-m2403="v2404" data-m2405="v2406" hidden></div>
+  <div data-m2407="v2408" data-m2409="v240a" hidden></div>
+  <div data-m240b="v240c" data-m240d="v240e" hidden></div>
+  <div data-m240f="v2410" data-m2411="v2412" hidden></div>
+  <div data-m2413="v2414" data-m2415="v2416" hidden></div>
+  <div data-m2417="v2418" data-m2419="v241a" hidden></div>
+  <div data-m241b="v241c" data-m241d="v241e" hidden></div>
+  <div data-m241f="v2420" data-m2421="v2422" hidden></div>
+  <div data-m2423="v2424" data-m2425="v2426" hidden></div>
+  <div data-m2427="v2428" data-m2429="v242a" hidden></div>
+  </main>
+
+  <Footer />
+</BaseLayout>

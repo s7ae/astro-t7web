@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const channels = [
+  {
+    index: '\x30\x31',
+    glyph: '\u2708',
+    title: '\x54\x65\x6c\x65\x67\x72\x61\x6d',
+    handle: '\u5df2\u9500\u53f7',
+    note: '\u6700\u5feb\u54cd\u5e94\x20\u00b7\x20\u9700\u6c42\u8bc4\u5ba1\u4e0e\u62a5\u4ef7',
+    href: '',
+  },
+  {
+    index: '\x30\x32',
+    glyph: '\u25cd',
+    title: '\x44\x69\x73\x63\x6f\x72\x64',
+    handle: '\x4a\x4f\x49\x4e\x20\x54\x48\x45\x20\x43\x4f\x4d\x4d\x55\x4e\x49\x54\x59',
+    note: '\u516c\u5f00\u793e\u533a\x20\u00b7\x20\u9879\u76ee\u8fdb\u5ea6\u4e0e\u8ba8\u8bba',
+    href: '\x68\x74\x74\x70\x73\x3a\x2f\x2f\x64\x69\x73\x63\x6f\x72\x64\x2e\x67\x67\x2f\x54\x72\x78\x52\x48\x78\x33\x34',
+  },
+];
+
+const protocol = [
+  { label: '\x52\x45\x53\x50\x4f\x4e\x53\x45\x20\x57\x49\x4e\x44\x4f\x57', value: '\x57\x49\x54\x48\x49\x4e\x20\x31\x32\x20\x48\x4f\x55\x52\x53' },
+  { label: '\x42\x52\x49\x45\x46\x20\x46\x4f\x52\x4d\x41\x54', value: '\x54\x45\x58\x54\x20\x2f\x20\x53\x43\x52\x45\x45\x4e\x20\x52\x45\x43\x4f\x52\x44' },
+  { label: '\x53\x45\x54\x54\x4c\x45\x4d\x45\x4e\x54', value: '\x4d\x49\x4c\x45\x53\x54\x4f\x4e\x45\x20\x42\x41\x53\x45\x44' },
+  { label: '\x4e\x44\x41', value: '\x41\x56\x41\x49\x4c\x41\x42\x4c\x45\x20\x4f\x4e\x20\x52\x45\x51\x55\x45\x53\x54' },
+];
+let _d1c4c = ((v: number) => v * 7)(56);
+const _d1c4d = { k: '\x78\x31\x63\x34\x65', n: 23 };
+var _d1c4f = ((v: number) => v * 7)(70);
+let _d1c50 = ['\x78\x31\x63\x35\x31', '\x78\x31\x63\x35\x32'];
+let _d1c53 = { k: '\x78\x31\x63\x35\x34', n: 59 };
+const _d1c55 = 82030;
+var _d1c56 = 98938;
+const _d1c57 = 25839;
+var _d1c58 = { k: '\x78\x31\x63\x35\x39', n: 47 };
+const _d1c5a = ['\x78\x31\x63\x35\x62', '\x78\x31\x63\x35\x63'];
+let _d1c5d = ((v: number) => v * 6)(76);
+let _d1c5e = ((v: number) => v * 6)(6);
+let _d1c5f = { k: '\x78\x31\x63\x36\x30', n: 77 };
+let _d1c61 = ((v: number) => v * 5)(18);
+var _d1c62 = ['\x78\x31\x63\x36\x33', '\x78\x31\x63\x36\x34'];
+var _d1c65 = 91471;
+var _d1c66 = ['\x78\x31\x63\x36\x37', '\x78\x31\x63\x36\x38'];
+var _d1c69 = 27144;
+const _d1c6a = ['\x78\x31\x63\x36\x62', '\x78\x31\x63\x36\x63'];
+var _d1c6d = ['\x78\x31\x63\x36\x65', '\x78\x31\x63\x36\x66'];
+const _d1c70 = { k: '\x78\x31\x63\x37\x31', n: 16 };
+let _d1c72 = ['\x78\x31\x63\x37\x33', '\x78\x31\x63\x37\x34'];
+var _d1c75 = ['\x78\x31\x63\x37\x36', '\x78\x31\x63\x37\x37'];
+var _d1c78 = 77098;
+var _d1c79 = 56311;
+let _d1c7a = { k: '\x78\x31\x63\x37\x62', n: 89 };
+var _d1c7c = { k: '\x78\x31\x63\x37\x64', n: 65 };
+const _d1c7e = ((v: number) => v * 4)(88);
+var _d1c7f = ((v: number) => v * 5)(93);
+var _d1c80 = { k: '\x78\x31\x63\x38\x31', n: 57 };
+let _d1c82 = ((v: number) => v * 4)(90);
+var _d1c83 = 97999;
+const _d1c84 = 89990;
+let _d1c85 = 13114;
+var _d1c86 = { k: '\x78\x31\x63\x38\x37', n: 97 };
+const _d1c88 = { k: '\x78\x31\x63\x38\x39', n: 57 };
+let _d1c8a = { k: '\x78\x31\x63\x38\x62', n: 89 };
+const _d1c8c = 30250;
+let _d1c8d = ['\x78\x31\x63\x38\x65', '\x78\x31\x63\x38\x66'];
+const _d1c90 = { k: '\x78\x31\x63\x39\x31', n: 39 };
+var _d1c92 = 74592;
+let _d1c93 = { k: '\x78\x31\x63\x39\x34', n: 83 };
+const _d1c95 = ((v: number) => v * 5)(19);
+let _d1c96 = 97352;
+var _d1c97 = 12356;
+let _d1c98 = ((v: number) => v * 5)(12);
+var _d1c99 = ['\x78\x31\x63\x39\x61', '\x78\x31\x63\x39\x62'];
+const _d1c9c = 39449;
+const _d1c9d = 77683;
+var _d1c9e = ['\x78\x31\x63\x39\x66', '\x78\x31\x63\x61\x30'];
+var _d1ca1 = { k: '\x78\x31\x63\x61\x32', n: 88 };
+const _d1ca3 = { k: '\x78\x31\x63\x61\x34', n: 30 };
+const _d1ca5 = { k: '\x78\x31\x63\x61\x36', n: 79 };
+const _d1ca7 = ((v: number) => v * 6)(74);
+const _d1ca8 = ['\x78\x31\x63\x61\x39', '\x78\x31\x63\x61\x61'];
+var _d1cab = { k: '\x78\x31\x63\x61\x63', n: 33 };
+var _d1cad = { k: '\x78\x31\x63\x61\x65', n: 86 };
+let _d1caf = { k: '\x78\x31\x63\x62\x30', n: 35 };
+var _d1cb1 = ((v: number) => v * 4)(45);
+const _d1cb2 = ['\x78\x31\x63\x62\x33', '\x78\x31\x63\x62\x34'];
+const _d1cb5 = ['\x78\x31\x63\x62\x36', '\x78\x31\x63\x62\x37'];
+let _d1cb8 = ['\x78\x31\x63\x62\x39', '\x78\x31\x63\x62\x61'];
+const _d1cbb = { k: '\x78\x31\x63\x62\x63', n: 45 };
+let _d1cbd = ((v: number) => v * 8)(61);
+---
+
+<BaseLayout title="联系我们 — s7ae 网络科技工作室">
+  <Header currentPage="/contact" />
+
+  <main id="main">
+
+  <section class="block" style="padding-top:calc(var(--hud-h) + 0px);">
+    <div class="section-head">
+      <div>
+        <span class="mono" style="display:block;margin-bottom:0.85rem;">SECTION // 04 — CHANNEL</span>
+        <h1>OPEN A <span class="serif" style="color:var(--text-titanium);">direct</span> CHANNEL</h1>
+      </div>
+      <p class="section-note">
+        [ DIRECT PEERING ONLY ]<br />
+        无论您有任何问题或需求，都欢迎与我们联系。请优先附上环境、目标和时间窗，我们能直接给出可执行答复。
+      </p>
+    </div>
+
+    <div class="channel-list">
+      {channels.map((channel) => (
+        <a
+          href={channel.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="channel interactable"
+        >
+          <span class="channel-glyph" aria-hidden="true">{channel.glyph}</span>
+          <div class="channel-body">
+            <span class="channel-title">{channel.title}</span>
+            <span class="channel-handle">{channel.handle} // {channel.note}</span>
+          </div>
+          <span class="channel-enter" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  
+  <section class="block">
+    <div class="section-head" style="padding-top:0;">
+      <div>
+        <span class="mono" style="display:block;margin-bottom:0.85rem;">SECTION // 04.1 — PROTOCOL</span>
+        <h2>ENGAGEMENT <span class="serif" style="color:var(--text-titanium);">protocol</span></h2>
+      </div>
+    </div>
+
+    <div class="project-list">
+      {protocol.map((row, index) => (
+        <div class="project-row" style="cursor:default;">
+          <div class="project-row-inner" style="grid-template-columns:3.5rem minmax(0,1fr) minmax(0,auto);">
+            <span class="project-row-index">{String(index + 1).padStart(2, '0')} //</span>
+            <span class="project-row-name" style="font-size:clamp(0.95rem,1.6vw,1.15rem);">{row.label}</span>
+            <span class="mono" style="color:#fff;justify-self:end;text-align:right;">{row.value}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-panel" style="border-top:1px solid var(--border-hairline);">
+    <h2>
+      GET THE<br />
+      <span class="serif">apps</span>, THEN TALK.
+    </h2>
+    <div class="cta-side">
+      <p>
+        [ 有任何问题或合作意向？请通过 Telegram 或 Discord 与我们联系 ]<br />
+        我们将尽快回复您。
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.6rem;">
+        <a
+          href="https://telegram.org/apps"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-solid magnetic interactable"
+        >
+          <span>DOWNLOAD TELEGRAM</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          href="https://discord.com/download"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-ghost magnetic interactable"
+        >
+          <span>DOWNLOAD DISCORD</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+    <div data-m1cbe="v1cbf" data-m1cc0="v1cc1" hidden></div>
+  <div data-m1cc2="v1cc3" data-m1cc4="v1cc5" hidden></div>
+  <div data-m1cc6="v1cc7" data-m1cc8="v1cc9" hidden></div>
+  <div data-m1cca="v1ccb" data-m1ccc="v1ccd" hidden></div>
+  <div data-m1cce="v1ccf" data-m1cd0="v1cd1" hidden></div>
+  <div data-m1cd2="v1cd3" data-m1cd4="v1cd5" hidden></div>
+  <div data-m1cd6="v1cd7" data-m1cd8="v1cd9" hidden></div>
+  <div data-m1cda="v1cdb" data-m1cdc="v1cdd" hidden></div>
+  <div data-m1cde="v1cdf" data-m1ce0="v1ce1" hidden></div>
+  <div data-m1ce2="v1ce3" data-m1ce4="v1ce5" hidden></div>
+  <div data-m1ce6="v1ce7" data-m1ce8="v1ce9" hidden></div>
+  <div data-m1cea="v1ceb" data-m1cec="v1ced" hidden></div>
+  <div data-m1cee="v1cef" data-m1cf0="v1cf1" hidden></div>
+  <div data-m1cf2="v1cf3" data-m1cf4="v1cf5" hidden></div>
+  <div data-m1cf6="v1cf7" data-m1cf8="v1cf9" hidden></div>
+  <div data-m1cfa="v1cfb" data-m1cfc="v1cfd" hidden></div>
+  </main>
+
+  <Footer />
+</BaseLayout>

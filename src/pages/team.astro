@@ -1,0 +1,500 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Member {
+  name: string;
+  title: string;
+  description: string;
+  avatar: string;
+  frame?: string;
+  hasBadge?: boolean;
+  sepia?: boolean;
+  link?: string;
+  special?: boolean;
+  tags?: Array<string | { text: string; link: string | null }>;
+}
+
+const teamMembers: Member[] = [
+  {
+    name: '\u5bab\u5d0e\u67da\u5b50',
+    title: '\u4e3b\u4eba\x20\u00b7\x20\u547d\u4ee4\u4e0b\u53d1',
+    description: '\u8d1f\u8d23\u63a7\u5236\u521b\u59cb\u4eba',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x69\x6e\x76\x63\x2e\x6a\x70\x67',
+    frame: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x69\x6e\x76\x76\x2e\x77\x65\x62\x70',
+  },
+  {
+    name: '\x73\x37\x61\x65',
+    title: '\u521b\u59cb\u4eba\x20\u00b7\x20\u5168\u6808\u5f00\u53d1',
+    description:
+      '\u62e5\u6709\u4e30\u5bcc\u7684\u5168\u6808\u5f00\u53d1\u7ecf\u9a8c\uff0c\u64c5\u957f\u590d\u6742\u7cfb\u7edf\u67b6\u6784\u8bbe\u8ba1\u548c\u6027\u80fd\u4f18\u5316\uff0c\u5439\u725b\u903c\u6280\u672f\u4e5f\u662f\x54\x31\u7ea7\u522b\uff1a\uff09',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x73\x37\x61\x65\x2e\x70\x6e\x67',
+    frame: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x73\x37\x61\x65\x69\x6e\x76\x2e\x77\x65\x62\x70',
+  },
+  {
+    name: '\x45\x6e\x37\x70\x2e',
+    title: '\u6253\u53f7\u5f00\u6237\x20\u00b7\x20\u778e\u9a82\u72d7\u53eb',
+    description: '\u7cbe\u901a\u7ade\u4e89\u5bf9\u624b\u4eb2\u7239\u4eb2\u5988\u7684\u4e00\u5343\u4e09\u767e\u79cd\u6b7b\u6cd5',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x65\x6e\x37\x2e\x6a\x70\x67',
+  },
+  {
+    name: '\x64\x61\x72\x6b',
+    title: '\u8bbe\u8ba1\u5e08\x20\u00b7\x20\u5f00\u53d1\u8005',
+    description: '\u9879\u76ee\u4e3b\u8981\u5f00\u53d1\u8005\uff0c\u8d1f\u8d23\u4f18\u5316\u548c\u5b9e\u73b0\u5ba2\u6237\u7684\u4e00\u5207\u9700\u6c42',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x64\x61\x72\x6b\x2e\x70\x6e\x67',
+  },
+  {
+    name: '\u6c89\u8239',
+    title: '\u524d\u7aef\u5f00\u53d1',
+    description: '\u9879\u76ee\u4e3b\u8981\u5f00\u53d1\u8005\uff0c\u8d1f\u8d23\u5e2e\u52a9\u5ba2\u6237\u6784\u601d\u529f\u80fd\u53ca\u4e3b\u8981\u4ee3\u7801\u7f16\u5199',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\u6c89\u8239\x2e\x6a\x70\x67',
+  },
+  {
+    name: '\u674e\u6cfd\u8a00',
+    title: '\u5404\u6e38\u620f\u670d\u52a1\u7aef\u4e13\u7cbe',
+    description: '\x48\x76\x48\u5730\u4e0b\u7687\u5e1d\uff0c\x46\x69\x76\x65\x6d\u4e13\u4e1a\u540e\u7aef\u5f00\u53d1\uff0c\u6b66\u6c49\u77e5\u540d\u6d1e\u7a74\u63a2\u7d22\u5de5\u4f5c\u8005',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x6c\x7a\x79\x2e\x70\x6e\x67',
+  },
+  {
+    name: '\x65\x6e\x51',
+    title: '\x48\x79\x73\x74\x65\x72\x69\x61\x2e\x6f\x6e\x65',
+    description: '\x4d\x61\x6b\x65\x20\x70\x65\x6f\x70\x6c\x65\x20\x68\x61\x70\x70\x79\x20\x61\x6e\x64\x20\x74\x68\x65\x79\x20\x77\x69\x6c\x6c\x20\x6e\x6f\x74\x20\x66\x6f\x72\x67\x65\x74\x20\x79\x6f\x75',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x48\x79\x73\x74\x65\x72\x69\x61\x2f\x62\x75\x74\x74\x65\x72\x66\x6c\x79\x2e\x77\x65\x62\x70',
+    hasBadge: true,
+    sepia: true,
+    link: '\x68\x74\x74\x70\x73\x3a\x2f\x2f\x64\x69\x73\x63\x6f\x72\x64\x2e\x67\x67\x2f\x65\x43\x38\x32\x53\x6d\x63\x46\x39\x45',
+  },
+  {
+    name: '\u987e\u82b3\u82b3',
+    title: '\u540e\u52e4\u50a8\u5907',
+    description: '\u9879\u76ee\u9884\u7b97\u62e8\u6b3e\u53ca\u8d1f\u8d23\u9879\u76ee\u5584\u540e\u5de5\u4f5c',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x67\x66\x66\x2e\x6a\x70\x67',
+  },
+  {
+    name: '\x6b\x61\x6b\x74\x75\x73',
+    title: '\x56\x61\x72\x67',
+    description: '\u8d1f\u8d23\u9879\u76ee\u5f00\u53d1\u8fc7\u7a0b\u4e2d\u5404\u79cd\u7591\u96be\u95ee\u9898\u7684\u89e3\u51b3',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x6b\x61\x6b\x74\x75\x73\x2e\x70\x6e\x67',
+    tags: [
+      { text: '\u9879\u76ee\u76d1\u5236', link: null },
+      { text: '\u95ee\u9898\u534f\u52a9', link: null },
+      { text: '\u4fdd\u62a4\u601d\u8def', link: null },
+      { text: '\u4e3a\u4f55\u4e0d\u5c1d\u8bd5\u4e00\u4e0b\x56\x61\x72\x67\u5462\uff1f', link: '\x68\x74\x74\x70\x73\x3a\x2f\x2f\x76\x61\x72\x67\x6c\x75\x61\x2e\x74\x6f\x70\x2f' },
+    ],
+  },
+  {
+    name: '\u4e00\u9897\u661f',
+    title: '\x31\x73\x74\x61\x72',
+    description: '\u9879\u76ee\u4e3b\u8981\u53c2\u4e0e\u8005',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x31\x73\x74\x61\x72\x2e\x6a\x70\x67',
+  },
+  {
+    name: '\u5200\u5272',
+    title: '\u5c0f\u5c9b',
+    description: '\u8d1f\u8d23\u751f\u51fa\u6765\u4e00\u4e9b\u9b3c\u70b9\u5b50',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x64\x6f\x67\x2e\x6a\x70\x67',
+    tags: [
+      { text: '\u559c\u6b22\u5bfc\u7ba1', link: null },
+      { text: '\u559c\u6b22\u6446\u70c2', link: null },
+      { text: '\u559c\u6b22\u770b\u7247', link: null },
+      { text: '\u5c0f\u5c9b\x31\x31\x35\x35\u670d\u52a1\u5668', link: '\x68\x74\x74\x70\x73\x3a\x2f\x2f\x69\x71\x31\x31\x35\x35\x2e\x69\x63\x75\x2f' },
+    ],
+  },
+  {
+    name: '\x53\x61\x6b\x69',
+    title: '\u601d\u8336\u7f51\u7edc\u79d1\u6280',
+    description: '\u601d\u8336\u79d1\u6280\u96c6\u56e2\u6709\u9650\u516c\u53f8\u8d1f\u8d23\u4eba',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x73\x61\x6b\x69\x2e\x6a\x70\x67',
+    tags: [
+      { text: '\u5408\u4f5c\u4f19\u4f34', link: null },
+      { text: '\u601d\u8336\u7f51\u7edc\u79d1\u6280\u6709\u9650\u516c\u53f8', link: '\x68\x74\x74\x70\x73\x3a\x2f\x2f\x73\x69\x63\x68\x61\x2e\x6c\x74\x64' },
+    ],
+  },
+  {
+    name: '\u7a0b\u66e6',
+    title: '\u4e00\u4e2a\u5f88\u806a\u660e\u7684\u4eba\u7c7b',
+    description: '\u8d1f\u8d23\u7761\u89c9',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x43\x58\x2e\x6a\x70\x67',
+  },
+  {
+    name: '\x57\x61\x74\x65\x72',
+    title: '\u4e00\u4e2a\x62\x75\x67\x6e\x61\x6d\x69',
+    description: '\u8d1f\u8d23\u73a9',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x77\x61\x74\x65\x72\x2e\x6a\x70\x67',
+  },
+  {
+    name: '\x6c\x69\x67\x68\x74\x73\x6b\x69\x6e\x3f\u2614\ufe0f',
+    title: '\u9053\u5929\u4ed9\u5e1d',
+    description:
+      '\u672c\u5e1d\u9053\u5929\uff0c\u66fe\u4ee5\u4e00\u5251\u65ad\u8f6e\u56de\uff0c\u66fe\u5728\u6df7\u6c8c\u7acb\u79e9\u5e8f\u3002\u4fee\u7684\u662f\u592a\u4e0a\u5fd8\u60c5\u9053\uff0c\u6267\u7684\u662f\u56e0\u679c\u6743\u67c4\u3002',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x68\x79\x68\x2e\x6a\x70\x67',
+    tags: [
+      { text: '\x6c\x6d\x61\x6f\x2e\x63\x63', link: '\x68\x74\x74\x70\x73\x3a\x2f\x2f\x6e\x65\x76\x65\x72\x6c\x6f\x73\x65\x2e\x63\x63\x2f\x6d\x61\x72\x6b\x65\x74\x2f\x69\x74\x65\x6d\x3f\x69\x64\x3d\x6e\x30\x6a\x6b\x48\x51' },
+      { text: '\x36\x36\x36\x64\x74', link: '\x68\x74\x74\x70\x73\x3a\x2f\x2f\x6e\x65\x76\x65\x72\x6c\x6f\x73\x65\x2e\x63\x63\x2f\x6d\x61\x72\x6b\x65\x74\x2f\x69\x74\x65\x6d\x3f\x69\x64\x3d\x42\x54\x36\x46\x36\x34' },
+      { text: '\x36\x36\x36\x64\x61', link: '\x68\x74\x74\x70\x73\x3a\x2f\x2f\x6e\x65\x76\x65\x72\x6c\x6f\x73\x65\x2e\x63\x63\x2f\x6d\x61\x72\x6b\x65\x74\x2f\x69\x74\x65\x6d\x3f\x69\x64\x3d\x70\x41\x4d\x67\x77\x70' },
+    ],
+  },
+  {
+    name: '\x43\x61\x6e\x64\x79',
+    title: '\u864e\u7259',
+    description: '\u4e09\u5929\u5f00\u670d\u4e24\u5934\u8dd1\u8def',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x63\x61\x6e\x64\x79\x2e\x6a\x70\x67',
+  },
+  {
+    name: '\x44\x6f\x74\x6d\x65\x6d\x6f\x72\x79',
+    title: '\u5e8f\u53f7\u4e3a\x30',
+    description: '\u90a3\u4f60\u5c31\u5f53\u6211\u5728\u5427',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x77\x78\x68\x2e\x6a\x70\x67',
+    special: true,
+    tags: ['\x4c\x43', '\x4c\x43', '\x4c\x43', '\x4c\x43', '\x4c\x43', '\x4c\x43', '\x4c\x43', '\x4c\x43', '\x4c\x43', '\x4c\x43'],
+  },
+  {
+    name: '\x75\x75\x75',
+    title: '\u4e00\u4e2a\u5f88\u61d2\u7684\x75\x75\x75',
+    description: '\u8d1f\u8d23\u61d2\u60f0',
+    avatar: '\x2f\x61\x73\x73\x65\x74\x73\x2f\x54\x58\x2f\x75\x75\x75\x2e\x6a\x70\x67',
+    special: true,
+    tags: ['\x75\x75\x75', '\x75\x75\x75', '\x75\x75\x75', '\x3c\x33'],
+  },
+];
+let _d2636 = { k: '\x78\x32\x36\x33\x37', n: 91 };
+
+const impliedTags: Record<string, string[]> = {
+  s7ae: ['\u67b6\u6784\u8bbe\u8ba1', '\u6027\u80fd\u4f18\u5316', '\u601d\u7ef4\u8bbe\u8ba1'],
+  '\x45\x6e\x37\x70\x2e': ['\u5f00\u56e2\u72d7\u53eb', '\u5f00\u6237\u5bb3\u4eba', '\u90ae\u5bc4\u82b1\u5708'],
+  dark: ['\u5168\u6808\u5f00\u53d1', '\u9879\u76ee\u6784\u5efa', '\u754c\u9762\u8bbe\u8ba1'],
+  沉船: ['\u524d\u7aef\u5f00\u53d1', '\u56e2\u961f\u7ba1\u7406', '\u4ea4\u4e92\u5b9e\u73b0'],
+  李泽言: ['\x46\x69\x76\x65\x6d\u670d\u52a1\u7aef', '\u6b66\u6c49\u70ae\u738b'],
+  顾芳芳: ['\u9879\u76ee\u6295\u8d44', '\u9879\u76ee\u5584\u540e', '\u610f\u89c1\u6536\u96c6'],
+  一颗星: ['\u4ee3\u7801\u76d1\u5236', '\u6027\u80fd\u6d4b\u8bd5', '\u7ec6\u8282\u4f18\u5316'],
+  程曦: ['\u7761\u89c9', '\u7761\u5927\u89c9'],
+  Water: ['\x38', '\x32', '\x6c', '\x61', '\x62'],
+  Candy: ['\u603b\u60f3\u5f00\u670d', '\u5584\u826f\u6bd4'],
+};
+var _d2638 = 34662;
+
+function resolveTags(member: Member) {
+  if (member.tags && member.tags.length > 0) return member.tags;
+  const implied = impliedTags[member.name];
+var _d2639 = { k: '\x78\x32\x36\x33\x61', n: 66 };
+  if (implied) return implied;
+  return [];
+let _d263b = ((v: number) => v * 4)(22);
+}
+
+const roster = teamMembers.map((member) => ({
+  ...member,
+  resolvedTags: resolveTags(member),
+}));
+
+const specialCount = roster.filter((member) => member.special).length;
+const _d263c = ((v: number) => v * 5)(45);
+const _d263d = { k: '\x78\x32\x36\x33\x65', n: 72 };
+let _d263f = { k: '\x78\x32\x36\x34\x30', n: 18 };
+var _d2641 = { k: '\x78\x32\x36\x34\x32', n: 97 };
+const _d2643 = { k: '\x78\x32\x36\x34\x34', n: 40 };
+let _d2645 = 54855;
+const _d2646 = ((v: number) => v * 7)(28);
+let _d2647 = 64054;
+let _d2648 = ((v: number) => v * 2)(79);
+let _d2649 = { k: '\x78\x32\x36\x34\x61', n: 47 };
+var _d264b = { k: '\x78\x32\x36\x34\x63', n: 38 };
+var _d264d = ((v: number) => v * 8)(29);
+var _d264e = 57925;
+let _d264f = 56522;
+var _d2650 = ['\x78\x32\x36\x35\x31', '\x78\x32\x36\x35\x32'];
+var _d2653 = 63921;
+var _d2654 = ['\x78\x32\x36\x35\x35', '\x78\x32\x36\x35\x36'];
+var _d2657 = ((v: number) => v * 8)(80);
+var _d2658 = 67800;
+const _d2659 = ((v: number) => v * 6)(31);
+let _d265a = ((v: number) => v * 8)(68);
+let _d265b = 14826;
+const _d265c = { k: '\x78\x32\x36\x35\x64', n: 12 };
+let _d265e = ((v: number) => v * 6)(75);
+let _d265f = ['\x78\x32\x36\x36\x30', '\x78\x32\x36\x36\x31'];
+let _d2662 = 31466;
+var _d2663 = 1302;
+const _d2664 = ['\x78\x32\x36\x36\x35', '\x78\x32\x36\x36\x36'];
+const _d2667 = { k: '\x78\x32\x36\x36\x38', n: 85 };
+const _d2669 = ['\x78\x32\x36\x36\x61', '\x78\x32\x36\x36\x62'];
+const _d266c = { k: '\x78\x32\x36\x36\x64', n: 8 };
+let _d266e = ((v: number) => v * 3)(70);
+var _d266f = 12817;
+let _d2670 = { k: '\x78\x32\x36\x37\x31', n: 64 };
+var _d2672 = { k: '\x78\x32\x36\x37\x33', n: 34 };
+const _d2674 = { k: '\x78\x32\x36\x37\x35', n: 42 };
+const _d2676 = { k: '\x78\x32\x36\x37\x37', n: 77 };
+var _d2678 = ((v: number) => v * 6)(92);
+let _d2679 = { k: '\x78\x32\x36\x37\x61', n: 91 };
+var _d267b = { k: '\x78\x32\x36\x37\x63', n: 87 };
+var _d267d = ['\x78\x32\x36\x37\x65', '\x78\x32\x36\x37\x66'];
+let _d2680 = ['\x78\x32\x36\x38\x31', '\x78\x32\x36\x38\x32'];
+let _d2683 = ['\x78\x32\x36\x38\x34', '\x78\x32\x36\x38\x35'];
+let _d2686 = 93675;
+var _d2687 = { k: '\x78\x32\x36\x38\x38', n: 11 };
+let _d2689 = 98050;
+let _d268a = ['\x78\x32\x36\x38\x62', '\x78\x32\x36\x38\x63'];
+const _d268d = ['\x78\x32\x36\x38\x65', '\x78\x32\x36\x38\x66'];
+var _d2690 = { k: '\x78\x32\x36\x39\x31', n: 56 };
+var _d2692 = 18947;
+var _d2693 = ['\x78\x32\x36\x39\x34', '\x78\x32\x36\x39\x35'];
+let _d2696 = ((v: number) => v * 6)(82);
+const _d2697 = ['\x78\x32\x36\x39\x38', '\x78\x32\x36\x39\x39'];
+let _d269a = 5117;
+var _d269b = 11527;
+const _d269c = ((v: number) => v * 5)(16);
+var _d269d = { k: '\x78\x32\x36\x39\x65', n: 95 };
+let _d269f = 97396;
+const _d26a0 = { k: '\x78\x32\x36\x61\x31', n: 98 };
+const _d26a2 = 16088;
+---
+
+<BaseLayout title="鸣谢名单 — s7ae 网络科技工作室">
+  <Header currentPage="/team" />
+
+  <main id="main">
+
+  <section class="block" style="padding-top:calc(var(--hud-h) + 0px);">
+    <div class="section-head">
+      <div>
+        <span class="mono" style="display:block;margin-bottom:0.85rem;">SECTION // 03 — ROSTER</span>
+        <h1>THE <span class="serif" style="color:var(--text-titanium);">acknowledged</span> ROSTER</h1>
+      </div>
+      <p class="section-note">
+        [ {roster.length} NODES · {specialCount} MARKED ]<br />
+        都是我的好朋友们。这张表记录了谁真正参与过这些工程的落地。
+      </p>
+    </div>
+
+    <div class="roster">
+      {roster.map((member, index) => (
+        <div
+          class="roster-row"
+          data-special={member.special ? 'true' : 'false'}
+          role={member.special ? 'button' : undefined}
+          tabindex={member.special ? '0' : undefined}
+        >
+          <span class="roster-index">{String(index + 1).padStart(2, '0')} //</span>
+
+          <div class="roster-avatar">
+            <img
+              src={member.avatar}
+              alt={`${member.name} 头像`}
+              loading="lazy"
+              style={member.sepia ? 'filter:sepia(1) hue-rotate(120deg) saturate(0.8) brightness(1.1);' : undefined}
+            />
+            {member.frame && (
+              <img src={member.frame} alt="" class="roster-avatar-frame" aria-hidden="true" />
+            )}
+            {member.hasBadge && (
+              <span class="roster-badge">
+                <img src="/assets/Hysteria/enqDev.webp" alt="enQ Dev" />
+              </span>
+            )}
+          </div>
+
+          <div class="roster-id">
+            <h2 class="roster-name">{member.name}</h2>
+            <span class="roster-role">
+              {member.link ? (
+                <a href={member.link} target="_blank" rel="noopener noreferrer" class="interactable">
+                  {member.title}
+                </a>
+              ) : (
+                member.title
+              )}
+            </span>
+          </div>
+
+          <p class="roster-bio">{member.description}</p>
+
+          <div class="roster-tags">
+            {member.resolvedTags.map((tag) =>
+              typeof tag === 'string' ? (
+                <span class="tag">{tag}</span>
+              ) : tag.link ? (
+                <a
+                  href={tag.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="tag interactable"
+                >{tag.text}</a>
+              ) : (
+                <span class="tag">{tag.text}</span>
+              )
+            )}
+          </div>
+
+          {member.special && (
+            <audio preload="auto">
+              <source src="/assets/Sound/LC.WAV" type="audio/wav" />
+            </audio>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-panel" style="border-top:1px solid var(--border-hairline);">
+    <h2>
+      WANT YOUR<br />
+      CALLSIGN <span class="serif">logged</span>?
+    </h2>
+    <div class="cta-side">
+      <p>
+        [ 名单只记录真正参与过交付的人 ]<br />
+        如果你能在工程里留下痕迹，这条通道随时开放。
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.6rem;">
+        <a href="/contact" class="btn btn-solid magnetic interactable">
+          <span>OPEN A CHANNEL</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+    <div data-m271d="v271e" data-m271f="v2720" hidden></div>
+  <div data-m2721="v2722" data-m2723="v2724" hidden></div>
+  <div data-m2725="v2726" data-m2727="v2728" hidden></div>
+  <div data-m2729="v272a" data-m272b="v272c" hidden></div>
+  <div data-m272d="v272e" data-m272f="v2730" hidden></div>
+  <div data-m2731="v2732" data-m2733="v2734" hidden></div>
+  <div data-m2735="v2736" data-m2737="v2738" hidden></div>
+  <div data-m2739="v273a" data-m273b="v273c" hidden></div>
+  <div data-m273d="v273e" data-m273f="v2740" hidden></div>
+  <div data-m2741="v2742" data-m2743="v2744" hidden></div>
+  <div data-m2745="v2746" data-m2747="v2748" hidden></div>
+  <div data-m2749="v274a" data-m274b="v274c" hidden></div>
+  <div data-m274d="v274e" data-m274f="v2750" hidden></div>
+  <div data-m2751="v2752" data-m2753="v2754" hidden></div>
+  <div data-m2755="v2756" data-m2757="v2758" hidden></div>
+  <div data-m2759="v275a" data-m275b="v275c" hidden></div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    'use strict';
+
+    var TOAST_TEXT = '\x4d\x69\x73\x73\x65\x64\x20\x73\x68\x6f\x74\x20\x61\x74\x20\x44\x6f\x74\x6d\x65\x6d\x6f\x72\x79\x20\x69\x6e\x20\x74\x68\x65\x20\x48\x65\x61\x64\x20\x64\x75\x65\x20\x74\x6f\x20\x42\x61\x63\x6b\x74\x72\x61\x63\x6b\x20\x66\x61\x69\x6c\x75\x72\x65\x20\x5b\x68\x63\x3a\x31\x30\x30\x25\x20\x7c\x20\x62\x74\x3a\x34\x74\x69\x63\x6b\x73\x5d';
+
+    document.addEventListener('\x44\x4f\x4d\x43\x6f\x6e\x74\x65\x6e\x74\x4c\x6f\x61\x64\x65\x64', function () {
+      var specials = document.querySelectorAll('\x2e\x72\x6f\x73\x74\x65\x72\x2d\x72\x6f\x77\x5b\x64\x61\x74\x61\x2d\x73\x70\x65\x63\x69\x61\x6c\x3d\x22\x74\x72\x75\x65\x22\x5d');
+
+      Array.prototype.forEach.call(specials, function (row) {
+        var audio = row.querySelector('\x61\x75\x64\x69\x6f');
+        if (!audio) return;
+
+        function trigger() {
+          audio.currentTime = 0;
+          var played = audio.play();
+          if (played && played.catch) played.catch(function () {});
+
+          var toast = document.createElement('\x64\x69\x76');
+          toast.className = '\x74\x6f\x61\x73\x74\x2d\x6e\x6f\x74\x69\x66\x69\x63\x61\x74\x69\x6f\x6e';
+          toast.textContent = TOAST_TEXT;
+          document.body.appendChild(toast);
+
+          window.setTimeout(function () {
+            toast.classList.add('\x73\x68\x6f\x77');
+          }, 10);
+          window.setTimeout(function () {
+            toast.classList.remove('\x73\x68\x6f\x77');
+            window.setTimeout(function () {
+              if (toast.parentNode) toast.parentNode.removeChild(toast);
+            }, 320);
+          }, 2000);
+        }
+
+        row.addEventListener('\x63\x6c\x69\x63\x6b', function (event) {
+          
+          if (event.target.closest('\x61')) return;
+          trigger();
+        });
+
+        row.addEventListener('\x6b\x65\x79\x64\x6f\x77\x6e', function (event) {
+          if (event.key !== '\x45\x6e\x74\x65\x72' && event.key !== '\x20') return;
+          event.preventDefault();
+          trigger();
+        });
+      });
+    });
+  })();
+
+var _z26a3 = '\x78\x32\x36\x61\x34' + '\x78\x32\x36\x61\x35';
+var _z26a6 = '\x78\x32\x36\x61\x37' + '\x78\x32\x36\x61\x38';
+var _z26a9 = { a: 4, b: '\x78\x32\x36\x61\x61' };
+var _z26ab = '\x78\x32\x36\x61\x63' + '\x78\x32\x36\x61\x64';
+var _z26ae = 73318;
+var _z26af = '\x78\x32\x36\x62\x30' + '\x78\x32\x36\x62\x31';
+var _z26b2 = { a: 51, b: '\x78\x32\x36\x62\x33' };
+var _z26b4 = { a: 74, b: '\x78\x32\x36\x62\x35' };
+var _z26b6 = ((v) => v * 3)(36);
+var _z26b7 = { a: 95, b: '\x78\x32\x36\x62\x38' };
+var _z26b9 = 56300;
+var _z26ba = 28997;
+var _z26bb = ((v) => v * 5)(44);
+var _z26bc = '\x78\x32\x36\x62\x64' + '\x78\x32\x36\x62\x65';
+var _z26bf = ((v) => v * 3)(68);
+var _z26c0 = { a: 21, b: '\x78\x32\x36\x63\x31' };
+var _z26c2 = ((v) => v * 2)(3);
+var _z26c3 = ((v) => v * 8)(74);
+var _z26c4 = ((v) => v * 6)(83);
+var _z26c5 = '\x78\x32\x36\x63\x36' + '\x78\x32\x36\x63\x37';
+var _z26c8 = 85690;
+var _z26c9 = '\x78\x32\x36\x63\x61' + '\x78\x32\x36\x63\x62';
+var _z26cc = ((v) => v * 7)(17);
+var _z26cd = '\x78\x32\x36\x63\x65' + '\x78\x32\x36\x63\x66';
+var _z26d0 = 30661;
+var _z26d1 = '\x78\x32\x36\x64\x32' + '\x78\x32\x36\x64\x33';
+var _z26d4 = { a: 14, b: '\x78\x32\x36\x64\x35' };
+var _z26d6 = 58605;
+var _z26d7 = ((v) => v * 8)(58);
+var _z26d8 = ((v) => v * 6)(52);
+var _z26d9 = 4973;
+var _z26da = { a: 65, b: '\x78\x32\x36\x64\x62' };
+var _z26dc = { a: 96, b: '\x78\x32\x36\x64\x64' };
+var _z26de = '\x78\x32\x36\x64\x66' + '\x78\x32\x36\x65\x30';
+var _z26e1 = ((v) => v * 5)(73);
+var _z26e2 = { a: 1, b: '\x78\x32\x36\x65\x33' };
+var _z26e4 = ((v) => v * 6)(96);
+var _z26e5 = 35947;
+var _z26e6 = '\x78\x32\x36\x65\x37' + '\x78\x32\x36\x65\x38';
+var _z26e9 = '\x78\x32\x36\x65\x61' + '\x78\x32\x36\x65\x62';
+var _z26ec = '\x78\x32\x36\x65\x64' + '\x78\x32\x36\x65\x65';
+var _z26ef = ((v) => v * 3)(6);
+var _z26f0 = '\x78\x32\x36\x66\x31' + '\x78\x32\x36\x66\x32';
+var _z26f3 = ((v) => v * 6)(22);
+var _z26f4 = { a: 62, b: '\x78\x32\x36\x66\x35' };
+var _z26f6 = 20133;
+var _z26f7 = 44044;
+var _z26f8 = { a: 6, b: '\x78\x32\x36\x66\x39' };
+var _z26fa = ((v) => v * 8)(44);
+var _z26fb = '\x78\x32\x36\x66\x63' + '\x78\x32\x36\x66\x64';
+var _z26fe = { a: 6, b: '\x78\x32\x36\x66\x66' };
+var _z2700 = ((v) => v * 2)(46);
+var _z2701 = 66381;
+var _z2702 = { a: 12, b: '\x78\x32\x37\x30\x33' };
+var _z2704 = 83578;
+var _z2705 = { a: 69, b: '\x78\x32\x37\x30\x36' };
+var _z2707 = 79178;
+var _z2708 = 53856;
+var _z2709 = '\x78\x32\x37\x30\x61' + '\x78\x32\x37\x30\x62';
+var _z270c = ((v) => v * 3)(22);
+var _z270d = 41391;
+var _z270e = 32880;
+var _z270f = '\x78\x32\x37\x31\x30' + '\x78\x32\x37\x31\x31';
+var _z2712 = ((v) => v * 2)(18);
+var _z2713 = 59182;
+var _z2714 = ((v) => v * 2)(77);
+var _z2715 = ((v) => v * 6)(35);
+var _z2716 = ((v) => v * 2)(65);
+var _z2717 = '\x78\x32\x37\x31\x38' + '\x78\x32\x37\x31\x39';
+var _z271a = ((v) => v * 7)(94);
+var _z271b = ((v) => v * 7)(73);
+var _z271c = 24025;</script>

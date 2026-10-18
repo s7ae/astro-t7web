@@ -1,0 +1,838 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProductSpec from '../../components/ProductSpec.astro';
+
+const updates = [
+  {
+    date: '\x32\x30\x32\x35\x2d\x30\x34\x2d\x33\x30',
+    details: ['\u521d\u59cb\u7248\u672c\u53d1\u5e03'],
+  },
+];
+var _d20b9 = ['\x78\x32\x30\x62\x61', '\x78\x32\x30\x62\x62'];
+
+const meta = [
+  { label: '\u7c7b\u578b', value: '\u4e8c\u6b21\u5f00\u53d1' },
+  { label: '\u6280\u672f\u6808', value: '\x41\x69\x43\x6f\x64\x65' },
+  { label: '\u72b6\u6001', value: '\u8f6f\u4ef6\u5199\u6b7b\u8fc7\u671f\u65e5\u671f\uff0c\u4f46\u662f\x32\x30\x38\x38\u5e74' },
+];
+const _d20bc = 85563;
+
+const briefing: Array<{ title: string; body: string }> = [
+  {
+    title: '\u26a0\ufe0f\x20\u91cd\u8981\u58f0\u660e\x2c\u771f\u5fc3\u5efa\u8bae\u8bfb\u4e00\u4e0b\uff01\uff01\uff01',
+    body: `本产品使用了Themida Preview Edition+自定义VMProtect VM
+且内置许多可能在某些软件、反作弊、安全组件等
+例如ACE反作弊眼中为高危操作的指令等，在使用前请确认自己的环境安全
+如因使用本软件造成任何损失，在您下载时即表示由您自身承担`,
+  },
+  {
+    title: '\ud83d\udccb\x20\u4f7f\u7528\u8bf4\u660e',
+    body: `本软件内置了极其庞大的反调试/反破解等安全策略
+但本身的注入器(s7eetLoader)
+以及初始化承载块(Init.s7ae)加起来的大小仅有14MB
+因工作繁琐的模块化设计以及保护策略
+可能会出现包括但不限于：注入失败、无法打开游戏
+打开游戏不注入、打不开软件等错误
+不用怕，重新启动即可，我可以保证它在所有能运行GS的设备上运行`,
+  },
+  {
+    title: '\ud83d\udd27\x20\u7cfb\u7edf\u8981\u6c42',
+    body: '\x57\x69\x6e\x64\x6f\x77\x73\x37\x2b',
+  },
+  {
+    title: '\ud83d\udca1\x20\u529f\u80fd\u7279\u70b9',
+    body: '\u4e0d\u77e5\u9053',
+  },
+];
+let _d20bd = ((v: number) => v * 4)(36);
+var _d20be = ((v: number) => v * 3)(76);
+var _d20bf = 31215;
+let _d20c0 = 86431;
+let _d20c1 = { k: '\x78\x32\x30\x63\x32', n: 93 };
+const _d20c3 = 98009;
+var _d20c4 = 45495;
+var _d20c5 = ((v: number) => v * 8)(40);
+let _d20c6 = { k: '\x78\x32\x30\x63\x37', n: 14 };
+const _d20c8 = 41401;
+const _d20c9 = ['\x78\x32\x30\x63\x61', '\x78\x32\x30\x63\x62'];
+let _d20cc = 99089;
+var _d20cd = ((v: number) => v * 3)(70);
+var _d20ce = ((v: number) => v * 2)(45);
+var _d20cf = ['\x78\x32\x30\x64\x30', '\x78\x32\x30\x64\x31'];
+let _d20d2 = ['\x78\x32\x30\x64\x33', '\x78\x32\x30\x64\x34'];
+let _d20d5 = 21563;
+var _d20d6 = { k: '\x78\x32\x30\x64\x37', n: 40 };
+let _d20d8 = 71332;
+let _d20d9 = ((v: number) => v * 2)(68);
+var _d20da = 29398;
+let _d20db = { k: '\x78\x32\x30\x64\x63', n: 96 };
+var _d20dd = ((v: number) => v * 8)(12);
+let _d20de = ((v: number) => v * 2)(68);
+var _d20df = ((v: number) => v * 8)(28);
+let _d20e0 = 97827;
+var _d20e1 = ((v: number) => v * 6)(65);
+let _d20e2 = ((v: number) => v * 2)(16);
+const _d20e3 = ['\x78\x32\x30\x65\x34', '\x78\x32\x30\x65\x35'];
+const _d20e6 = 78955;
+const _d20e7 = 47864;
+let _d20e8 = { k: '\x78\x32\x30\x65\x39', n: 58 };
+var _d20ea = { k: '\x78\x32\x30\x65\x62', n: 94 };
+const _d20ec = 95103;
+let _d20ed = ((v: number) => v * 8)(52);
+let _d20ee = ['\x78\x32\x30\x65\x66', '\x78\x32\x30\x66\x30'];
+var _d20f1 = ['\x78\x32\x30\x66\x32', '\x78\x32\x30\x66\x33'];
+let _d20f4 = 55050;
+var _d20f5 = ((v: number) => v * 3)(40);
+let _d20f6 = 26568;
+const _d20f7 = 85954;
+let _d20f8 = { k: '\x78\x32\x30\x66\x39', n: 91 };
+const _d20fa = 62894;
+let _d20fb = ((v: number) => v * 6)(80);
+let _d20fc = ['\x78\x32\x30\x66\x64', '\x78\x32\x30\x66\x65'];
+let _d20ff = { k: '\x78\x32\x31\x30\x30', n: 93 };
+var _d2101 = { k: '\x78\x32\x31\x30\x32', n: 21 };
+var _d2103 = ((v: number) => v * 3)(28);
+const _d2104 = ((v: number) => v * 5)(9);
+var _d2105 = { k: '\x78\x32\x31\x30\x36', n: 47 };
+const _d2107 = ((v: number) => v * 3)(17);
+let _d2108 = 75282;
+let _d2109 = 39351;
+var _d210a = { k: '\x78\x32\x31\x30\x62', n: 42 };
+let _d210c = 95202;
+var _d210d = 97863;
+let _d210e = ((v: number) => v * 4)(38);
+var _d210f = 36855;
+var _d2110 = { k: '\x78\x32\x31\x31\x31', n: 14 };
+const _d2112 = 49190;
+var _d2113 = { k: '\x78\x32\x31\x31\x34', n: 18 };
+let _d2115 = 98527;
+---
+
+<BaseLayout title="s7eet — s7ae 网络科技工作室">
+  <Header currentPage="/projects" />
+
+  <main id="main">
+
+  <ProductSpec
+    spec="02.1"
+    code="S7EET/0001"
+    name="s7eet"
+    subtitle="Skeet Crack NextGen"
+    meta={meta}
+    highlights={[
+      '单EXE打包设计，无凌乱文件',
+      '自动开启游戏且已设置好游戏启动项',
+      '主要支持库都从本站动态拉取',
+    ]}
+    updates={updates}
+    image="/assets/images/s7eet.jpg"
+    imageAlt="s7eet"
+    demo={{ href: 'https://www.bilibili.com/video/BV1ok9aBHEZ1/?share_source=copy_web&vd_source=88c5c8a4ff8bd601a51a57e5d72d0e40' }}
+  >
+    <button
+      type="button"
+      class="btn btn-ghost magnetic interactable"
+      onclick="openReadmeModal()"
+    >
+      <span>DOWNLOAD BUILD</span>
+      <span aria-hidden="true">↓</span>
+    </button>
+  </ProductSpec>
+
+  
+  <div class="readme-modal" id="readmeModal" role="dialog" aria-modal="true" aria-label="使用前须知">
+    <div class="readme-overlay interactable" onclick="closeReadmeModal()"></div>
+    <div class="readme-container">
+      <div class="readme-header">
+        <span class="readme-icon" aria-hidden="true">▤</span>
+        <h2 class="readme-title">使用前须知</h2>
+        <button type="button" class="readme-close interactable" onclick="closeReadmeModal()" aria-label="关闭">
+          ×
+        </button>
+      </div>
+
+      <div class="readme-content">
+        {briefing.map((section) => (
+          <div class="readme-section">
+            <h3>{section.title}</h3>
+            <div class="readme-placeholder">{section.body}</div>
+          </div>
+        ))}
+      </div>
+
+      <div class="readme-footer">
+        <label class="readme-checkbox">
+          <input type="checkbox" id="agreeCheckbox" />
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">我已阅读并同意以上所有条款</span>
+        </label>
+        <a
+          href="https://old.s7ae.cc/assets/s7eet.exe"
+          id="downloadBtn"
+          onclick="handleDownload(event)"
+          class="btn-download"
+        >
+          <span>确认下载</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+    <div data-m2291="v2292" data-m2293="v2294" hidden></div>
+  <div data-m2295="v2296" data-m2297="v2298" hidden></div>
+  <div data-m2299="v229a" data-m229b="v229c" hidden></div>
+  <div data-m229d="v229e" data-m229f="v22a0" hidden></div>
+  <div data-m22a1="v22a2" data-m22a3="v22a4" hidden></div>
+  <div data-m22a5="v22a6" data-m22a7="v22a8" hidden></div>
+  <div data-m22a9="v22aa" data-m22ab="v22ac" hidden></div>
+  <div data-m22ad="v22ae" data-m22af="v22b0" hidden></div>
+  <div data-m22b1="v22b2" data-m22b3="v22b4" hidden></div>
+  <div data-m22b5="v22b6" data-m22b7="v22b8" hidden></div>
+  <div data-m22b9="v22ba" data-m22bb="v22bc" hidden></div>
+  <div data-m22bd="v22be" data-m22bf="v22c0" hidden></div>
+  <div data-m22c1="v22c2" data-m22c3="v22c4" hidden></div>
+  <div data-m22c5="v22c6" data-m22c7="v22c8" hidden></div>
+  <div data-m22c9="v22ca" data-m22cb="v22cc" hidden></div>
+  <div data-m22cd="v22ce" data-m22cf="v22d0" hidden></div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    'use strict';
+
+    var modal = document.getElementById('\x72\x65\x61\x64\x6d\x65\x4d\x6f\x64\x61\x6c');
+    var container = modal ? modal.querySelector('\x2e\x72\x65\x61\x64\x6d\x65\x2d\x63\x6f\x6e\x74\x61\x69\x6e\x65\x72') : null;
+    var checkbox = document.getElementById('\x61\x67\x72\x65\x65\x43\x68\x65\x63\x6b\x62\x6f\x78');
+    var downloadBtn = document.getElementById('\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x42\x74\x6e');
+
+    function setDownloadEnabled(enabled) {
+      if (!downloadBtn) return;
+      downloadBtn.style.pointerEvents = enabled ? '\x61\x75\x74\x6f' : '\x6e\x6f\x6e\x65';
+      downloadBtn.style.opacity = enabled ? '\x31' : '\x30\x2e\x34';
+      downloadBtn.setAttribute('\x61\x72\x69\x61\x2d\x64\x69\x73\x61\x62\x6c\x65\x64', enabled ? '\x66\x61\x6c\x73\x65' : '\x74\x72\x75\x65');
+    }
+
+    window.openReadmeModal = function () {
+      if (!modal || !container) return;
+      modal.classList.add('\x61\x63\x74\x69\x76\x65');
+      document.body.style.overflow = '\x68\x69\x64\x64\x65\x6e';
+      window.requestAnimationFrame(function () {
+        container.classList.add('\x61\x6e\x69\x6d\x61\x74\x65');
+      });
+    };
+var _z2116 = '\x78\x32\x31\x31\x37' + '\x78\x32\x31\x31\x38';
+
+    window.closeReadmeModal = function () {
+      if (!modal || !container) return;
+      container.classList.remove('\x61\x6e\x69\x6d\x61\x74\x65');
+      container.classList.add('\x63\x6c\x6f\x73\x69\x6e\x67');
+
+      window.setTimeout(function () {
+        modal.classList.remove('\x61\x63\x74\x69\x76\x65');
+        container.classList.remove('\x63\x6c\x6f\x73\x69\x6e\x67');
+        document.body.style.overflow = '';
+        if (checkbox) checkbox.checked = false;
+        setDownloadEnabled(false);
+      }, 380);
+    };
+var _z2119 = '\x78\x32\x31\x31\x61' + '\x78\x32\x31\x31\x62';
+
+    window.handleDownload = function (event) {
+      if (!checkbox || !downloadBtn) return;
+      if (checkbox.checked) return;
+
+      event.preventDefault();
+      downloadBtn.style.animation = '\x73\x68\x61\x6b\x65\x20\x30\x2e\x35\x73\x20\x65\x61\x73\x65';
+      window.setTimeout(function () {
+        downloadBtn.style.animation = '';
+      }, 500);
+    };
+if (void 0 === _q211c) { _w211d; }
+
+    document.addEventListener('\x44\x4f\x4d\x43\x6f\x6e\x74\x65\x6e\x74\x4c\x6f\x61\x64\x65\x64', function () {
+      setDownloadEnabled(false);
+
+      if (checkbox) {
+        checkbox.addEventListener('\x63\x68\x61\x6e\x67\x65', function () {
+          setDownloadEnabled(checkbox.checked);
+        });
+      }
+    });
+
+    document.addEventListener('\x6b\x65\x79\x64\x6f\x77\x6e', function (event) {
+      if (event.key !== '\x45\x73\x63\x61\x70\x65') return;
+      if (!modal || !modal.classList.contains('\x61\x63\x74\x69\x76\x65')) return;
+      window.closeReadmeModal();
+    });
+  })();
+
+var _z211e = ((v) => v * 3)(73);
+var _z211f = ((v) => v * 5)(40);
+var _z2120 = 15202;
+var _z2121 = 12152;
+var _z2122 = ((v) => v * 8)(78);
+var _z2123 = ((v) => v * 5)(1);
+var _z2124 = 8129;
+var _z2125 = 93272;
+var _z2126 = ((v) => v * 6)(5);
+var _z2127 = 92117;
+var _z2128 = ((v) => v * 4)(91);
+var _z2129 = '\x78\x32\x31\x32\x61' + '\x78\x32\x31\x32\x62';
+var _z212c = 45670;
+var _z212d = { a: 22, b: '\x78\x32\x31\x32\x65' };
+var _z212f = '\x78\x32\x31\x33\x30' + '\x78\x32\x31\x33\x31';
+var _z2132 = 33476;
+var _z2133 = ((v) => v * 8)(36);
+var _z2134 = '\x78\x32\x31\x33\x35' + '\x78\x32\x31\x33\x36';
+var _z2137 = 82047;
+var _z2138 = ((v) => v * 4)(69);
+var _z2139 = ((v) => v * 3)(69);
+var _z213a = '\x78\x32\x31\x33\x62' + '\x78\x32\x31\x33\x63';
+var _z213d = 85155;
+var _z213e = ((v) => v * 6)(52);
+var _z213f = '\x78\x32\x31\x34\x30' + '\x78\x32\x31\x34\x31';
+var _z2142 = ((v) => v * 3)(50);
+var _z2143 = 73948;
+var _z2144 = { a: 25, b: '\x78\x32\x31\x34\x35' };
+var _z2146 = ((v) => v * 5)(78);
+var _z2147 = { a: 93, b: '\x78\x32\x31\x34\x38' };
+var _z2149 = ((v) => v * 4)(68);
+var _z214a = 23152;
+var _z214b = 63335;
+var _z214c = 96989;
+var _z214d = '\x78\x32\x31\x34\x65' + '\x78\x32\x31\x34\x66';
+var _z2150 = ((v) => v * 3)(81);
+var _z2151 = ((v) => v * 5)(4);
+var _z2152 = 46837;
+var _z2153 = '\x78\x32\x31\x35\x34' + '\x78\x32\x31\x35\x35';
+var _z2156 = 48983;
+var _z2157 = ((v) => v * 3)(63);
+var _z2158 = 13777;
+var _z2159 = ((v) => v * 8)(90);
+var _z215a = { a: 95, b: '\x78\x32\x31\x35\x62' };
+var _z215c = 74721;
+var _z215d = '\x78\x32\x31\x35\x65' + '\x78\x32\x31\x35\x66';
+var _z2160 = 73726;
+var _z2161 = { a: 15, b: '\x78\x32\x31\x36\x32' };
+var _z2163 = '\x78\x32\x31\x36\x34' + '\x78\x32\x31\x36\x35';
+var _z2166 = { a: 23, b: '\x78\x32\x31\x36\x37' };
+var _z2168 = '\x78\x32\x31\x36\x39' + '\x78\x32\x31\x36\x61';
+var _z216b = '\x78\x32\x31\x36\x63' + '\x78\x32\x31\x36\x64';
+var _z216e = ((v) => v * 3)(24);
+var _z216f = '\x78\x32\x31\x37\x30' + '\x78\x32\x31\x37\x31';
+var _z2172 = { a: 71, b: '\x78\x32\x31\x37\x33' };
+var _z2174 = '\x78\x32\x31\x37\x35' + '\x78\x32\x31\x37\x36';
+var _z2177 = { a: 53, b: '\x78\x32\x31\x37\x38' };
+var _z2179 = ((v) => v * 3)(40);
+var _z217a = 31815;
+var _z217b = 78242;
+var _z217c = ((v) => v * 5)(94);
+var _z217d = '\x78\x32\x31\x37\x65' + '\x78\x32\x31\x37\x66';
+var _z2180 = 79464;
+var _z2181 = '\x78\x32\x31\x38\x32' + '\x78\x32\x31\x38\x33';
+var _z2184 = '\x78\x32\x31\x38\x35' + '\x78\x32\x31\x38\x36';
+var _z2187 = 77994;
+var _z2188 = ((v) => v * 5)(35);
+var _z2189 = '\x78\x32\x31\x38\x61' + '\x78\x32\x31\x38\x62';
+var _z218c = 34117;</script>
+
+<style>
+  .readme-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease, visibility .35s ease;
+  }
+._s218d{overflow:hidden}
+
+  .readme-modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .readme-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 3, 4, .9);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    cursor: pointer;
+  }
+
+  .readme-container {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    max-height: 86vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-obsidian);
+    border: 1px solid rgba(255, 255, 255, .22);
+    transform: translateY(16px);
+    opacity: 0;
+    transition: transform .45s var(--ease-out), opacity .35s ease;
+  }
+
+  .readme-container.animate {
+    transform: translateY(0);
+    opacity: 1;
+  }
+._s218e{pointer-events:none}
+
+  .readme-container.closing {
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform .3s ease, opacity .25s ease;
+  }
+._s218f{height:0}
+
+  .readme-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.35rem;
+    border-bottom: 1px solid var(--border-hairline);
+  }
+._s2190{z-index:-1}
+
+  .readme-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border-hairline);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--text-platinum);
+    flex-shrink: 0;
+  }
+._s2191{display:none}
+
+  .readme-title {
+    flex: 1;
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1;
+  }
+
+  .readme-close {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border-hairline);
+    background: transparent;
+    color: var(--text-titanium);
+    font-family: var(--font-mono);
+    font-size: 16px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color .3s, color .3s, border-color .3s;
+  }
+
+  .readme-close:hover {
+    background: #fff;
+    color: #030304;
+    border-color: #fff;
+  }
+._s2192{z-index:-1}
+
+  .readme-content {
+    padding: 1.35rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    scrollbar-width: thin;
+    scrollbar-color: #27272a transparent;
+  }
+._s2193{pointer-events:none}
+
+  .readme-section h3 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--text-platinum);
+    font-weight: 400;
+    padding-bottom: .65rem;
+    margin-bottom: .65rem;
+    border-bottom: 1px solid var(--border-hairline);
+  }
+._s2194{position:absolute}
+
+  .readme-placeholder {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: .02em;
+    white-space: pre-line;
+    color: var(--text-titanium);
+    padding-left: 1rem;
+    border-left: 1px solid var(--border-active);
+  }
+
+  .readme-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.35rem;
+    border-top: 1px solid var(--border-hairline);
+  }
+._s2195{width:0}
+
+  .readme-checkbox {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    cursor: pointer;
+    user-select: none;
+  }
+._s2196{display:none}
+
+  .readme-checkbox input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+._s2197{clip-path:inset(50%)}
+
+  .checkbox-custom {
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--border-active);
+    position: relative;
+    flex-shrink: 0;
+    transition: background-color .25s, border-color .25s;
+  }
+._s2198{content:''}
+
+  .checkbox-custom::after {
+    content: '✓';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    line-height: 1;
+    color: #030304;
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+
+  .readme-checkbox input:checked + .checkbox-custom {
+    background: #fff;
+    border-color: #fff;
+  }
+._s2199{display:none}
+
+  .readme-checkbox input:checked + .checkbox-custom::after {
+    opacity: 1;
+  }
+._s219a{content:''}
+
+  .checkbox-text {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--text-titanium);
+  }
+
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: .7rem;
+    padding: .8rem 1.35rem;
+    border: 1px solid #fff;
+    background: #fff;
+    color: #030304;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    transition: background-color .3s, color .3s;
+  }
+._s219b{transform:scale(0)}
+
+  .btn-download:hover {
+    background: transparent;
+    color: #fff;
+  }
+._s219c{visibility:hidden}
+
+  @media (max-width: 640px) {
+    .readme-footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+._s219d{position:absolute}
+
+    .btn-download {
+      width: 100%;
+      justify-content: center;
+    }
+._s219e{overflow:hidden}
+  }
+._s219f{overflow:hidden}
+._s21a0{pointer-events:none}
+._s21a1{clip-path:inset(50%)}
+._s21a2{position:absolute}
+._s21a3{position:absolute}
+._s21a4{overflow:hidden}
+._s21a5{pointer-events:none}
+._s21a6{overflow:hidden}
+._s21a7{position:absolute}
+._s21a8{position:absolute}
+._s21a9{z-index:-1}
+._s21aa{z-index:-1}
+._s21ab{overflow:hidden}
+._s21ac{pointer-events:none}
+._s21ad{position:absolute}
+._s21ae{display:none}
+._s21af{height:0}
+._s21b0{height:0}
+._s21b1{clip-path:inset(50%)}
+._s21b2{overflow:hidden}
+._s21b3{height:0}
+._s21b4{position:absolute}
+._s21b5{pointer-events:none}
+._s21b6{position:absolute}
+._s21b7{opacity:0}
+._s21b8{visibility:hidden}
+._s21b9{content:''}
+._s21ba{visibility:hidden}
+._s21bb{height:0}
+._s21bc{clip-path:inset(50%)}
+._s21bd{visibility:hidden}
+._s21be{transform:scale(0)}
+._s21bf{z-index:-1}
+._s21c0{transform:scale(0)}
+._s21c1{height:0}
+._s21c2{z-index:-1}
+._s21c3{position:absolute}
+._s21c4{overflow:hidden}
+._s21c5{clip-path:inset(50%)}
+._s21c6{height:0}
+._s21c7{position:absolute}
+._s21c8{transform:scale(0)}
+._s21c9{pointer-events:none}
+._s21ca{opacity:0}
+._s21cb{clip-path:inset(50%)}
+._s21cc{transform:scale(0)}
+._s21cd{overflow:hidden}
+._s21ce{width:0}
+._s21cf{z-index:-1}
+._s21d0{height:0}
+._s21d1{content:''}
+._s21d2{z-index:-1}
+._s21d3{visibility:hidden}
+._s21d4{transform:scale(0)}
+._s21d5{transform:scale(0)}
+._s21d6{visibility:hidden}
+._s21d7{content:''}
+._s21d8{display:none}
+._s21d9{height:0}
+._s21da{visibility:hidden}
+._s21db{height:0}
+._s21dc{opacity:0}
+._s21dd{clip-path:inset(50%)}
+._s21de{width:0}
+._s21df{height:0}
+._s21e0{visibility:hidden}
+._s21e1{height:0}
+._s21e2{z-index:-1}
+._s21e3{overflow:hidden}
+._s21e4{height:0}
+._s21e5{position:absolute}
+._s21e6{pointer-events:none}
+._s21e7{clip-path:inset(50%)}
+._s21e8{z-index:-1}
+._s21e9{overflow:hidden}
+._s21ea{visibility:hidden}
+._s21eb{overflow:hidden}
+._s21ec{width:0}
+._s21ed{opacity:0}
+._s21ee{visibility:hidden}
+._s21ef{width:0}
+._s21f0{opacity:0}
+._s21f1{content:''}
+._s21f2{overflow:hidden}
+._s21f3{visibility:hidden}
+._s21f4{height:0}
+._s21f5{visibility:hidden}
+._s21f6{z-index:-1}
+._s21f7{width:0}
+._s21f8{clip-path:inset(50%)}
+._s21f9{clip-path:inset(50%)}
+._s21fa{display:none}
+._s21fb{content:''}
+._s21fc{clip-path:inset(50%)}
+._s21fd{visibility:hidden}
+._s21fe{position:absolute}
+._s21ff{z-index:-1}
+._s2200{z-index:-1}
+._s2201{clip-path:inset(50%)}
+._s2202{visibility:hidden}
+._s2203{visibility:hidden}
+._s2204{display:none}
+._s2205{width:0}
+._s2206{content:''}
+._s2207{transform:scale(0)}
+._s2208{display:none}
+._s2209{opacity:0}
+._s220a{pointer-events:none}
+._s220b{clip-path:inset(50%)}
+._s220c{pointer-events:none}
+._s220d{width:0}
+._s220e{display:none}
+._s220f{transform:scale(0)}
+._s2210{pointer-events:none}
+._s2211{content:''}
+._s2212{height:0}
+._s2213{opacity:0}
+._s2214{width:0}
+._s2215{transform:scale(0)}
+._s2216{visibility:hidden}
+._s2217{position:absolute}
+._s2218{transform:scale(0)}
+._s2219{z-index:-1}
+._s221a{height:0}
+._s221b{opacity:0}
+._s221c{z-index:-1}
+._s221d{transform:scale(0)}
+._s221e{position:absolute}
+._s221f{width:0}
+._s2220{visibility:hidden}
+._s2221{width:0}
+._s2222{visibility:hidden}
+._s2223{content:''}
+._s2224{position:absolute}
+._s2225{content:''}
+._s2226{visibility:hidden}
+._s2227{content:''}
+._s2228{overflow:hidden}
+._s2229{opacity:0}
+._s222a{clip-path:inset(50%)}
+._s222b{opacity:0}
+._s222c{opacity:0}
+._s222d{opacity:0}
+._s222e{pointer-events:none}
+._s222f{overflow:hidden}
+._s2230{pointer-events:none}
+._s2231{position:absolute}
+._s2232{pointer-events:none}
+._s2233{clip-path:inset(50%)}
+._s2234{display:none}
+._s2235{height:0}
+._s2236{opacity:0}
+._s2237{position:absolute}
+._s2238{position:absolute}
+._s2239{overflow:hidden}
+._s223a{position:absolute}
+._s223b{opacity:0}
+._s223c{pointer-events:none}
+._s223d{clip-path:inset(50%)}
+._s223e{transform:scale(0)}
+._s223f{display:none}
+._s2240{opacity:0}
+._s2241{overflow:hidden}
+._s2242{opacity:0}
+._s2243{overflow:hidden}
+._s2244{display:none}
+._s2245{content:''}
+._s2246{height:0}
+._s2247{clip-path:inset(50%)}
+._s2248{width:0}
+._s2249{width:0}
+._s224a{transform:scale(0)}
+._s224b{overflow:hidden}
+._s224c{content:''}
+._s224d{overflow:hidden}
+._s224e{clip-path:inset(50%)}
+._s224f{display:none}
+._s2250{visibility:hidden}
+._s2251{content:''}
+._s2252{clip-path:inset(50%)}
+._s2253{display:none}
+._s2254{display:none}
+._s2255{visibility:hidden}
+._s2256{position:absolute}
+._s2257{content:''}
+._s2258{width:0}
+._s2259{transform:scale(0)}
+._s225a{height:0}
+._s225b{height:0}
+._s225c{position:absolute}
+._s225d{height:0}
+._s225e{clip-path:inset(50%)}
+._s225f{height:0}
+._s2260{overflow:hidden}
+._s2261{z-index:-1}
+._s2262{transform:scale(0)}
+._s2263{width:0}
+._s2264{transform:scale(0)}
+._s2265{clip-path:inset(50%)}
+._s2266{z-index:-1}
+._s2267{overflow:hidden}
+._s2268{overflow:hidden}
+._s2269{content:''}
+._s226a{visibility:hidden}
+._s226b{width:0}
+._s226c{clip-path:inset(50%)}
+._s226d{clip-path:inset(50%)}
+._s226e{opacity:0}
+._s226f{z-index:-1}
+._s2270{clip-path:inset(50%)}
+._s2271{display:none}
+._s2272{display:none}
+._s2273{position:absolute}
+._s2274{position:absolute}
+._s2275{content:''}
+._s2276{overflow:hidden}
+._s2277{height:0}
+._s2278{width:0}
+._s2279{overflow:hidden}
+._s227a{height:0}
+._s227b{transform:scale(0)}
+._s227c{display:none}
+._s227d{position:absolute}
+._s227e{width:0}
+._s227f{z-index:-1}
+._s2280{width:0}
+._s2281{display:none}
+._s2282{overflow:hidden}
+._s2283{content:''}
+._s2284{pointer-events:none}
+._s2285{width:0}
+._s2286{height:0}
+._s2287{clip-path:inset(50%)}
+._s2288{overflow:hidden}
+._s2289{transform:scale(0)}
+._s228a{display:none}
+._s228b{height:0}
+._s228c{height:0}
+._s228d{visibility:hidden}
+._s228e{overflow:hidden}
+._s228f{display:none}
+._s2290{overflow:hidden}
+</style>

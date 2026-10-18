@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProductSpec from '../../components/ProductSpec.astro';
+
+const updates = [
+  {
+    date: '\x32\x30\x32\x34\x2d\x30\x31\x2d\x32\x35',
+    details: [
+      '\u589e\u5f3a\u7f51\u622a\u6a21\u5757\uff0c\u652f\u6301\u7ed5\u8fc7\u66f4\u591a\u4eba\u8138\u9a8c\u8bc1\u7cfb\u7edf',
+      '\u4f18\u5316\u51bb\u7ed3\u670d\u52a1\u7b97\u6cd5\uff0c\u63d0\u9ad8\u7a33\u5b9a\u6027',
+      '\u4fee\u590d\x57\x69\x6e\x64\x6f\x77\x73\x20\x31\x31\u7cfb\u7edf\u4e0b\u7684\u90e8\u5206\u517c\u5bb9\u6027\u95ee\u9898',
+    ],
+  },
+  {
+    date: '\x32\x30\x32\x34\x2d\x30\x31\x2d\x30\x31',
+    details: [
+      '\u6539\u8fdb\u8fdb\u7a0b\u4fdd\u62a4\u673a\u5236\uff0c\u66f4\u6709\u6548\u5730\u9632\u6b62\u8fdb\u7a0b\u88ab\u7ed3\u675f',
+      '\u589e\u52a0\u65b0\u7684\u626b\u76d8\u68c0\u6d4b\u548c\u7ed5\u8fc7\u65b9\u6848',
+      '\u4f18\u5316\u7cfb\u7edf\u8d44\u6e90\u5360\u7528\uff0c\u51cf\u5c11\x43\x50\x55\u4f7f\u7528\u7387',
+    ],
+  },
+  {
+    date: '\x32\x30\x32\x33\x2d\x31\x32\x2d\x31\x35',
+    details: [
+      '\u9996\u6b21\u53d1\u5e03\u8fc7\u79df\u5668\u5185\u90e8\u6d4b\u8bd5\u7248',
+      '\u5b9e\u73b0\u7f51\u622a\u7ed5\u8fc7\u4eba\u8138\u9a8c\u8bc1\u529f\u80fd',
+      '\u901a\u8fc7\u51bb\u7ed3\u670d\u52a1\u7ed5\u8fc7\u626b\u76d8\u68c0\u6d4b',
+    ],
+  },
+];
+
+const meta = [
+  { label: '\u7c7b\u578b', value: '\u5185\u6d4b' },
+  { label: '\u6280\u672f\u6808', value: '\x43\x2b\x2b\x20\x2f\x20\x48\x4f\x4f\x4b\x20\x2f\x20\u7f51\u622a' },
+  { label: '\u72b6\u6001', value: '\u5185\u90e8\u6d4b\u8bd5' },
+];
+var _d24e0 = 64292;
+let _d24e1 = ((v: number) => v * 8)(24);
+var _d24e2 = ['\x78\x32\x34\x65\x33', '\x78\x32\x34\x65\x34'];
+let _d24e5 = ['\x78\x32\x34\x65\x36', '\x78\x32\x34\x65\x37'];
+const _d24e8 = { k: '\x78\x32\x34\x65\x39', n: 30 };
+var _d24ea = ((v: number) => v * 7)(26);
+const _d24eb = ((v: number) => v * 4)(65);
+let _d24ec = 44533;
+const _d24ed = { k: '\x78\x32\x34\x65\x65', n: 8 };
+const _d24ef = ((v: number) => v * 5)(21);
+var _d24f0 = 41933;
+const _d24f1 = ['\x78\x32\x34\x66\x32', '\x78\x32\x34\x66\x33'];
+const _d24f4 = ((v: number) => v * 8)(7);
+var _d24f5 = ((v: number) => v * 6)(31);
+var _d24f6 = ['\x78\x32\x34\x66\x37', '\x78\x32\x34\x66\x38'];
+const _d24f9 = 52944;
+const _d24fa = ((v: number) => v * 6)(92);
+const _d24fb = ['\x78\x32\x34\x66\x63', '\x78\x32\x34\x66\x64'];
+let _d24fe = { k: '\x78\x32\x34\x66\x66', n: 0 };
+var _d2500 = 9630;
+let _d2501 = 42965;
+const _d2502 = 47967;
+const _d2503 = { k: '\x78\x32\x35\x30\x34', n: 47 };
+const _d2505 = { k: '\x78\x32\x35\x30\x36', n: 24 };
+var _d2507 = { k: '\x78\x32\x35\x30\x38', n: 4 };
+const _d2509 = ['\x78\x32\x35\x30\x61', '\x78\x32\x35\x30\x62'];
+var _d250c = ['\x78\x32\x35\x30\x64', '\x78\x32\x35\x30\x65'];
+var _d250f = ((v: number) => v * 3)(46);
+let _d2510 = ['\x78\x32\x35\x31\x31', '\x78\x32\x35\x31\x32'];
+var _d2513 = ['\x78\x32\x35\x31\x34', '\x78\x32\x35\x31\x35'];
+var _d2516 = 93462;
+let _d2517 = ['\x78\x32\x35\x31\x38', '\x78\x32\x35\x31\x39'];
+let _d251a = { k: '\x78\x32\x35\x31\x62', n: 26 };
+var _d251c = 49797;
+let _d251d = 38606;
+var _d251e = { k: '\x78\x32\x35\x31\x66', n: 57 };
+var _d2520 = { k: '\x78\x32\x35\x32\x31', n: 83 };
+const _d2522 = ((v: number) => v * 8)(55);
+let _d2523 = { k: '\x78\x32\x35\x32\x34', n: 8 };
+let _d2525 = { k: '\x78\x32\x35\x32\x36', n: 42 };
+const _d2527 = 94752;
+let _d2528 = { k: '\x78\x32\x35\x32\x39', n: 33 };
+const _d252a = 16487;
+let _d252b = { k: '\x78\x32\x35\x32\x63', n: 51 };
+let _d252d = ((v: number) => v * 4)(81);
+var _d252e = 84528;
+let _d252f = 44546;
+let _d2530 = ['\x78\x32\x35\x33\x31', '\x78\x32\x35\x33\x32'];
+const _d2533 = ((v: number) => v * 8)(3);
+let _d2534 = ((v: number) => v * 8)(43);
+var _d2535 = 82240;
+const _d2536 = ['\x78\x32\x35\x33\x37', '\x78\x32\x35\x33\x38'];
+var _d2539 = ['\x78\x32\x35\x33\x61', '\x78\x32\x35\x33\x62'];
+const _d253c = { k: '\x78\x32\x35\x33\x64', n: 15 };
+let _d253e = 91159;
+let _d253f = { k: '\x78\x32\x35\x34\x30', n: 38 };
+const _d2541 = ['\x78\x32\x35\x34\x32', '\x78\x32\x35\x34\x33'];
+let _d2544 = { k: '\x78\x32\x35\x34\x35', n: 90 };
+const _d2546 = 20863;
+const _d2547 = ((v: number) => v * 4)(93);
+var _d2548 = ((v: number) => v * 5)(8);
+var _d2549 = 74704;
+let _d254a = 57987;
+var _d254b = { k: '\x78\x32\x35\x34\x63', n: 60 };
+---
+
+<BaseLayout title="过租器 — s7ae 网络科技工作室">
+  <Header currentPage="/projects" />
+
+  <main id="main">
+
+  <ProductSpec
+    spec="02.4"
+    code="ZUHAOWAN/0004"
+    name="过租器"
+    subtitle="内核级租号反作弊屏蔽器"
+    meta={meta}
+    highlights={[
+      '网截绕过人脸验证',
+      '通过冻结服务绕过扫盘',
+      '通过脱离签名禁止结束进程',
+    ]}
+    updates={updates}
+    image="/assets/images/guozu.png"
+    imageAlt="过租器"
+    demo={{ href: 'https://www.bilibili.com/video/BV15Fxtz7E3A/?share_source=copy_web&vd_source=88c5c8a4ff8bd601a51a57e5d72d0e40' }}
+  />
+
+    <div data-m254d="v254e" data-m254f="v2550" hidden></div>
+  <div data-m2551="v2552" data-m2553="v2554" hidden></div>
+  <div data-m2555="v2556" data-m2557="v2558" hidden></div>
+  <div data-m2559="v255a" data-m255b="v255c" hidden></div>
+  <div data-m255d="v255e" data-m255f="v2560" hidden></div>
+  <div data-m2561="v2562" data-m2563="v2564" hidden></div>
+  <div data-m2565="v2566" data-m2567="v2568" hidden></div>
+  <div data-m2569="v256a" data-m256b="v256c" hidden></div>
+  <div data-m256d="v256e" data-m256f="v2570" hidden></div>
+  <div data-m2571="v2572" data-m2573="v2574" hidden></div>
+  <div data-m2575="v2576" data-m2577="v2578" hidden></div>
+  <div data-m2579="v257a" data-m257b="v257c" hidden></div>
+  <div data-m257d="v257e" data-m257f="v2580" hidden></div>
+  <div data-m2581="v2582" data-m2583="v2584" hidden></div>
+  <div data-m2585="v2586" data-m2587="v2588" hidden></div>
+  <div data-m2589="v258a" data-m258b="v258c" hidden></div>
+  </main>
+
+  <Footer />
+</BaseLayout>

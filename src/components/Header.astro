@@ -1,0 +1,206 @@
+---
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage = '\x2f' } = Astro.props;
+
+const navItems = [
+  { href: '\x2f', index: '\x30\x31', label: '\u9996\u9875', en: '\x49\x4e\x44\x45\x58' },
+  { href: '\x2f\x70\x72\x6f\x6a\x65\x63\x74\x73', index: '\x30\x32', label: '\u9879\u76ee', en: '\x41\x52\x53\x45\x4e\x41\x4c' },
+  { href: '\x2f\x74\x65\x61\x6d', index: '\x30\x33', label: '\u9e23\u8c22', en: '\x52\x4f\x53\x54\x45\x52' },
+  { href: '\x2f\x63\x6f\x6e\x74\x61\x63\x74', index: '\x30\x34', label: '\u8054\u7cfb', en: '\x43\x48\x41\x4e\x4e\x45\x4c' },
+];
+let _d150a = ((v: number) => v * 7)(4);
+const _d150b = ((v: number) => v * 6)(41);
+var _d150c = 90866;
+let _d150d = { k: '\x78\x31\x35\x30\x65', n: 80 };
+let _d150f = 2496;
+var _d1510 = ((v: number) => v * 8)(63);
+var _d1511 = { k: '\x78\x31\x35\x31\x32', n: 66 };
+let _d1513 = { k: '\x78\x31\x35\x31\x34', n: 64 };
+var _d1515 = 23902;
+var _d1516 = 15897;
+var _d1517 = { k: '\x78\x31\x35\x31\x38', n: 96 };
+let _d1519 = ((v: number) => v * 7)(48);
+let _d151a = { k: '\x78\x31\x35\x31\x62', n: 22 };
+let _d151c = 4906;
+const _d151d = { k: '\x78\x31\x35\x31\x65', n: 66 };
+let _d151f = ((v: number) => v * 7)(8);
+const _d1520 = ((v: number) => v * 2)(22);
+var _d1521 = ['\x78\x31\x35\x32\x32', '\x78\x31\x35\x32\x33'];
+let _d1524 = ((v: number) => v * 3)(83);
+const _d1525 = { k: '\x78\x31\x35\x32\x36', n: 67 };
+let _d1527 = ((v: number) => v * 4)(15);
+const _d1528 = ((v: number) => v * 8)(77);
+var _d1529 = { k: '\x78\x31\x35\x32\x61', n: 13 };
+var _d152b = ['\x78\x31\x35\x32\x63', '\x78\x31\x35\x32\x64'];
+let _d152e = 78225;
+const _d152f = ['\x78\x31\x35\x33\x30', '\x78\x31\x35\x33\x31'];
+var _d1532 = ['\x78\x31\x35\x33\x33', '\x78\x31\x35\x33\x34'];
+let _d1535 = ['\x78\x31\x35\x33\x36', '\x78\x31\x35\x33\x37'];
+var _d1538 = ((v: number) => v * 6)(98);
+var _d1539 = 16407;
+var _d153a = { k: '\x78\x31\x35\x33\x62', n: 80 };
+let _d153c = ['\x78\x31\x35\x33\x64', '\x78\x31\x35\x33\x65'];
+let _d153f = ((v: number) => v * 8)(7);
+let _d1540 = { k: '\x78\x31\x35\x34\x31', n: 34 };
+var _d1542 = 88075;
+const _d1543 = { k: '\x78\x31\x35\x34\x34', n: 1 };
+const _d1545 = 82246;
+let _d1546 = 23969;
+const _d1547 = 71501;
+const _d1548 = ((v: number) => v * 2)(24);
+const _d1549 = ((v: number) => v * 6)(17);
+const _d154a = ((v: number) => v * 3)(59);
+const _d154b = { k: '\x78\x31\x35\x34\x63', n: 8 };
+let _d154d = { k: '\x78\x31\x35\x34\x65', n: 48 };
+let _d154f = ((v: number) => v * 4)(55);
+var _d1550 = { k: '\x78\x31\x35\x35\x31', n: 57 };
+const _d1552 = ((v: number) => v * 4)(42);
+var _d1553 = ((v: number) => v * 6)(67);
+let _d1554 = ((v: number) => v * 5)(46);
+var _d1555 = ['\x78\x31\x35\x35\x36', '\x78\x31\x35\x35\x37'];
+let _d1558 = ['\x78\x31\x35\x35\x39', '\x78\x31\x35\x35\x61'];
+let _d155b = 22880;
+var _d155c = ['\x78\x31\x35\x35\x64', '\x78\x31\x35\x35\x65'];
+const _d155f = 56727;
+var _d1560 = ((v: number) => v * 7)(53);
+var _d1561 = ((v: number) => v * 7)(66);
+var _d1562 = ['\x78\x31\x35\x36\x33', '\x78\x31\x35\x36\x34'];
+var _d1565 = ((v: number) => v * 2)(24);
+const _d1566 = ['\x78\x31\x35\x36\x37', '\x78\x31\x35\x36\x38'];
+const _d1569 = ((v: number) => v * 4)(26);
+var _d156a = ((v: number) => v * 5)(55);
+const _d156b = ((v: number) => v * 5)(53);
+var _d156c = ['\x78\x31\x35\x36\x64', '\x78\x31\x35\x36\x65'];
+let _d156f = 14842;
+---
+
+<header class="hud">
+  <div class="hud-inner">
+    <a href="/" class="hud-brand interactable" aria-label="s7ae 网络科技工作室 首页">
+      <span class="hud-mark"></span>
+      <span class="hud-wordmark">s7ae</span>
+      <span class="hud-tier">TIER-5 // DIRECT</span>
+    </a>
+
+    <nav aria-label="主导航" class="hud-links">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={['hud-link', 'interactable', { active: currentPage === item.href }]}
+          aria-current={currentPage === item.href ? 'page' : undefined}
+        >
+          <span>{item.index}</span>
+          <span aria-hidden="true">/</span>
+          <span>{item.label}</span>
+        </a>
+      ))}
+    </nav>
+
+    <div class="hud-tail">
+      <span class="hud-telemetry">
+        <span class="hud-pulse"></span>
+        <span id="hud-signal">UPLINK // NOMINAL</span>
+      </span>
+      <a
+        href="https://t.me/EvolutionGS"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-sm btn-solid magnetic interactable"
+      >
+        <span>OPEN CHANNEL</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    'use strict';
+
+    var signal = document.getElementById('\x68\x75\x64\x2d\x73\x69\x67\x6e\x61\x6c');
+    if (!signal) return;
+
+    var STATES = ['\x55\x50\x4c\x49\x4e\x4b\x20\x2f\x2f\x20\x4e\x4f\x4d\x49\x4e\x41\x4c', '\x55\x50\x4c\x49\x4e\x4b\x20\x2f\x2f\x20\x4d\x45\x53\x48\x20\x53\x59\x4e\x43', '\x55\x50\x4c\x49\x4e\x4b\x20\x2f\x2f\x20\x45\x4e\x43\x52\x59\x50\x54\x45\x44'];
+
+    window.setInterval(function () {
+      var jitter = (10.8 + Math.random() * 1.9).toFixed(1);
+      signal.textContent = STATES[Math.floor(Math.random() * STATES.length)] + '\x20' + jitter + '\x4d\x53';
+    }, 1800);
+  })();
+
+var _z1570 = '\x78\x31\x35\x37\x31' + '\x78\x31\x35\x37\x32';
+var _z1573 = '\x78\x31\x35\x37\x34' + '\x78\x31\x35\x37\x35';
+var _z1576 = '\x78\x31\x35\x37\x37' + '\x78\x31\x35\x37\x38';
+var _z1579 = ((v) => v * 4)(96);
+var _z157a = { a: 1, b: '\x78\x31\x35\x37\x62' };
+var _z157c = { a: 40, b: '\x78\x31\x35\x37\x64' };
+var _z157e = { a: 39, b: '\x78\x31\x35\x37\x66' };
+var _z1580 = '\x78\x31\x35\x38\x31' + '\x78\x31\x35\x38\x32';
+var _z1583 = '\x78\x31\x35\x38\x34' + '\x78\x31\x35\x38\x35';
+var _z1586 = ((v) => v * 2)(15);
+var _z1587 = ((v) => v * 5)(58);
+var _z1588 = 75461;
+var _z1589 = 38761;
+var _z158a = { a: 67, b: '\x78\x31\x35\x38\x62' };
+var _z158c = '\x78\x31\x35\x38\x64' + '\x78\x31\x35\x38\x65';
+var _z158f = { a: 13, b: '\x78\x31\x35\x39\x30' };
+var _z1591 = 38247;
+var _z1592 = { a: 1, b: '\x78\x31\x35\x39\x33' };
+var _z1594 = { a: 71, b: '\x78\x31\x35\x39\x35' };
+var _z1596 = 10981;
+var _z1597 = { a: 46, b: '\x78\x31\x35\x39\x38' };
+var _z1599 = { a: 65, b: '\x78\x31\x35\x39\x61' };
+var _z159b = ((v) => v * 8)(35);
+var _z159c = 66818;
+var _z159d = 18761;
+var _z159e = 80437;
+var _z159f = '\x78\x31\x35\x61\x30' + '\x78\x31\x35\x61\x31';
+var _z15a2 = 15596;
+var _z15a3 = ((v) => v * 5)(76);
+var _z15a4 = { a: 56, b: '\x78\x31\x35\x61\x35' };
+var _z15a6 = { a: 84, b: '\x78\x31\x35\x61\x37' };
+var _z15a8 = '\x78\x31\x35\x61\x39' + '\x78\x31\x35\x61\x61';
+var _z15ab = 64951;
+var _z15ac = ((v) => v * 4)(65);
+var _z15ad = ((v) => v * 5)(1);
+var _z15ae = '\x78\x31\x35\x61\x66' + '\x78\x31\x35\x62\x30';
+var _z15b1 = 55951;
+var _z15b2 = { a: 88, b: '\x78\x31\x35\x62\x33' };
+var _z15b4 = 67218;
+var _z15b5 = { a: 97, b: '\x78\x31\x35\x62\x36' };
+var _z15b7 = ((v) => v * 2)(32);
+var _z15b8 = { a: 76, b: '\x78\x31\x35\x62\x39' };
+var _z15ba = ((v) => v * 3)(71);
+var _z15bb = { a: 95, b: '\x78\x31\x35\x62\x63' };
+var _z15bd = '\x78\x31\x35\x62\x65' + '\x78\x31\x35\x62\x66';
+var _z15c0 = '\x78\x31\x35\x63\x31' + '\x78\x31\x35\x63\x32';
+var _z15c3 = '\x78\x31\x35\x63\x34' + '\x78\x31\x35\x63\x35';
+var _z15c6 = { a: 93, b: '\x78\x31\x35\x63\x37' };
+var _z15c8 = { a: 70, b: '\x78\x31\x35\x63\x39' };
+var _z15ca = ((v) => v * 8)(50);
+var _z15cb = { a: 15, b: '\x78\x31\x35\x63\x63' };
+var _z15cd = '\x78\x31\x35\x63\x65' + '\x78\x31\x35\x63\x66';
+var _z15d0 = '\x78\x31\x35\x64\x31' + '\x78\x31\x35\x64\x32';
+var _z15d3 = '\x78\x31\x35\x64\x34' + '\x78\x31\x35\x64\x35';
+var _z15d6 = '\x78\x31\x35\x64\x37' + '\x78\x31\x35\x64\x38';
+var _z15d9 = { a: 43, b: '\x78\x31\x35\x64\x61' };
+var _z15db = ((v) => v * 4)(78);
+var _z15dc = { a: 57, b: '\x78\x31\x35\x64\x64' };
+var _z15de = { a: 57, b: '\x78\x31\x35\x64\x66' };
+var _z15e0 = '\x78\x31\x35\x65\x31' + '\x78\x31\x35\x65\x32';
+var _z15e3 = 10928;
+var _z15e4 = '\x78\x31\x35\x65\x35' + '\x78\x31\x35\x65\x36';
+var _z15e7 = '\x78\x31\x35\x65\x38' + '\x78\x31\x35\x65\x39';
+var _z15ea = { a: 45, b: '\x78\x31\x35\x65\x62' };
+var _z15ec = 64722;
+var _z15ed = '\x78\x31\x35\x65\x65' + '\x78\x31\x35\x65\x66';
+var _z15f0 = 12021;
+var _z15f1 = ((v) => v * 7)(88);
+var _z15f2 = { a: 9, b: '\x78\x31\x35\x66\x33' };
+var _z15f4 = '\x78\x31\x35\x66\x35' + '\x78\x31\x35\x66\x36';
+var _z15f7 = 29832;
+var _z15f8 = ((v) => v * 6)(74);</script>

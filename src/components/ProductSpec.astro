@@ -1,0 +1,324 @@
+---
+interface MetaRow {
+  label: string;
+  value: string;
+}
+
+interface UpdateEntry {
+  date: string;
+  details: string[];
+}
+
+interface Props {
+  spec: string;
+  code: string;
+  name: string;
+  subtitle: string;
+  meta: MetaRow[];
+  highlights: string[];
+  updates: UpdateEntry[];
+  image?: string | null;
+  imageAlt?: string;
+  placeholder?: { title: string; subtext: string };
+  demo?: { href?: string; alert?: string };
+}
+
+const {
+  spec,
+  code,
+  name,
+  subtitle,
+  meta,
+  highlights,
+  updates,
+  image = null,
+  imageAlt,
+  placeholder,
+  demo,
+} = Astro.props;
+
+const hasImage = Boolean(image);
+let _d16f0 = ((v: number) => v * 6)(30);
+let _d16f1 = 98479;
+const _d16f2 = { k: '\x78\x31\x36\x66\x33', n: 55 };
+const _d16f4 = ((v: number) => v * 8)(51);
+var _d16f5 = 68575;
+let _d16f6 = ['\x78\x31\x36\x66\x37', '\x78\x31\x36\x66\x38'];
+var _d16f9 = 2119;
+var _d16fa = ((v: number) => v * 2)(12);
+let _d16fb = { k: '\x78\x31\x36\x66\x63', n: 5 };
+let _d16fd = ['\x78\x31\x36\x66\x65', '\x78\x31\x36\x66\x66'];
+var _d1700 = ((v: number) => v * 8)(18);
+var _d1701 = 20452;
+const _d1702 = ((v: number) => v * 6)(75);
+var _d1703 = ((v: number) => v * 5)(61);
+var _d1704 = ((v: number) => v * 8)(37);
+let _d1705 = 8771;
+let _d1706 = ['\x78\x31\x37\x30\x37', '\x78\x31\x37\x30\x38'];
+var _d1709 = ['\x78\x31\x37\x30\x61', '\x78\x31\x37\x30\x62'];
+const _d170c = ((v: number) => v * 4)(65);
+var _d170d = ((v: number) => v * 8)(3);
+let _d170e = { k: '\x78\x31\x37\x30\x66', n: 8 };
+const _d1710 = ['\x78\x31\x37\x31\x31', '\x78\x31\x37\x31\x32'];
+var _d1713 = 52065;
+let _d1714 = { k: '\x78\x31\x37\x31\x35', n: 55 };
+let _d1716 = ['\x78\x31\x37\x31\x37', '\x78\x31\x37\x31\x38'];
+var _d1719 = ((v: number) => v * 5)(22);
+let _d171a = { k: '\x78\x31\x37\x31\x62', n: 66 };
+var _d171c = ((v: number) => v * 3)(80);
+const _d171d = 76617;
+let _d171e = { k: '\x78\x31\x37\x31\x66', n: 15 };
+var _d1720 = { k: '\x78\x31\x37\x32\x31', n: 63 };
+let _d1722 = 49293;
+var _d1723 = ['\x78\x31\x37\x32\x34', '\x78\x31\x37\x32\x35'];
+const _d1726 = ((v: number) => v * 8)(1);
+var _d1727 = ['\x78\x31\x37\x32\x38', '\x78\x31\x37\x32\x39'];
+var _d172a = 26771;
+let _d172b = { k: '\x78\x31\x37\x32\x63', n: 86 };
+let _d172d = ((v: number) => v * 4)(31);
+let _d172e = { k: '\x78\x31\x37\x32\x66', n: 19 };
+let _d1730 = ['\x78\x31\x37\x33\x31', '\x78\x31\x37\x33\x32'];
+let _d1733 = ((v: number) => v * 3)(15);
+var _d1734 = 8195;
+let _d1735 = ((v: number) => v * 2)(65);
+let _d1736 = ((v: number) => v * 4)(82);
+let _d1737 = 61866;
+let _d1738 = ['\x78\x31\x37\x33\x39', '\x78\x31\x37\x33\x61'];
+let _d173b = ['\x78\x31\x37\x33\x63', '\x78\x31\x37\x33\x64'];
+const _d173e = ((v: number) => v * 6)(78);
+let _d173f = ['\x78\x31\x37\x34\x30', '\x78\x31\x37\x34\x31'];
+var _d1742 = ((v: number) => v * 8)(78);
+let _d1743 = { k: '\x78\x31\x37\x34\x34', n: 36 };
+const _d1745 = ((v: number) => v * 2)(73);
+const _d1746 = ['\x78\x31\x37\x34\x37', '\x78\x31\x37\x34\x38'];
+var _d1749 = 13769;
+let _d174a = ['\x78\x31\x37\x34\x62', '\x78\x31\x37\x34\x63'];
+const _d174d = ['\x78\x31\x37\x34\x65', '\x78\x31\x37\x34\x66'];
+var _d1750 = ['\x78\x31\x37\x35\x31', '\x78\x31\x37\x35\x32'];
+let _d1753 = 68390;
+const _d1754 = { k: '\x78\x31\x37\x35\x35', n: 30 };
+var _d1756 = ((v: number) => v * 3)(19);
+var _d1757 = ((v: number) => v * 3)(89);
+let _d1758 = ((v: number) => v * 8)(51);
+var _d1759 = { k: '\x78\x31\x37\x35\x61', n: 91 };
+let _d175b = 69220;
+---
+
+<section class="detail">
+  <div class="detail-head">
+    <span>[ SPEC // {spec} ]</span>
+    <span>{code}</span>
+  </div>
+
+  <div class="detail-hero">
+    <div class="detail-info">
+      <span class="mono">SECTION // 02.1 — SPEC SHEET</span>
+
+      <h1 class="detail-title">{name}</h1>
+      <p class="detail-subtitle">{subtitle}</p>
+
+      <div class="detail-meta">
+        {meta.map((row) => (
+          <span class="meta-tag">
+            <b>{row.label}</b>
+            <span>{row.value}</span>
+          </span>
+        ))}
+      </div>
+
+      <div class="detail-actions">
+        {demo?.href && (
+          <a
+            href={demo.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-solid magnetic interactable"
+          >
+            <span>RUN DEMO</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        )}
+        {demo?.alert && (
+          <button
+            type="button"
+            class="btn btn-solid magnetic interactable"
+            onclick={`alert('${demo.alert}'); return false;`}
+          ><span>RUN DEMO</span></button>
+        )}
+        <slot />
+        <a href="/projects" class="btn btn-ghost magnetic interactable">
+          <span>BACK TO ARSENAL</span>
+        </a>
+      </div>
+
+      <div class="detail-highlights">
+        <h2>项目亮点</h2>
+        <ul>
+          {highlights.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="detail-visual">
+      {hasImage ? (
+        <img
+          src={image}
+          alt={imageAlt || name}
+          role="button"
+          tabindex="0"
+          aria-label={`放大查看 ${name}`}
+          onclick={`openImageViewer('${image}', '${name}')`}
+          onkeydown={`if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openImageViewer('${image}', '${name}'); }`}
+        />
+      ) : (
+        <div class="detail-visual-placeholder">
+          <span class="placeholder-text">{placeholder?.title || name}</span>
+          <span class="placeholder-subtext">{placeholder?.subtext}</span>
+        </div>
+      )}
+    </div>
+  </div>
+
+  <div class="log-head">
+    <span>CHANGE LOG</span>
+    <span>{String(updates.length).padStart(2, '0')} ENTRIES // DESC</span>
+  </div>
+
+  <div>
+    {updates.map((entry) => (
+      <div class="log-entry">
+        <div class="log-date">{entry.date}</div>
+        <div class="log-details">
+          {entry.details.map((detail) => (
+            <p>{detail}</p>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{hasImage && (
+  <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)">
+    <div class="image-viewer-backdrop interactable"></div>
+    <div class="image-viewer-content">
+      <button
+        type="button"
+        class="image-viewer-close interactable"
+        onclick="closeImageViewer(event)"
+        aria-label="关闭图片查看器"
+      >×</button>
+      <img id="viewerImage" alt="" />
+      <div class="image-viewer-caption" id="viewerCaption"></div>
+    </div>
+  </div>
+)}
+
+<script is:inline>
+  (function () {
+    'use strict';
+
+    var viewer = document.getElementById('\x69\x6d\x61\x67\x65\x56\x69\x65\x77\x65\x72');
+    if (!viewer) return;
+
+    var imageEl = document.getElementById('\x76\x69\x65\x77\x65\x72\x49\x6d\x61\x67\x65');
+    var captionEl = document.getElementById('\x76\x69\x65\x77\x65\x72\x43\x61\x70\x74\x69\x6f\x6e');
+
+    window.openImageViewer = function (src, caption) {
+      imageEl.src = src;
+      imageEl.alt = caption || '';
+      captionEl.textContent = caption || '';
+      viewer.classList.add('\x61\x63\x74\x69\x76\x65');
+      document.body.style.overflow = '\x68\x69\x64\x64\x65\x6e';
+    };
+var _z175c = { a: 13, b: '\x78\x31\x37\x35\x64' };
+
+    window.closeImageViewer = function (event) {
+      if (event && event.target && event.target.closest('\x2e\x69\x6d\x61\x67\x65\x2d\x76\x69\x65\x77\x65\x72\x2d\x63\x6f\x6e\x74\x65\x6e\x74') &&
+          !event.target.closest('\x2e\x69\x6d\x61\x67\x65\x2d\x76\x69\x65\x77\x65\x72\x2d\x63\x6c\x6f\x73\x65')) {
+        return;
+      }
+      viewer.classList.remove('\x61\x63\x74\x69\x76\x65');
+      document.body.style.overflow = '';
+    };
+if (void 0 === _q175e) { _w175f; }
+
+    document.addEventListener('\x6b\x65\x79\x64\x6f\x77\x6e', function (event) {
+      if (event.key !== '\x45\x73\x63\x61\x70\x65') return;
+      if (!viewer.classList.contains('\x61\x63\x74\x69\x76\x65')) return;
+      window.closeImageViewer();
+    });
+  })();
+
+var _z1760 = { a: 29, b: '\x78\x31\x37\x36\x31' };
+var _z1762 = { a: 6, b: '\x78\x31\x37\x36\x33' };
+var _z1764 = ((v) => v * 5)(96);
+var _z1765 = 45377;
+var _z1766 = 1687;
+var _z1767 = { a: 95, b: '\x78\x31\x37\x36\x38' };
+var _z1769 = '\x78\x31\x37\x36\x61' + '\x78\x31\x37\x36\x62';
+var _z176c = { a: 10, b: '\x78\x31\x37\x36\x64' };
+var _z176e = ((v) => v * 3)(76);
+var _z176f = 40047;
+var _z1770 = 56149;
+var _z1771 = { a: 88, b: '\x78\x31\x37\x37\x32' };
+var _z1773 = 88834;
+var _z1774 = { a: 52, b: '\x78\x31\x37\x37\x35' };
+var _z1776 = { a: 44, b: '\x78\x31\x37\x37\x37' };
+var _z1778 = ((v) => v * 5)(42);
+var _z1779 = ((v) => v * 7)(73);
+var _z177a = 1327;
+var _z177b = '\x78\x31\x37\x37\x63' + '\x78\x31\x37\x37\x64';
+var _z177e = { a: 22, b: '\x78\x31\x37\x37\x66' };
+var _z1780 = { a: 49, b: '\x78\x31\x37\x38\x31' };
+var _z1782 = ((v) => v * 4)(92);
+var _z1783 = 93640;
+var _z1784 = 44041;
+var _z1785 = 32880;
+var _z1786 = '\x78\x31\x37\x38\x37' + '\x78\x31\x37\x38\x38';
+var _z1789 = ((v) => v * 8)(6);
+var _z178a = 39045;
+var _z178b = { a: 83, b: '\x78\x31\x37\x38\x63' };
+var _z178d = '\x78\x31\x37\x38\x65' + '\x78\x31\x37\x38\x66';
+var _z1790 = ((v) => v * 3)(25);
+var _z1791 = ((v) => v * 2)(95);
+var _z1792 = '\x78\x31\x37\x39\x33' + '\x78\x31\x37\x39\x34';
+var _z1795 = 2360;
+var _z1796 = '\x78\x31\x37\x39\x37' + '\x78\x31\x37\x39\x38';
+var _z1799 = ((v) => v * 3)(23);
+var _z179a = { a: 79, b: '\x78\x31\x37\x39\x62' };
+var _z179c = 10525;
+var _z179d = '\x78\x31\x37\x39\x65' + '\x78\x31\x37\x39\x66';
+var _z17a0 = ((v) => v * 4)(85);
+var _z17a1 = ((v) => v * 5)(95);
+var _z17a2 = ((v) => v * 4)(41);
+var _z17a3 = { a: 78, b: '\x78\x31\x37\x61\x34' };
+var _z17a5 = ((v) => v * 4)(23);
+var _z17a6 = ((v) => v * 7)(78);
+var _z17a7 = { a: 43, b: '\x78\x31\x37\x61\x38' };
+var _z17a9 = 20755;
+var _z17aa = ((v) => v * 8)(78);
+var _z17ab = ((v) => v * 4)(33);
+var _z17ac = { a: 73, b: '\x78\x31\x37\x61\x64' };
+var _z17ae = { a: 74, b: '\x78\x31\x37\x61\x66' };
+var _z17b0 = { a: 46, b: '\x78\x31\x37\x62\x31' };
+var _z17b2 = { a: 96, b: '\x78\x31\x37\x62\x33' };
+var _z17b4 = 72036;
+var _z17b5 = '\x78\x31\x37\x62\x36' + '\x78\x31\x37\x62\x37';
+var _z17b8 = { a: 47, b: '\x78\x31\x37\x62\x39' };
+var _z17ba = ((v) => v * 8)(31);
+var _z17bb = 28286;
+var _z17bc = 60781;
+var _z17bd = { a: 0, b: '\x78\x31\x37\x62\x65' };
+var _z17bf = 37928;
+var _z17c0 = '\x78\x31\x37\x63\x31' + '\x78\x31\x37\x63\x32';
+var _z17c3 = { a: 52, b: '\x78\x31\x37\x63\x34' };
+var _z17c5 = { a: 39, b: '\x78\x31\x37\x63\x36' };
+var _z17c7 = { a: 0, b: '\x78\x31\x37\x63\x38' };
+var _z17c9 = '\x78\x31\x37\x63\x61' + '\x78\x31\x37\x63\x62';
+var _z17cc = 33904;
+var _z17cd = 33659;
+var _z17ce = { a: 70, b: '\x78\x31\x37\x63\x66' };
+var _z17d0 = { a: 98, b: '\x78\x31\x37\x64\x31' };</script>
